@@ -1,0 +1,95 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title={"Documentation/Backend integration"} />
+
+# Backend integration for AMSUI
+
+The library provides two services for handling the data for your AMSUI search and the backend that you use:
+
+1. A **search service** that holds the typed data.
+   It enables the easier management of your backend search data and guarantees,
+   that you have used the correct types for the input parameters of the AMSUI components.
+
+2. An Apache **Solr service** which can be used for handling standard Solr HTTP Response.
+   It supports the transformation of facets, search meta information, filter query, sorting of a response,
+   and it takes care of the requests to the Solr endpoint as well.
+   The provided Solr Service is just a basis, you can't use it without creating an own service in your application.
+
+## Search service
+
+This search service can hold the main data of your search responses and the reference element of the overlay loader.
+Internally, it uses `BehaviourSubjects`to manage the data and it exposes an `Observable` for it to the outer layers.
+
+You can subscribe to these Observables, and your data will change with every new value that is added to the `BehaviourSubjects`.
+When using the included Solr Service, the new values will be set on each new request.
+Just inject the search service to your components constructor
+
+```
+import { SearchService } from 'amsui';
+constructor(private readonly searchService: SearchService) { ... }
+```
+
+and access the Observables for the different data.
+You could either save them to component-scoped variables or
+make the `searchService` accessible (public) in the component's template.
+
+```
+ngOnInit(): void {
+  this.facets$ = this.searchService.facets$;
+  this.results$ = this.searchService.searchResults$;
+  this.searchResultMeta$ = this.searchService.searchResultMeta$;
+  ...
+}
+```
+
+Lastly, you can easily add the data Observables to the AMSUI components in your template with Angular's async pipe.
+
+```
+<amsui-search-results-wrapper
+  [searchResultMeta]="(searchResultMeta$ | async)"
+  [searchResults]="(results$ | async)"
+  ...
+>
+  ...
+</amsui-search-results-wrapper
+```
+
+### Use other backends as data provider
+
+You can also make use of the search service when not using Solr as backend.
+Just write your own adapter to your backend, which can set the values for the search service's subject on each new request.
+The adapter just extracts the information from the HTTP response and transforms it to the necessary types of the AMSUI library.
+
+## Solr service
+
+First, you need to create a new service which extends Solr service from the AMSUI library.
+Then you need to set some protected variables, which is like configuring it to your Solr-specific settings.
+These settings are adjustable for now:
+
+- Solr URL
+- Filter configuration
+- Facet configuration
+- Result type configuration
+- Sorting configuration
+- Overlay loader
+- ...
+
+Now, since every Solr Index likely delivers a different Doc type in its response,
+you should overwrite the `transformSearchResults` function.
+This functions maps your context-specific docs to the `ResultEntry` type, which is used to display search results.
+
+```
+transformSearchResults(
+  docs: any[],
+  highlights: Highlighting
+): ResultEntry[];
+```
+
+When using a Solr service, you listen to changes inside the AMSUI components.
+When an output event is fired, you make a new request to the Solr Index and put in some new input data.
+
+# TODO - Public Solr Index for Demo - BLOCKER
+
+- show code how to integrate
+- show config for result types
+- show that search field, facet-group and search result wrapper are enough to make a search user interface

@@ -1,0 +1,13 @@
+// Custom Theming for Angular Material
+@import "~dist/amsui/styles/themes/amsui-inv.theme.scss";
+@import "~dist/amsui/styles/styles.scss";
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding: 10px;
+}

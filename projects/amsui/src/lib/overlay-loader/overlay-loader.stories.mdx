@@ -1,0 +1,37 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import * as stories from "./overlay-loader.stories";
+import { OverlayLoaderModuleImports } from "./overlay-loader.stories";
+import { OverlayLoaderComponent } from "./overlay-loader.component";
+
+<Meta
+  title={"Overlay/Loader"}
+  component={OverlayLoaderComponent}
+  decorators={[OverlayLoaderModuleImports]}
+/>
+
+# Overlay loader component
+
+The overlay loader is a simple Angular Material progress spinner, which can be set to a HTML element in your application.
+You can only make use of the overlay loader if you add the search service to your project as well.
+Of course, it won't work if you use components of this library standalone, although, the overlay loader component itself can be used itself standalone if needed.
+
+## Usage
+
+Mainly, you use it for each request fired to the backend to get new data. Whenever you make a new request you should start the loading process.
+First, you need to import the library's search service.
+
+It is done so by using the `cdk-overlay-origin` directive from Angular and adding it to an element of your application,
+otherwise the spinner will spin over the full screen.
+You also need to specify a ViewChild Reference to your cdk-overlay-origin element, and give it to the library's search service.
+
+```
+@ViewChild(CdkOverlayOrigin) origin!: CdkOverlayOrigin;
+```
+
+```
+ngAfterViewInit(): void {
+  this.searchService.overlayElement = this.origin.elementRef;
+}
+```
+
+<Story story={stories.Default} height="450px" />

@@ -1,0 +1,60 @@
+:host {
+  box-sizing: border-box;
+  .result-entry {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .mat-card-image {
+      object-fit: cover;
+      max-height: 350px;
+    }
+    mat-chip {
+      height: auto;
+      width: min-content;
+      white-space: nowrap;
+    }
+    .subtitle-container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      mat-icon:not(:first-child) {
+        margin-left: 5px;
+      }
+    }
+    mat-card-content {
+      overflow: hidden;
+      text-wrap: none;
+      text-overflow: ellipsis;
+    }
+    mat-card-actions {
+      display: flex;
+      flex: 1 0 auto;
+      align-items: flex-end;
+    }
+    mat-icon.mat-card-avatar {
+      width: 40px;
+      height: 40px;
+      font-size: 40px;
+      color: var(--accent-color);
+    }
+    .show-more-text {
+      margin-top: -70px;
+      background: rgb(255, 255, 255);
+      background: linear-gradient(
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.3) 10%,
+        rgba(255, 255, 255, 0.5) 20%,
+        rgba(255, 255, 255, 0.8) 30%,
+        rgba(255, 255, 255, 1) 100%
+      );
+      text-align: center;
+      padding: 10px 25px;
+      backdrop-filter: blur(1px);
+    }
+    .show-more-open {
+      margin-top: -10px;
+      padding: 10px;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<mat-accordion multi>
+  <div class="facet-header">
+    <mat-icon class="filter-icon" *ngIf="selectedFacets.length === 0"
+      >filter_alt</mat-icon
+    >
+    <button
+      *ngIf="selectedFacets.length > 0"
+      mat-icon-button
+      color="primary"
+      matTooltip="{{ 'facets.resetFacetSelection' | translate }}"
+      (click)="resetFacets()"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+    <div class="facet-heading">
+      {{ "facets.filterResults" | translate }}
+    </div>
+    <button
+      mat-icon-button
+      color="primary"
+      [matTooltip]="getToolTipUnfoldButton()"
+      (click)="toggleUnfoldButton()"
+      [disabled]="facets.length === 0"
+    >
+      <mat-icon>{{ openPanels ? "unfold_more" : "unfold_less" }}</mat-icon>
+    </button>
+  </div>
+  <ng-container *ngFor="let facet of facets">
+    <amsui-facet
+      [inputFacet]="getFacetAndVisualAdaptions(facet)"
+      (facetSelectedEvent)="facetSelected($event)"
+      (unselectAll)="unselectAllForOneFacet($event)"
+      (facetVisualStateChange)="saveVisualState($event)"
+    ></amsui-facet>
+  </ng-container>
+  <p class="no-filters" *ngIf="facets.length === 0">
+    {{ "facets.noPossibleFilters" | translate }}
+  </p>
+</mat-accordion>

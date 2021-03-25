@@ -1,0 +1,37 @@
+@import "../../styles/breakpoints";
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  width: 100%;
+  .search-field {
+    width: 100%;
+  }
+  .search-button {
+    min-width: auto;
+    margin-left: 10px;
+  }
+}
+.is-loading ::ng-deep .mat-option-text {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: $tablet) {
+  .grey-icon {
+    color: grey;
+    font-size: 20px;
+  }
+  .suggest-option {
+    border-top: 1px solid lightgrey;
+    padding-right: 0;
+    .suggest-option-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .into-search {
+        margin-right: 0;
+      }
+    }
+  }
+}

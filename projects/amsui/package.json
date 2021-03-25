@@ -1,0 +1,37 @@
+{
+  "name": "@redlink/amsui",
+  "version": "0.0.1",
+  "description": "Search UI elements on top of Angular Material",
+  "author": "redlink",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/redlink-gmbh/amsui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:redlink-gmbh/amsui.git"
+  },
+  "es2015": "./esm2015/amsui.js",
+  "main": "./bundles/amsui.umd.js",
+  "module": "./esm5/amsui.js",
+  "metadata": "amsui.metadata.json",
+  "typings": "./amsui.d.ts",
+  "keywords": [
+    "angular",
+    "angular-material",
+    "stylesheets",
+    "addons",
+    "library",
+    "search",
+    "theming"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^11.0.6",
+    "@angular/core": "^11.0.6",
+    "@angular/material": "^11.0.3",
+    "@ngx-translate/core": "^13.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

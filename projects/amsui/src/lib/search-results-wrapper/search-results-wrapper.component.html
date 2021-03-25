@@ -1,0 +1,66 @@
+<mat-tab-group
+  [(selectedIndex)]="selectedFilterIndex"
+  (selectedTabChange)="emitFilterChangedEvent($event)"
+  *ngIf="viewConfig.filterTabs!.length > 1"
+>
+  <mat-tab *ngFor="let filter of viewConfig.filterTabs!" [label]="filter.name">
+    <ng-template mat-tab-label>
+      <mat-icon class="filter-tab-icon">{{ filter.icon }}</mat-icon>
+      <span>{{ filter.viewName | translate }}</span>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
+
+<div class="results-container" *ngIf="results.length > 0">
+  <amsui-search-result-meta
+    *ngIf="results.length > 0 && searchResultMeta.keyword !== ''"
+    [searchResultMeta]="searchResultMeta"
+    [metaResultViewConfig]="viewConfig"
+    (resultViewTypeChanged)="changeResultType($event)"
+    (sortingChanged)="handleSortChange($event)"
+    (didYouMeanEvent)="didYouMeanClick($event)"
+  ></amsui-search-result-meta>
+  <amsui-results
+    [results]="results"
+    [resultType]="isMobile ? 'list' : viewConfig.selectedResultViewType!"
+    (resultActionClicked)="emitResultActionClicked($event)"
+  ></amsui-results>
+  <div
+    class="load-more-container"
+    *ngIf="
+      searchResultMeta.numFound > 20 &&
+      searchResultMeta.numFound > searchResultMeta.numShowed
+    "
+  >
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="loadMore()"
+      *ngIf="!loadMoreToggle"
+    >
+      {{ "searchResultsWrapper.loadMoreButton" | translate }}
+    </button>
+    <mat-progress-spinner
+      mode="indeterminate"
+      color="primary"
+      [diameter]="36"
+      *ngIf="loadMoreToggle"
+    ></mat-progress-spinner>
+    <p *ngIf="showErrorLoadMore && !loadMoreToggle">
+      {{ "searchResultsWrapper.problemsLoadMore" | translate }}
+    </p>
+  </div>
+</div>
+
+<amsui-no-results
+  [config]="noResultsConfig"
+  (didYouMeanEvent)="didYouMeanClick($event)"
+  (resultActionClicked)="emitResultActionClicked($event)"
+  *ngIf="results.length <= 0 && searchResultMeta.keyword !== ''"
+></amsui-no-results>
+<div
+  class="search-result-placeholder"
+  *ngIf="results.length <= 0 && searchResultMeta.keyword === ''"
+>
+  <p>{{ viewConfig.searchResultPlaceholderText! | translate }}</p>
+</div>

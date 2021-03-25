@@ -1,0 +1,29 @@
+@import "../../../styles/breakpoints";
+
+:host {
+  width: 100%;
+  margin-top: -5px;
+  .search-result-sort {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: -20px;
+    width: initial;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  :host {
+    margin-left: -20px;
+    width: 120%;
+    margin-right: -20px;
+    margin-top: 15px;
+    .search-result-sort {
+      width: 100%;
+      margin: 10px 0 -15px;
+      ::ng-deep .mat-form-field-wrapper {
+        width: 100%;
+      }
+    }
+  }
+}

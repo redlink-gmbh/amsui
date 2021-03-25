@@ -1,0 +1,68 @@
+<mat-card
+  class="result-entry"
+  (click)="
+    entry.actions && entry.actions.length <= 0
+      ? emitActionEvent('cardClick')
+      : ''
+  "
+  *ngIf="entry.title || entry.description"
+>
+  <mat-card-header>
+    <img
+      *ngIf="entry.avatarImgSrc"
+      mat-card-avatar
+      matTooltip="{{ entry.avatarToolTip! | translate }}"
+      [src]="entry.avatarImgSrc"
+      [alt]="entry.title"
+    />
+    <mat-icon
+      *ngIf="entry.avatarIcon"
+      matTooltip="{{ entry.avatarToolTip! | translate }}"
+      mat-card-avatar
+      >{{ entry.avatarIcon }}</mat-icon
+    >
+    <mat-card-title [innerHTML]="entry.title"></mat-card-title>
+    <mat-card-subtitle>
+      <div class="subtitle-container">
+        <ng-container *ngFor="let subTitle of entry.subTitles">
+          <mat-icon>{{ subTitle.icon }}</mat-icon>
+          {{ subTitle.description! | translate }}
+        </ng-container>
+      </div>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img
+    *ngIf="entry.imageSrc"
+    mat-card-image
+    [src]="entry.imageSrc"
+    [alt]="entry.title"
+  />
+  <mat-card-content>
+    <mat-chip-list>
+      <mat-chip *ngFor="let tag of entry.tags">
+        {{ tag | translate }}
+      </mat-chip>
+    </mat-chip-list>
+    <p [innerHTML]="getEntryDescription()"></p>
+  </mat-card-content>
+  <button
+    *ngIf="checkIfNeedShowMore()"
+    (click)="showMoreContent = !showMoreContent"
+    [class.show-more-open]="showMoreContent"
+    mat-button
+    class="show-more-text"
+    color="primary"
+  >
+    {{ getShowMoreButtonDescription() | async }}
+  </button>
+  <mat-card-actions>
+    <button
+      *ngFor="let action of entry.actions"
+      mat-icon-button
+      [matTooltip]="action.description ? (action.description | translate) : ''"
+      (click)="emitActionEvent(action.name)"
+    >
+      <mat-icon>{{ action.icon }}</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

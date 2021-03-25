@@ -1,0 +1,37 @@
+import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import * as stories from "./search-result-text.stories";
+import { SearchResultTextModuleImports } from "./search-result-text.stories";
+import { SearchResultTextComponent } from "./search-result-text.component";
+
+<Meta
+  title={"Results/Meta text"}
+  component={SearchResultTextComponent}
+  decorators={[SearchResultTextModuleImports]}
+  argTypes={{
+    searchResultMeta: {
+      control: "object",
+    },
+  }}
+/>
+
+# Search result meta text component
+
+The meta information of the displayed search results is displayed inside this component.
+
+## Default meta text information of a search result set
+
+You need to input the search meta data to able to display the component.
+
+<Story story={stories.Default} height="150px" />
+
+## Included did you mean component
+
+<Story story={stories.DidYouMeanValue} height="150px" />
+
+## ArgsTable
+
+Only the inputs and outputs are important when using this component in a different application.
+
+If you contributing to the library, the description of the different methods, properties, etc. could help your understanding.
+
+<ArgsTable of={SearchResultTextComponent} />

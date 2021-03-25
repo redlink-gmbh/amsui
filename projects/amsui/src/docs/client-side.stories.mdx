@@ -1,0 +1,134 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title={"Documentation/Client-side setup"} />
+
+# Client-side usage setup
+
+You need to have Angular Material library imported in your Angular project.
+
+```
+ng add @angular/material
+```
+
+Install the AMSUI library.
+
+```
+npm i @redlink/amsui -S
+```
+
+## i18n - @ngx-translate
+
+We use [@ngx-translate](https://github.com/ngx-translate/core) and a [modular loader](https://github.com/larscom/ngx-translate-module-loader) for supporting multiple languages.
+
+```
+npm i @ngx-translate/core @larscom/ngx-translate-module-loader -S
+```
+
+Add the following factory function before the module configuration of your app.module.ts.
+Adjust the `baseTranslateUrl` according to the path of your translation files.
+Important here is the order of the entries in the modules.
+Always have the library translations first to be able to override them.
+
+```
+export function moduleHttpLoaderFactory(http: HttpClient): ModuleTranslateLoader {
+  const baseTranslateUrl = './assets/i18n';
+
+  const options: IModuleTranslationOptions = {
+    modules: [
+      { baseTranslateUrl: baseTranslateUrl + '/amsui' },
+      { baseTranslateUrl },
+    ],
+  };
+
+  return new ModuleTranslateLoader(http, options);
+}
+```
+
+Import the TranslateModule into the AppModule with the following configuration.
+The HttpClientModule also needs to be imported.
+
+```
+TranslateModule.forRoot({
+  loader: {
+    provide: TranslateLoader,
+    useFactory: moduleHttpLoaderFactory,
+    deps: [HttpClient],
+  },
+}),
+```
+
+Add this to the assets settings of your angular.json file in your application specific configurations,
+so that your Angular application knows where to find the library-specific translations.
+
+```
+{
+  "glob": "**/*",
+  "input": "./node_modules/@redlink/amsui/translations/",
+  "output": "./assets/i18n/amsui/"
+}
+```
+
+You can easily override every text of the library by just adding the translation key of the text you want to override to your application's translations files.
+You can find the translation key values in the node modules directory of the AMSUI library.
+
+Last thing that you need to do is to set the default languages when starting up the application (mostly done in the constructor of the app.component.ts):
+
+```
+constructor(translate: TranslateService) {
+  // this language will be used as a fallback when a translation isn't found in the current language
+  translate.setDefaultLang('en');
+
+   // the lang to use, if the lang isn't available, it will use the current loader to get them
+  translate.use('en');
+}
+
+```
+
+## Theming & styling
+
+You need to add the global styles of the AMSUI library as well.
+Just put the import statement at the top of your global styles files.
+
+```
+@import "~@redlink/amsui/styles/styles.scss";
+```
+
+Additionally, you can import our predefined library themes or you can just add one by yourself.
+This can be done by using a [Material Theme Generator](https://materialtheme.arcsine.dev/).
+
+```
+@import "~@redlink/amsui/styles/themes/{theme-name}.theme.scss";
+```
+
+### Breakpoints
+
+Furthermore, pre configured breakpoints of the library can be included in your SCSS and TS files as well.
+This would lead to a consistent and responsive user interface.
+
+Breakpoints:
+
+- Mobile: '(max-width: 599.98px)'
+- Tablet: '(min-width: 600px) and (max-width: 959.98px)'
+- Desktop: '(min-width: 960px)'
+
+Import breakpoints into your global style file via SCSS:
+
+```
+@import "~@redlink/amsui/styles/breakpoints.scss";
+```
+
+Import in TS to be able to use the Angular Breakpoint Observer:
+
+```
+import {Breakpoints} from "amsui";
+```
+
+## Using it
+
+Now, that you successfully added the library to your Angular application, you can use it.
+
+If you want to add a complete search page to your application or you have a Solr index as a backend,
+you should consider using the library via the integrated handler of your search data.
+You can find more about it in the [backend integration section](./?path=/story/documentation-backend-integration--page#backend-integration-for-amsui).
+
+If you want to use standalone components, go to the [standalone usage of AMSUI components](./?path=/story/documentation-standalone-usage--page#standalone-usage-of-components).

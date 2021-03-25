@@ -1,0 +1,61 @@
+import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import * as stories from "./search-results-meta.stories";
+import { SearchResultMetaModuleImports } from "./search-results-meta.stories";
+import { SearchResultMetaComponent } from "./search-result-meta.component";
+
+<Meta
+  title={"Results/Meta information"}
+  component={SearchResultMetaComponent}
+  decorators={[SearchResultMetaModuleImports]}
+  argTypes={{
+    searchResultMeta: {
+      control: "object",
+    },
+    metaResultViewConfig: {
+      control: "object",
+    },
+  }}
+/>
+
+# Search result meta information component
+
+This component consists of the components:
+
+- result view toggle
+- sort dropdown
+- search result meta text
+- did you mean
+
+## Default meta information only includes the view type toggle
+
+The toggle is disabled, because 0 results are found, since nothing is specified in the configuration.
+
+<Story story={stories.Default} height="150px" />
+
+## Default meta information with a text
+
+<Story story={stories.SetTextMetaInformation} height="150px" />
+
+## Did you mean value added
+
+<Story story={stories.DidYouMean} height="150px" />
+
+## Specify sorting options
+
+<Story story={stories.SortingOptions} height="150px" />
+
+## Result view type can be pre selected
+
+<Story story={stories.ChangeableViewType} height="150px" />
+
+## Displaying all features in a story
+
+<Story story={stories.AllFeatures} height="150px" />
+
+## ArgsTable
+
+Only the inputs and outputs are important when using this component in a different application.
+
+If you contributing to the library, the description of the different methods, properties, etc. could help your understanding.
+
+<ArgsTable of={SearchResultMetaComponent} />

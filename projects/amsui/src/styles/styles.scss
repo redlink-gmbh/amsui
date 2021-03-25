@@ -1,0 +1,31 @@
+/* autoprefixer grid: autoplace */
+em.highlight {
+  font-weight: 900;
+  padding: 5px;
+  border-radius: 5px;
+  background: var(--primary-color);
+  color: white;
+  font-style: normal;
+  line-height: 2;
+}
+em.no-highlight {
+  font-style: normal;
+}
+
+em.highlight-header {
+  font-weight: 900;
+  padding: 0 4px;
+  color: var(--primary-color);
+  font-style: normal;
+  line-height: 1.5;
+  font-size: 1.1em;
+}
+
+.autocomplete-panel {
+  max-height: unset !important;
+}
+.underline-link {
+  color: var(--accent-color);
+  text-decoration: underline;
+  cursor: pointer;
+}

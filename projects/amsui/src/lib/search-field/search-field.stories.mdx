@@ -1,0 +1,87 @@
+import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import { SearchFieldComponent } from "./search-field.component";
+import * as stories from "./search-field.stories";
+import { SearchFieldModuleImports } from "./search-field.stories";
+
+<Meta
+  title={"SearchField/Field"}
+  component={SearchFieldComponent}
+  decorators={[SearchFieldModuleImports]}
+  argTypes={{
+    config: { control: "object" },
+  }}
+/>
+
+# Search field component
+
+The search field component consists of an input field, a search button and an autocomplete section.
+
+## Default
+
+If you do not add any configuration, the search field will be displayed as follows:
+
+<Story story={stories.Default} height="100px" />
+
+## ChangeMaterialAppearance Component
+
+You can change the Material form field appearance to be the same as it is in your application.
+
+<Story story={stories.ChangeMaterialAppearance} height="100px" />
+
+## ChangeText Component
+
+You can easily change the text.
+
+<Story story={stories.ChangeText} height="100px" />
+
+## SetValue Component
+
+You can set the value from the outside.
+
+<Story story={stories.SetValue} height="100px" />
+
+## EnableURLQueryParams Component
+
+This adds a query parameter to the URL of the current site. The default value is an enabled query parameter.
+
+<Story story={stories.EnableURLQueryParams} height="100px" />
+
+## AutocompleteSuggestions Component
+
+This enables a autocomplete box underneath the search field. The keyboard can be used to interact with it too.
+In order to have a working autocomplete, you need to give the search field component a callback method which takes a `SuggestionParameter` input and returns an observable with an array of string.
+The `SuggestionParameter` consists of the search keyword and the number of suggestions wanted.
+
+```
+function fakeSearchSuggestions(input: SuggestionParameter): Observable<string[]> {
+  const filteredSuggestions = [
+    'Knowledge',
+    'Knowledge management',
+    'Knowledge officer',
+    'My knowledge',
+    'Your knowledge',
+    'Knowledge transfer',
+    'Your knowledge',
+    'Natural Language Processing',
+    'NLP',
+    'Management',
+  ]
+    .filter((option) =>
+      option.toLowerCase().includes(input.keyword.toLowerCase())
+    )
+    .slice(0, input.numberOfSuggestions);
+  return of(filteredSuggestions).pipe(delay(300));    // a delay of 300ms is added for showcase purposes
+}
+```
+
+By using this technique, the autocomplete can have a loading spinner, when waiting for the suggestion request to respond.
+
+<Story story={stories.AutocompleteSuggestions} height="400px" />
+
+## ArgsTable
+
+Only the inputs and outputs are important when using this component in a different application.
+
+If you contributing to the library, the description of the different methods, properties, etc. could help your understanding.
+
+<ArgsTable of={SearchFieldComponent} />

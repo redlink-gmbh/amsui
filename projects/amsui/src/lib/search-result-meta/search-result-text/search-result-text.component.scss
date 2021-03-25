@@ -1,0 +1,15 @@
+@import "../../../styles/breakpoints";
+
+.search-result-text {
+  line-height: 1.5;
+  .header-text::after {
+    content: "\a";
+    white-space: pre;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .search-result-text {
+    margin-right: 15px;
+  }
+}

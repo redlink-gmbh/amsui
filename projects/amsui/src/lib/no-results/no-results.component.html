@@ -1,0 +1,83 @@
+<div class="no-results-container">
+  <amsui-did-you-mean
+    (didYouMeanEvent)="didYouMeanClick(config.didYouMeanValue)"
+    [value]="config.didYouMeanValue"
+  ></amsui-did-you-mean>
+  <p
+    *ngIf="config.searchKeyword"
+    [innerHTML]="
+      'noResults.feedbackSearch'
+        | translate: { searchKeyword: config.searchKeyword }
+    "
+  ></p>
+  <p
+    *ngIf="!config.searchKeyword"
+    [innerHTML]="'noResults.simpleFeedbackSearch' | translate"
+  ></p>
+
+  <div class="search-tips">
+    <hr />
+    <p>{{ "noResults.tips.maybeHelp" | translate }}</p>
+    <ul>
+      <li>{{ "noResults.tips.correctSpelling" | translate }}</li>
+      <li>{{ "noResults.tips.differentKeywords" | translate }}</li>
+      <li>{{ "noResults.tips.generalKeywords" | translate }}</li>
+      <li *ngIf="greaterNumberOfSearchKeyword()">
+        {{ "noResults.tips.lessKeywords" | translate }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="other-suggestions" *ngIf="config.alternativeKeywords.length > 0">
+    <hr />
+    <p>{{ "noResults.othersSearched" | translate }}</p>
+    <div class="link-container">
+      <span *ngFor="let keyword of config.alternativeKeywords; let i = index">
+        <a class="underline-link" (click)="didYouMeanClick(keyword)">{{
+          keyword
+        }}</a>
+        <span *ngIf="i < config.alternativeKeywords.length - 1">|</span>
+      </span>
+    </div>
+  </div>
+
+  <div
+    class="help"
+    *ngIf="config.contactPhoneNumber || config.contactMailAddress"
+  >
+    <hr />
+    <p>{{ "noResults.contact" | translate }}</p>
+    <div class="help-actions">
+      <div *ngIf="config.contactMailAddress">
+        <a
+          mat-fab
+          [href]="
+            'mailto:' +
+            config.contactMailAddress +
+            '?subject=Problems with search results'
+          "
+          ><mat-icon>mail</mat-icon></a
+        >
+        <p>{{ config.contactMailAddress }}</p>
+      </div>
+      <div *ngIf="config.contactPhoneNumber">
+        <a mat-fab [href]="'tel:' + getPhoneNumberWithoutSpaces()"
+          ><mat-icon>phone</mat-icon></a
+        >
+        <p>{{ config.contactPhoneNumber }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="other-suggestions" *ngIf="config.alternativeResults.length > 0">
+    <hr />
+    <p>{{ "noResults.helpfulResults" | translate }}</p>
+    <amsui-results
+      [results]="config.alternativeResults"
+      [resultType]="'grid'"
+      [highlightingActivated]="false"
+      (resultActionClicked)="emitResultActionClicked($event)"
+    >
+    </amsui-results>
+  </div>
+</div>

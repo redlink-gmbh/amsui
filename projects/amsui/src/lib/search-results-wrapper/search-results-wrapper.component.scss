@@ -1,0 +1,35 @@
+@import "../../styles/breakpoints";
+
+mat-tab-group {
+  margin: 0 50px;
+  .filter-tab-icon {
+    margin-right: 5px;
+  }
+}
+.results-container {
+  padding: 1em;
+  .load-more-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px auto;
+    text-align: center;
+  }
+}
+
+.search-result-placeholder {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  color: var(--primary-color);
+  text-align: center;
+  p {
+    margin: 30px 0 0;
+  }
+}
+@media screen and (max-width: $mobile) {
+  .search-result-placeholder p {
+    margin: 20px 50px 0;
+  }
+}

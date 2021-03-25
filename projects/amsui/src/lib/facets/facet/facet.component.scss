@@ -1,0 +1,97 @@
+mat-expansion-panel {
+  margin: 5px 10px;
+  mat-expansion-panel-header {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    font-weight: bold;
+    box-shadow: 0px -1px 0px inset lightgrey;
+    mat-panel-title {
+      display: flex;
+      align-items: center;
+      mat-icon {
+        margin-right: 1px;
+      }
+    }
+  }
+  ::ng-deep .mat-expansion-panel-body {
+    padding: 0 10px 10px;
+    margin-top: 5px;
+  }
+  .facet-body {
+    .facet-search {
+      margin-top: 5px;
+      margin-bottom: -15px;
+      .facet-search-field {
+        width: 100%;
+      }
+    }
+    .facet-entries {
+      .facet-entry-single {
+        button {
+          width: 100%;
+          font-weight: normal;
+          padding-right: 3px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-align: left;
+          mat-icon {
+            font-size: 16px;
+            position: absolute;
+            right: 3px;
+            top: 11px;
+          }
+          &:hover {
+            background: var(--primary-color);
+            color: white;
+          }
+        }
+        .single-selected {
+          color: var(--primary-color);
+          .single-text {
+            max-width: 90%;
+            display: inline-block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    mat-card.facet-entry {
+      border: none;
+      text-align: left;
+      box-shadow: none;
+      padding: 6px 16px;
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      mat-checkbox {
+        max-width: 100%;
+        ::ng-deep .mat-checkbox-layout {
+          max-width: 100%;
+        }
+        ::ng-deep .mat-checkbox-label {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+    .facet-entry-show-more {
+      border: none;
+      box-shadow: none;
+    }
+    mat-card.no-results:hover {
+      background: none;
+      color: inherit;
+      cursor: default;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<mat-form-field
+  class="search-result-sort"
+  *ngIf="sortingOptions.length > 0"
+  [appearance]="formFieldAppearance"
+>
+  <mat-label>{{ "sort.label" | translate }}</mat-label>
+  <mat-select
+    [value]="activeOption"
+    [disabled]="disabled"
+    (valueChange)="emitSortEvent($event)"
+  >
+    <mat-option
+      *ngFor="let sortingOption of sortingOptions"
+      [value]="sortingOption.value"
+    >
+      {{ sortingOption.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

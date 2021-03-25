@@ -1,0 +1,122 @@
+<mat-expansion-panel
+  *ngIf="facet && facet.entries.length > 0"
+  [expanded]="!facet.options.collapsed"
+  (opened)="visualStateChange(facet.options.showMoreOpened, false)"
+  (closed)="visualStateChange(facet.options.showMoreOpened, true)"
+>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon *ngIf="facet.options.icon">{{ facet.options.icon }}</mat-icon>
+      <span
+        [matBadge]="getNumberOfSelectedEntries()"
+        [matBadgeHidden]="
+          !facet.options.collapsed || getNumberOfSelectedEntries() === 0
+        "
+        [matBadgeOverlap]="false"
+        [matBadgeSize]="'small'"
+        matBadgePosition="after"
+        matBadgeColor="primary"
+        style="margin-top: 10px; margin-bottom: 10px"
+        >{{ facet.screenName }}
+      </span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="facet-body">
+    <div class="facet-search" *ngIf="checkSearchOccurrence()">
+      <mat-form-field class="facet-search-field">
+        <label>
+          <input
+            matInput
+            type="text"
+            placeholder="{{
+              'facets.facet.placeHolderSearchFacet'
+                | translate: { facetName: facet.screenName }
+            }}"
+            [(ngModel)]="searchValue"
+            (ngModelChange)="searchValueChanged()"
+          />
+        </label>
+      </mat-form-field>
+    </div>
+    <div class="facet-entries">
+      <div
+        class="facet-entry-single"
+        *ngIf="facet.options.facetType === 'single'"
+      >
+        <button
+          mat-button
+          [ngClass]="{ 'single-selected': facetEntry.selected }"
+          (click)="facetSelected(facetEntry)"
+          matTooltip="{{
+            'facets.facet.filterRemovalTooltip'
+              | translate: { facetEntryName: facetEntry.viewName }
+          }}"
+          [matTooltipDisabled]="!facetEntry.selected"
+          *ngFor="let facetEntry of getFacetEntries()"
+        >
+          <span class="single-text">{{
+            getSingleFacetEntryText(facetEntry)
+          }}</span>
+          <mat-icon *ngIf="facetEntry.selected">clear</mat-icon>
+        </button>
+      </div>
+      <ng-container *ngIf="facet.options.facetType === 'multi'">
+        <mat-card
+          (click)="handleClickOnCard($event)"
+          *ngFor="let facetEntry of getFacetEntries()"
+          class="facet-entry"
+        >
+          <mat-checkbox
+            (change)="facetSelected(facetEntry)"
+            [checked]="facetEntry.selected!"
+            color="primary"
+          >
+            <span class="facet-entry-label">
+              {{ facetEntry.viewName }}
+              <span *ngIf="!facet.options.hideNumbers"
+                >({{ facetEntry.numberOfResults }})</span
+              >
+            </span>
+          </mat-checkbox>
+        </mat-card>
+      </ng-container>
+    </div>
+    <div>
+      <mat-card
+        class="facet-entry-show-more"
+        *ngIf="
+          facet.options.showMoreBehaviour &&
+          facet.options.showMoreThreshold &&
+          facet.entries.length > facet.options.showMoreThreshold &&
+          searchValue === '' &&
+          ((facet.options.facetType === 'single' &&
+            getNumberOfSelectedEntries() === 0) ||
+            facet.options.facetType === 'multi')
+        "
+      >
+        <button
+          mat-raised-button
+          color="accent"
+          *ngIf="!facet.options.showMoreOpened"
+          (click)="visualStateChange(true, facet.options.collapsed)"
+        >
+          {{ "facets.facet.showMore" | translate }}
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          *ngIf="facet.options.showMoreOpened"
+          (click)="visualStateChange(false, facet.options.collapsed)"
+        >
+          {{ "facets.facet.showLess" | translate }}
+        </button>
+      </mat-card>
+      <mat-card
+        class="facet-entry no-results"
+        *ngIf="searchValue !== '' && searchEntries.length === 0"
+      >
+        {{ "facets.facet.noResults" | translate }}
+      </mat-card>
+    </div>
+  </div>
+</mat-expansion-panel>

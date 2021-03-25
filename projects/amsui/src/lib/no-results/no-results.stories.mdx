@@ -1,0 +1,58 @@
+import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import * as stories from "./no-results.stories";
+import { NoResultsModuleImports } from "./no-results.stories";
+import { NoResultsComponent } from "./no-results.component";
+
+<Meta
+  title={"Results/No Results"}
+  component={NoResultsComponent}
+  decorators={[NoResultsModuleImports]}
+  argTypes={{
+    config: {
+      control: "object",
+    },
+  }}
+/>
+
+# No results component
+
+It is important to have an no results page, otherwise your users will hit a dead end an leave your site.
+So we decided to make a no results component with some helpful features for the users.
+
+## Default values
+
+The no results page looks like this if no configuration is applied.
+
+<Story story={stories.Default} height="300px" />
+
+## No results with contact information
+
+Added contact information.
+
+<Story story={stories.ContactInformation} height="550px" />
+
+## Keyword handling and useful keyword actions
+
+A did you mean could be added if given from the outside. Also the current keyword is highlighted.
+This focuses the user to check the spelling of it.
+Alternative keywords can also be added.
+
+<Story story={stories.KeywordHandling} height="500px" />
+
+## Alternative results
+
+Display alternative results on the no results page.
+
+<Story story={stories.AlternativeResults} height="550px" />
+
+## No results page with all its abilities
+
+<Story story={stories.AllFeatures} height="1000px" />
+
+## ArgsTable
+
+Only the inputs and outputs are important when using this component in a different application.
+
+If you contributing to the library, the description of the different methods, properties, etc. could help your understanding.
+
+<ArgsTable of={NoResultsComponent} />

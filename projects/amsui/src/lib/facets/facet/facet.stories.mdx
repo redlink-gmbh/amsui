@@ -1,0 +1,69 @@
+import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import { FacetComponent } from "./facet.component";
+import * as stories from "./facet.stories";
+import { FacetModuleImports } from "./facet.stories";
+
+<Meta
+  title={"Facets/Facet"}
+  component={FacetComponent}
+  decorators={[FacetModuleImports]}
+  argTypes={{
+    inputFacet: {
+      control: "object",
+    },
+  }}
+/>
+
+# Facet component
+
+This component enables a faceted search. A lot of different options can be applied to the facet-
+
+## Default Facet
+
+The facet looks like this if no configuration is applied.
+
+<Story story={stories.Default} height="450px" />
+
+## Show More Threshold Facet
+
+You can set the threshold of how much facets should be shown at initialisation.
+
+<Story story={stories.ShowMoreThreshold} height="450px" />
+
+## No show more Facet
+
+Of course, you can deactive the show more button at all. Just makes all options visible.
+
+<Story story={stories.NoShowMore} height="450px" />
+
+## Search facet
+
+If many facet options are available, a search can be included.
+
+<Story story={stories.Search} height="450px" />
+
+## Collapsed facet
+
+The initial state of a facet is open, but you can change that too.
+
+<Story story={stories.Collapsed} height="450px" />
+
+## Icon facet
+
+To have a more visual attractive facet, you could a material icon.
+
+<Story story={stories.Icon} height="450px" />
+
+## Multiselect facet
+
+If you want to select multiple facets, you could do it by setting the `facetType` to "multi".
+
+<Story story={stories.MultiSelect} height="450px" />
+
+## ArgsTable
+
+Only the inputs and outputs are important when using this component in a different application.
+
+If you contributing to the library, the description of the different methods, properties, etc. could help your understanding.
+
+<ArgsTable of={FacetComponent} />

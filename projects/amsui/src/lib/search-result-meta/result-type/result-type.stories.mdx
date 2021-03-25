@@ -1,0 +1,52 @@
+import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import * as stories from "./result-type.stories";
+import { ResultTypeModuleImports } from "./result-type.stories";
+import { ResultTypeComponent } from "./result-type.component";
+
+<Meta
+  title={"Results/Result view type"}
+  component={ResultTypeComponent}
+  decorators={[ResultTypeModuleImports]}
+  argTypes={{
+    disabled: {
+      control: "boolean",
+    },
+    selectedResultType: {
+      control: "text",
+    },
+    resultTypes: {
+      control: "array",
+    },
+  }}
+/>
+
+# Result view type component
+
+This component enables the alternation between a list and a grid view presentation of search results.
+
+## Default component to choose between search result types
+
+You need to specify both types in order to display the component.
+Otherwise, it makes no sense to display the component if only one type is specified
+
+<Story story={stories.Default} height="80px" />
+
+## Select a type via configuration
+
+You can select a type via an input property.
+
+<Story story={stories.SelectedType} height="80px" />
+
+## Disabling the toggle
+
+You can easily disable the component, by setting the boolean.
+
+<Story story={stories.Disabled} height="80px" />
+
+## ArgsTable
+
+Only the inputs and outputs are important when using this component in a different application.
+
+If you contributing to the library, the description of the different methods, properties, etc. could help your understanding.
+
+<ArgsTable of={ResultTypeComponent} />

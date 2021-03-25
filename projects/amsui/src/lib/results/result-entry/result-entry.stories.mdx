@@ -1,0 +1,81 @@
+import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import * as stories from "./result-entry.stories";
+import { ResultEntryModuleImports } from "./result-entry.stories";
+import { ResultEntryComponent } from "./result-entry.component";
+
+<Meta
+  title={"Results/Result entry"}
+  component={ResultEntryComponent}
+  decorators={[ResultEntryModuleImports]}
+  argTypes={{
+    highlightingActivated: { control: "boolean", defaultValue: true },
+    entry: { control: "object" },
+    showMoreWordLimit: { control: "number" },
+  }}
+/>
+
+# Result entry component
+
+This components delivers a Angular Material card, that is filled by the type `ResultEntry`.
+An `<em>`-HTML tag is needed to achieve highlighting of results. Whatever is inside an `<em>` tag will be highlighted.
+Without setting a result, an empty card is displayed.
+
+Due to the fact that the classList changed via JS, an adaption of a text in Storybook will remove the highlighting of the text.
+Since this is only a showcase library, the priority to change it isn't too high because the process works very well in practical applications.
+
+## Default
+
+Just add a title and a description and the result entry looks like this.
+
+<Story story={stories.Default} height="200px" />
+
+## Deactivated highlighting
+
+<Story story={stories.DeactivateHighlighting} height="200px" />
+
+## Add an Material avatar icon to distinguish between results
+
+<Story story={stories.AvatarIconResult} height="200px" />
+
+## Add an avatar image to distinguish between results
+
+<Story story={stories.AvatarImageResult} height="200px" />
+
+## Add an image to the main text of the result
+
+<Story story={stories.WithImage} height="600px" />
+
+## Meta information of the result entry
+
+<Story story={stories.WithMetaInfo} height="250px" />
+
+## Tags about the results
+
+<Story story={stories.WithTags} height="250px" />
+
+## Add actions to the result entry
+
+<Story story={stories.WithActions} height="250px" />
+
+## Show more behavior of description of an entry
+
+<Story story={stories.ShowMoreDescription} height="450px" />
+
+## Show more limit can also be set
+
+The default value is at about 100 visible words. Of course, this is dependent on the size of the words in a description,
+but can give you a rough estimation about the size of a result entry.
+
+<Story story={stories.ShowMoreLimit} height="450px" />
+
+## Using all features of the result entry component
+
+<Story story={stories.AllFeatures} height="700px" />
+
+## ArgsTable
+
+Only the inputs and outputs are important when using this component in a different application.
+
+If you contributing to the library, the description of the different methods, properties, etc. could help your understanding.
+
+<ArgsTable of={ResultEntryComponent} />

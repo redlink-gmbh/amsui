@@ -1,0 +1,25 @@
+<mat-button-toggle-group
+  #group="matButtonToggleGroup"
+  [disabled]="disabled"
+  (valueChange)="emitResultViewTypeChange($event)"
+  *ngIf="resultTypes.length > 1"
+>
+  <mat-button-toggle
+    *ngIf="resultTypes.includes('grid')"
+    [checked]="selectedResultType === 'grid'"
+    [matTooltip]="'resultType.grid' | translate"
+    [aria-label]="'resultType.gridAria' | translate"
+    value="grid"
+  >
+    <mat-icon>view_module</mat-icon>
+  </mat-button-toggle>
+  <mat-button-toggle
+    *ngIf="resultTypes.includes('list')"
+    [checked]="selectedResultType === 'list'"
+    [matTooltip]="'resultType.list' | translate"
+    [aria-label]="'resultType.listAria' | translate"
+    value="list"
+  >
+    <mat-icon>view_list</mat-icon>
+  </mat-button-toggle>
+</mat-button-toggle-group>

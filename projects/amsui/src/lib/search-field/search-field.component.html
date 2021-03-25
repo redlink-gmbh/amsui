@@ -1,0 +1,81 @@
+<mat-form-field
+  class="search-field"
+  [appearance]="searchFieldConfig.formFieldAppearance!"
+>
+  <mat-label>{{ searchFieldConfig.placeholderLabel! | translate }}</mat-label>
+  <label>
+    <input
+      tabindex="0"
+      spellcheck="true"
+      matInput
+      type="text"
+      [matAutocomplete]="auto"
+      [formControl]="searchControl"
+      (keyup.enter)="startSearchWithEnter($event)"
+    />
+  </label>
+  <button
+    *ngIf="(isMobile || isTablet) && searchControl.value"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    class="clear-search"
+    (click)="clearSearchValue()"
+  >
+    <mat-icon class="grey-icon">close</mat-icon>
+  </button>
+  <mat-autocomplete
+    class="autocomplete-panel"
+    #auto="matAutocomplete"
+    (optionActivated)="onOptionActivated($event)"
+  >
+    <ng-container
+      *ngIf="
+        !searchFieldConfig.disableAutocomplete! ||
+        !searchFieldConfig.asyncSuggestionDataProvider
+      "
+    >
+      <mat-option *ngIf="isLoading" class="is-loading"
+        ><mat-spinner diameter="30"></mat-spinner
+      ></mat-option>
+      <ng-container
+        *ngFor="let option of filteredSuggestions$ | async; let idxId = index"
+      >
+        <mat-option
+          class="suggest-option"
+          *ngIf="!isLoading"
+          [value]="option"
+          [id]="idxId.toString()"
+          (click)="startSearchWithOptionClick($event)"
+        >
+          <div class="suggest-option-container">
+            <span [innerHTML]="getFormattedOption(option)">{{ option }}</span>
+            <button
+              mat-icon-button
+              *ngIf="isMobile || isTablet"
+              (click)="setOptionAsSearchValue(option)"
+            >
+              <mat-icon class="into-search grey-icon">north_west</mat-icon>
+            </button>
+          </div>
+        </mat-option>
+      </ng-container>
+      <mat-option
+        style="display: none"
+        [id]="numberOfSuggestions.toString()"
+        [value]="defaultValueForDropDownMode"
+      ></mat-option>
+    </ng-container>
+  </mat-autocomplete>
+</mat-form-field>
+<button
+  class="search-button"
+  mat-raised-button
+  color="accent"
+  (click)="startSearch()"
+>
+  <mat-icon>search</mat-icon>
+  <span *ngIf="!isMobile">{{
+    searchFieldConfig.searchButtonText! | translate
+  }}</span>
+</button>

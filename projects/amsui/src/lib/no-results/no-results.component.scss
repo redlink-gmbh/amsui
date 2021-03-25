@@ -1,0 +1,23 @@
+.no-results-container {
+  padding: 15px 50px;
+  hr {
+    margin: 40px;
+  }
+  .other-suggestions {
+    .link-container {
+      .underline-link {
+        margin: 0 10px;
+        line-height: 2;
+      }
+    }
+  }
+  .help {
+    text-align: center;
+    .help-actions {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 40px;
+    }
+  }
+}

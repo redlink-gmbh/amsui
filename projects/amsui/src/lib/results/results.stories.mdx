@@ -1,0 +1,45 @@
+import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import * as stories from "./results.stories";
+import { ResultsModuleImports } from "./results.stories";
+import { ResultsComponent } from "./results.component";
+
+<Meta
+  title={"Results/Results"}
+  component={ResultsComponent}
+  decorators={[ResultsModuleImports]}
+  argTypes={{
+    highlightingActivated: { control: "boolean" },
+    resultType: { control: "text" },
+    results: { control: "object" },
+  }}
+/>
+
+# Results component
+
+The results component delivers your search result via Angular Material Cards in the list or the grid view.
+
+## Default
+
+You need to add a results array with the specified type of `ResultEntry`.
+An `<em>`-HTML tag is needed to achieve highlighting of results. Whatever is inside an `<em>` tag will be highlighted.
+
+<Story story={stories.Default} height="450px" />
+
+## Results without highlighting
+
+<Story story={stories.DeactivateHighlighting} height="450px" />
+
+## Results with the grid view
+
+You can see the grid view only on tablets or desktops
+because the list view is always presented on mobile screens due to the small screen size.
+
+<Story story={stories.ChangeResultType} height="450px" />
+
+## ArgsTable
+
+Only the inputs and outputs are important when using this component in a different application.
+
+If you contributing to the library, the description of the different methods, properties, etc. could help your understanding.
+
+<ArgsTable of={ResultsComponent} />

@@ -1,0 +1,35 @@
+<div *ngIf="searchResultMeta" class="search-result-text">
+  <amsui-did-you-mean
+    [value]="searchResultMeta.didYouMeanValue || ''"
+    (didYouMeanEvent)="didYouMeanClick($event)"
+  ></amsui-did-you-mean>
+  <span
+    *ngIf="searchResultMeta.keyword !== '' && searchResultMeta.numFound > 0"
+    [innerHTML]="
+      'searchResultText.information'
+        | translate
+          : {
+              numFound: searchResultMeta.numFound,
+              numShowed:
+                searchResultMeta.numShowed > searchResultMeta.numFound
+                  ? searchResultMeta.numFound
+                  : searchResultMeta.numShowed,
+              keyword: searchResultMeta.keyword,
+              timeTaken: searchResultMeta.timeTaken
+                ? ' (' + roundTo3Decimals(searchResultMeta.timeTaken) + 's)'
+                : ''
+            }
+    "
+    class="header-text"
+  >
+  </span>
+  <span
+    class="header-text"
+    *ngIf="searchResultMeta.numFound === 0 && searchResultMeta.keyword !== ''"
+    [innerHTML]="
+      'searchResultText.notFound'
+        | translate: { keyword: searchResultMeta.keyword }
+    "
+  >
+  </span>
+</div>

@@ -1,0 +1,18 @@
+.facet-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+  .filter-icon {
+    margin: 8px;
+  }
+  .facet-heading {
+    display: flex;
+    align-items: center;
+  }
+}
+.no-filters {
+  min-width: 100%;
+  text-align: center;
+  white-space: normal;
+}

@@ -1,0 +1,67 @@
+import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import * as stories from "./search-results-wrapper.stories";
+import { SearchResultsWrapperModuleImports } from "./search-results-wrapper.stories";
+import { SearchResultsWrapperComponent } from "./search-results-wrapper.component";
+
+<Meta
+  title={"Results/Wrapper"}
+  component={SearchResultsWrapperComponent}
+  decorators={[SearchResultsWrapperModuleImports]}
+  argTypes={{
+    searchResultMeta: {
+      control: "object",
+    },
+    resultViewConfig: {
+      control: "object",
+    },
+    noResultsConfig: {
+      control: "object",
+    },
+    searchResults: {
+      control: "object",
+    },
+  }}
+/>
+
+# Search result wrapper component
+
+The wrapper consists mainly consist of the components:
+
+- search result meta information
+- results
+- no results
+
+Additionally, a load more button and filter tabs are added in the search result wrapper.
+Both are only available, if you use the search result wrapper.
+
+## Default search result wrapper
+
+A placeholder will be shown when nothing has been searched yet.
+
+<Story story={stories.Default} height="100px" />
+
+## Grid Layout with search meta information and a did you mean value, and without sorting options
+
+<Story story={stories.AddConfigs} height="1000px" />
+
+## The "no results" component is included
+
+<Story story={stories.NoResults} height="1100px" />
+
+## Add sorting options and view types
+
+<Story story={stories.AddSortingAndViewChange} height="1100px" />
+
+## Filtering via tabs
+
+Whenever a filter has changed, an event is triggered. When listening to this event, new data can be put inside the wrapper.
+
+<Story story={stories.AddFilterTabs} height="1100px" />
+
+## ArgsTable
+
+Only the inputs and outputs are important when using this component in a different application.
+
+If you contributing to the library, the description of the different methods, properties, etc. could help your understanding.
+
+<ArgsTable of={SearchResultsWrapperComponent} />

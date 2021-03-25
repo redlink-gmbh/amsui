@@ -1,0 +1,25 @@
+<div class="header">
+  <amsui-search-result-text
+    [searchResultMeta]="searchResultMeta"
+    (didYouMeanEvent)="didYouMeanClick($event)"
+  >
+  </amsui-search-result-text>
+
+  <div class="header-right">
+    <amsui-result-type
+      [disabled]="searchResultMeta.numFound <= 0"
+      [resultTypes]="isMobile ? ['list'] : metaViewConfig.resultViewTypes!"
+      [selectedResultType]="
+        isMobile ? 'list' : metaViewConfig.selectedResultViewType!
+      "
+      (resultViewTypeChanged)="emitResultViewTypeChange($event)"
+    ></amsui-result-type>
+    <amsui-sorting-select
+      *ngIf="metaViewConfig.sortingOptions!.length > 0"
+      [sortingOptions]="metaViewConfig.sortingOptions!"
+      [defaultSortOption]="activeSortingOption"
+      [disabled]="searchResultMeta.numFound <= 0"
+      (sortingChanged)="emitSortEvent($event)"
+    ></amsui-sorting-select>
+  </div>
+</div>

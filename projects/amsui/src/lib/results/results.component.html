@@ -1,0 +1,14 @@
+<div
+  class="search-results"
+  [ngClass]="{
+    'search-results-grid': resultType === 'grid',
+    'search-results-list': resultType === 'list'
+  }"
+>
+  <amsui-result-entry
+    *ngFor="let entry of results"
+    [entry]="entry"
+    [highlightingActivated]="highlightingActivated"
+    (actionClicked)="emitActionEvent($event)"
+  ></amsui-result-entry>
+</div>

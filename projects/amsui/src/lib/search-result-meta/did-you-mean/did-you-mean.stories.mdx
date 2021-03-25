@@ -1,0 +1,33 @@
+import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import * as stories from "./did-you-mean.stories";
+import { DidYouMeanModuleImports } from "./did-you-mean.stories";
+import { DidYouMeanComponent } from "./did-you-mean.component";
+
+<Meta
+  title={"Results/Did you mean"}
+  component={DidYouMeanComponent}
+  decorators={[DidYouMeanModuleImports]}
+  argTypes={{
+    value: {
+      control: "text",
+    },
+  }}
+/>
+
+# Did you mean component
+
+This component generates a did you mean phrase with a clickable link that emits an event. When listening to this event, you can adjust your search accordingly.
+
+## Input a value
+
+This component is only shown if a value is specified.
+
+<Story story={stories.AddValue} height="80px" />
+
+## ArgsTable
+
+Only the inputs and outputs are important when using this component in a different application.
+
+If you contributing to the library, the description of the different methods, properties, etc. could help your understanding.
+
+<ArgsTable of={DidYouMeanComponent} />

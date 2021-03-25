@@ -1,0 +1,27 @@
+@import "../../styles/breakpoints";
+
+:host {
+  font-size: 12px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 0 35px 10px;
+    .header-right {
+      display: flex;
+      width: initial;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  :host {
+    .header {
+      flex-wrap: wrap;
+      .header-right {
+        width: 100%;
+      }
+    }
+  }
+}
