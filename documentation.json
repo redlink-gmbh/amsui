@@ -1233,922 +1233,6 @@
     ],
     "injectables": [
         {
-            "name": "ArchiveOrgService",
-            "id": "injectable-ArchiveOrgService-246a0edbaacfe2fa7aac4a4220ff2e21",
-            "file": "src/app/archive-org.service.ts",
-            "properties": [
-                {
-                    "name": "facetsConfig",
-                    "defaultValue": "this.resultTypesConfig?.all?.facets || []",
-                    "type": "FacetConfigSolr[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 13,
-                    "modifierKind": [
-                        113
-                    ]
-                },
-                {
-                    "name": "resultTypesConfig",
-                    "defaultValue": "archiveOrgConfig",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 11,
-                    "modifierKind": [
-                        113
-                    ]
-                },
-                {
-                    "name": "solrSearchEndpoint",
-                    "defaultValue": "'advancedsearch.php'",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 10,
-                    "modifierKind": [
-                        112
-                    ]
-                },
-                {
-                    "name": "solrSearchURL",
-                    "defaultValue": "environment.backendURL + this.solrSearchEndpoint",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 12,
-                    "modifierKind": [
-                        113
-                    ]
-                },
-                {
-                    "name": "facetsConfig",
-                    "defaultValue": "[]",
-                    "type": "FacetConfigSolr[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 41,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "filterViews",
-                    "defaultValue": "[]",
-                    "type": "FilterTab[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 30,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "highlightFields",
-                    "defaultValue": "[]",
-                    "type": "string[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 40,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "lastSearchResults",
-                    "defaultValue": "[]",
-                    "type": "ResultEntry[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 43,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "numberOfResults",
-                    "defaultValue": "20",
-                    "type": "number",
-                    "optional": false,
-                    "description": "",
-                    "line": 38,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "numOfFound",
-                    "defaultValue": "-1",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 36,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "offset",
-                    "defaultValue": "0",
-                    "type": "number",
-                    "optional": false,
-                    "description": "",
-                    "line": 39,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "requestDebounceTime",
-                    "defaultValue": "500",
-                    "type": "number",
-                    "optional": false,
-                    "description": "",
-                    "line": 37,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "resultTypesConfig",
-                    "defaultValue": "{}",
-                    "type": "ResultTypesConfig",
-                    "optional": false,
-                    "description": "",
-                    "line": 31,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "searchResults$",
-                    "type": "Observable<SearchResultsSolr | null>",
-                    "optional": false,
-                    "description": "",
-                    "line": 32,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "searchResultsSubscription",
-                    "type": "Subscription",
-                    "optional": false,
-                    "description": "",
-                    "line": 33,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "selectedFacets",
-                    "defaultValue": "[]",
-                    "type": "SelectedFacet[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 42,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "solrSearchURL",
-                    "defaultValue": "''",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 34,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "solrSuggestURL",
-                    "defaultValue": "''",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 35,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "suggestions",
-                    "defaultValue": "[\n    'Wissen',\n    'Wissensmanagement',\n    'Wissensmanager',\n    'Wissensträger',\n    'Wissenstransfer',\n    'Mein Wissen',\n    'Unser Wissen',\n    'Dein Wissen',\n    'Besserwisser',\n    'Natural Language Processing',\n    'NLP',\n    'Management',\n  ]",
-                    "type": "[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 44,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                }
-            ],
-            "methods": [
-                {
-                    "name": "getLinkToDetails",
-                    "args": [
-                        {
-                            "name": "id",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "string",
-                    "typeParameters": [],
-                    "line": 42,
-                    "jsdoctags": [
-                        {
-                            "name": "id",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "transformSearchResults",
-                    "args": [
-                        {
-                            "name": "docs",
-                            "type": "any[]"
-                        },
-                        {
-                            "name": "highlights",
-                            "type": "Highlighting"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "ResultEntry[]",
-                    "typeParameters": [],
-                    "line": 16,
-                    "modifierKind": [
-                        113
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "docs",
-                            "type": "any[]",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "highlights",
-                            "type": "Highlighting",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "adjustParamsToChangedFilter",
-                    "args": [
-                        {
-                            "name": "filterName",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 96,
-                    "jsdoctags": [
-                        {
-                            "name": "filterName",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "checkIfType",
-                    "args": [
-                        {
-                            "name": "doc",
-                            "type": "any"
-                        },
-                        {
-                            "name": "typeName",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "boolean",
-                    "typeParameters": [],
-                    "line": 369,
-                    "modifierKind": [
-                        113
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "doc",
-                            "type": "any",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "typeName",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "escapeSolrQuery",
-                    "args": [
-                        {
-                            "name": "query",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "string",
-                    "typeParameters": [],
-                    "line": 247,
-                    "modifierKind": [
-                        113
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "query",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "facetConfigToObject",
-                    "args": [
-                        {
-                            "name": "facetsConfig",
-                            "type": "FacetConfigSolr[]"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "literal type",
-                    "typeParameters": [],
-                    "line": 382,
-                    "modifierKind": [
-                        112
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "facetsConfig",
-                            "type": "FacetConfigSolr[]",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "fakeAlternativePopularKeywords",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "string[]",
-                    "typeParameters": [],
-                    "line": 332,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "fakeAlternativeResults",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "ResultEntry[]",
-                    "typeParameters": [],
-                    "line": 335,
-                    "modifierKind": [
-                        113
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "fakeDidYouMean",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "string",
-                    "typeParameters": [],
-                    "line": 415,
-                    "modifierKind": [
-                        112
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "fakeSearchSuggestions",
-                    "args": [
-                        {
-                            "name": "input",
-                            "type": "SuggestionParameter"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "Observable<string[]>",
-                    "typeParameters": [],
-                    "line": 88,
-                    "jsdoctags": [
-                        {
-                            "name": "input",
-                            "type": "SuggestionParameter",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "getFiltersForView",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "FilterTab[]",
-                    "typeParameters": [],
-                    "line": 106,
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "getHighlightedField",
-                    "args": [
-                        {
-                            "name": "doc",
-                            "type": "any"
-                        },
-                        {
-                            "name": "highlights",
-                            "type": "Highlighting"
-                        },
-                        {
-                            "name": "field",
-                            "type": "string"
-                        },
-                        {
-                            "name": "docKey",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "string",
-                    "typeParameters": [],
-                    "line": 124,
-                    "modifierKind": [
-                        113
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "doc",
-                            "type": "any",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "highlights",
-                            "type": "Highlighting",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "field",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "docKey",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "getSearchSuggestions",
-                    "args": [
-                        {
-                            "name": "input",
-                            "type": "SuggestionParameter"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "Observable<string[]>",
-                    "typeParameters": [],
-                    "line": 339,
-                    "jsdoctags": [
-                        {
-                            "name": "input",
-                            "type": "SuggestionParameter",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "getSolrParams",
-                    "args": [
-                        {
-                            "name": "keyword",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "HttpParams",
-                    "typeParameters": [],
-                    "line": 143,
-                    "modifierKind": [
-                        113
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "keyword",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "getSortingOptions",
-                    "args": [
-                        {
-                            "name": "filterName",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "SortingOption[]",
-                    "typeParameters": [],
-                    "line": 102,
-                    "jsdoctags": [
-                        {
-                            "name": "filterName",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "loadMore",
-                    "args": [
-                        {
-                            "name": "keyword",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 80,
-                    "jsdoctags": [
-                        {
-                            "name": "keyword",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "ngOnDestroy",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 69,
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "search",
-                    "args": [
-                        {
-                            "name": "keyword",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 73,
-                    "jsdoctags": [
-                        {
-                            "name": "keyword",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "searchSolrRequest",
-                    "args": [
-                        {
-                            "name": "keyword",
-                            "type": "string"
-                        },
-                        {
-                            "name": "loadMoreRequest",
-                            "type": "",
-                            "defaultValue": "false"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "Observable<SearchResultsSolr | null>",
-                    "typeParameters": [],
-                    "line": 210,
-                    "modifierKind": [
-                        113
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "keyword",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "loadMoreRequest",
-                            "type": "",
-                            "defaultValue": "false",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "transformFacets",
-                    "args": [
-                        {
-                            "name": "searchResultFacets",
-                            "type": "SearchResultFacets"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "Facet[]",
-                    "typeParameters": [],
-                    "line": 251,
-                    "modifierKind": [
-                        113
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "searchResultFacets",
-                            "type": "SearchResultFacets",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "transformSearchResults",
-                    "args": [
-                        {
-                            "name": "docs",
-                            "type": "any[]"
-                        },
-                        {
-                            "name": "highlights",
-                            "type": "Highlighting"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "ResultEntry[]",
-                    "typeParameters": [],
-                    "line": 64,
-                    "modifierKind": [
-                        113,
-                        117
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "docs",
-                            "type": "any[]",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "highlights",
-                            "type": "Highlighting",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "transformSearchResultsMetaInformation",
-                    "args": [
-                        {
-                            "name": "searchResultsSolr",
-                            "type": "SearchResultsSolr"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "SearchResultMeta",
-                    "typeParameters": [],
-                    "line": 234,
-                    "modifierKind": [
-                        113
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "searchResultsSolr",
-                            "type": "SearchResultsSolr",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "transformSolrResponse",
-                    "args": [
-                        {
-                            "name": "loadMoreRequest",
-                            "type": "",
-                            "defaultValue": "false"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 290,
-                    "modifierKind": [
-                        113
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "loadMoreRequest",
-                            "type": "",
-                            "defaultValue": "false",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                },
-                {
-                    "name": "typeData",
-                    "args": [
-                        {
-                            "name": "typeName",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "ResultTypeData",
-                    "typeParameters": [],
-                    "line": 361,
-                    "modifierKind": [
-                        113
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "typeName",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "SolrService"
-                    }
-                }
-            ],
-            "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\nimport { ResultEntry, SolrService, FacetConfigSolr, Highlighting } from 'amsui';\nimport { environment } from '../environments/environment';\nimport { archiveOrgConfig } from './archive-org.config';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class ArchiveOrgService extends SolrService {\n  private solrSearchEndpoint = 'advancedsearch.php';\n  protected resultTypesConfig = archiveOrgConfig;\n  protected solrSearchURL = environment.backendURL + this.solrSearchEndpoint;\n  protected facetsConfig: FacetConfigSolr[] =\n    this.resultTypesConfig?.all?.facets || [];\n\n  protected transformSearchResults(\n    docs: any[],\n    highlights: Highlighting\n  ): ResultEntry[] {\n    const tempResultArray: ResultEntry[] = [];\n\n    for (const doc of docs) {\n      tempResultArray.push({\n        title: doc.title,\n        subTitles: [\n          { name: 'genre', description: doc.genre, icon: 'category' },\n          { name: 'dowloads', description: doc.downloads, icon: 'download' },\n          {\n            name: 'mediatype',\n            description: doc.mediatype,\n            icon: 'play_lesson',\n          },\n        ],\n        tags: doc.format,\n        id: doc.identifier,\n        description: doc.description,\n      });\n    }\n    return tempResultArray;\n  }\n\n  getLinkToDetails(id: string): string {\n    return 'http://archive.org/details/' + id;\n  }\n}\n",
-            "extends": "SolrService",
-            "type": "injectable"
-        },
-        {
             "name": "SearchService",
             "id": "injectable-SearchService-a0b3f0f740487e82a63f160ba2e01c5b",
             "file": "projects/amsui/src/lib/search-service/search.service.ts",
@@ -3562,7 +2646,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-48d51fd24bf393b318eebc2b1f9be05a",
+            "id": "component-AppComponent-3f82aa3a2faafc0828da2a44754ce3ac",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3582,62 +2666,11 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "didYouMeanSearchValue",
-                    "defaultValue": "''",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 43
-                },
-                {
-                    "name": "facets$",
-                    "defaultValue": "of([])",
-                    "type": "Observable<Facet[]>",
-                    "optional": false,
-                    "description": "",
-                    "line": 44
-                },
-                {
-                    "name": "isMobile",
-                    "defaultValue": "false",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 72
-                },
-                {
-                    "name": "isTablet",
-                    "defaultValue": "false",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 73
-                },
-                {
-                    "name": "noResultsConfig",
-                    "defaultValue": "{\n    alternativeKeywords: [],\n    alternativeResults: [],\n    didYouMeanValue: '',\n    searchKeyword: this.searchKeyword,\n    contactPhoneNumber: '+43 662 27 66 80',\n    contactMailAddress: 'office@redlink.at',\n  }",
-                    "type": "NoResultsConfig",
-                    "optional": false,
-                    "description": "",
-                    "line": 59
-                },
-                {
-                    "name": "notifierDestroySubs",
-                    "defaultValue": "new Subject()",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 74,
-                    "modifierKind": [
-                        112
-                    ]
-                },
-                {
                     "name": "origin",
                     "type": "CdkOverlayOrigin",
                     "optional": false,
                     "description": "",
-                    "line": 40,
+                    "line": 14,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -3646,28 +2679,12 @@
                     ]
                 },
                 {
-                    "name": "results$",
-                    "defaultValue": "of([])",
-                    "type": "Observable<ResultEntry[]>",
-                    "optional": false,
-                    "description": "",
-                    "line": 45
-                },
-                {
-                    "name": "resultViewConfig",
-                    "defaultValue": "{\n    sortingOptions: archiveOrgConfig?.all?.sortingOptions || [],\n    filterTabs: this.getFilterTabs(),\n    resultViewTypes: ['list', 'grid'],\n    selectedResultViewType: 'list',\n    searchResultPlaceholderText: 'app.searchResult.placeholder',\n  }",
-                    "type": "ResultViewConfig",
-                    "optional": false,
-                    "description": "",
-                    "line": 52
-                },
-                {
                     "name": "searchFieldConfig",
-                    "defaultValue": "{\n    placeholderLabel: 'app.searchField.placeholderLabel',\n    value: this.didYouMeanSearchValue,\n    asyncSuggestionDataProvider: this.handleInputEvent.bind(this),\n  }",
+                    "defaultValue": "{\n    placeholderLabel: 'app.searchField.placeholderLabel',\n    asyncSuggestionDataProvider: this.fakeSearchSuggestions.bind(this),\n  }",
                     "type": "SearchFieldConfig",
                     "optional": false,
                     "description": "",
-                    "line": 67
+                    "line": 17
                 },
                 {
                     "name": "searchKeyword",
@@ -3675,15 +2692,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 42
-                },
-                {
-                    "name": "searchResultMeta$",
-                    "defaultValue": "of({\n    numFound: -1,\n    keyword: '',\n    timeTaken: -1,\n    numShowed: -1,\n  })",
-                    "type": "Observable<SearchResultMeta>",
-                    "optional": false,
-                    "description": "",
-                    "line": 46
+                    "line": 16
                 },
                 {
                     "name": "title",
@@ -3691,102 +2700,12 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 41
+                    "line": 15
                 }
             ],
             "methodsClass": [
                 {
-                    "name": "addToolTips",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 198
-                },
-                {
-                    "name": "didYouMeanSearch",
-                    "args": [
-                        {
-                            "name": "didYouMeanValue",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 167,
-                    "jsdoctags": [
-                        {
-                            "name": "didYouMeanValue",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "facetChanged",
-                    "args": [
-                        {
-                            "name": "selectedFacet",
-                            "type": "SelectedFacet"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 140,
-                    "jsdoctags": [
-                        {
-                            "name": "selectedFacet",
-                            "type": "SelectedFacet",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "getBadgeNumber",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "number",
-                    "typeParameters": [],
-                    "line": 153
-                },
-                {
-                    "name": "getFilterTabs",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "FilterTab[]",
-                    "typeParameters": [],
-                    "line": 191
-                },
-                {
-                    "name": "handleFilterChange",
-                    "args": [
-                        {
-                            "name": "filterName",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 182,
-                    "jsdoctags": [
-                        {
-                            "name": "filterName",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "handleInputEvent",
+                    "name": "fakeSearchSuggestions",
                     "args": [
                         {
                             "name": "input",
@@ -3796,7 +2715,7 @@
                     "optional": false,
                     "returnType": "Observable<string[]>",
                     "typeParameters": [],
-                    "line": 163,
+                    "line": 31,
                     "jsdoctags": [
                         {
                             "name": "input",
@@ -3806,14 +2725,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "name": "handleLoadMore",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 178
                 },
                 {
                     "name": "handleSearchEvent",
@@ -3826,7 +2737,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 145,
+                    "line": 27,
                     "jsdoctags": [
                         {
                             "name": "searchKeyword",
@@ -3836,71 +2747,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "name": "ngAfterViewInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 136
-                },
-                {
-                    "name": "ngOnDestroy",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 131
-                },
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 104
-                },
-                {
-                    "name": "onResultEntryClicked",
-                    "args": [
-                        {
-                            "name": "resultEntryActionEvent",
-                            "type": "ResultEntryActionEvent"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 228,
-                    "jsdoctags": [
-                        {
-                            "name": "resultEntryActionEvent",
-                            "type": "ResultEntryActionEvent",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "resetFacets",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 195,
-                    "modifierKind": [
-                        112
-                    ]
-                },
-                {
-                    "name": "resetSelectedFacets",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 157
                 }
             ],
             "hostBindings": [],
@@ -3908,11 +2754,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  OnDestroy,\n  OnInit,\n  ViewChild,\n} from '@angular/core';\nimport { Observable, of, Subject } from 'rxjs';\nimport {\n  Breakpoints,\n  Facet,\n  paramsToSelectedFacets,\n  resetToQueryParam,\n  ResultEntry,\n  SearchResultMeta,\n  SearchService,\n  SelectedFacet,\n  SuggestionParameter,\n  SearchFieldConfig,\n  NoResultsConfig,\n  ResultViewConfig,\n  FilterTab,\n  ResultEntryActionEvent,\n} from 'amsui';\nimport { BreakpointObserver } from '@angular/cdk/layout';\nimport { CdkOverlayOrigin } from '@angular/cdk/overlay';\nimport { environment } from '../environments/environment';\nimport { ActivatedRoute } from '@angular/router';\nimport { take, takeUntil } from 'rxjs/operators';\nimport { TranslateService } from '@ngx-translate/core';\nimport { ArchiveOrgService } from './archive-org.service';\nimport { archiveOrgConfig } from './archive-org.config';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent implements OnInit, OnDestroy, AfterViewInit {\n  @ViewChild(CdkOverlayOrigin) origin!: CdkOverlayOrigin;\n  title = 'Angular Material Search UI - AMSUI';\n  searchKeyword = '';\n  didYouMeanSearchValue = '';\n  facets$: Observable<Facet[]> = of([]);\n  results$: Observable<ResultEntry[]> = of([]);\n  searchResultMeta$: Observable<SearchResultMeta> = of({\n    numFound: -1,\n    keyword: '',\n    timeTaken: -1,\n    numShowed: -1,\n  });\n  resultViewConfig: ResultViewConfig = {\n    sortingOptions: archiveOrgConfig?.all?.sortingOptions || [],\n    filterTabs: this.getFilterTabs(),\n    resultViewTypes: ['list', 'grid'],\n    selectedResultViewType: 'list',\n    searchResultPlaceholderText: 'app.searchResult.placeholder',\n  };\n  noResultsConfig: NoResultsConfig = {\n    alternativeKeywords: [],\n    alternativeResults: [],\n    didYouMeanValue: '',\n    searchKeyword: this.searchKeyword,\n    contactPhoneNumber: '+43 662 27 66 80',\n    contactMailAddress: 'office@redlink.at',\n  };\n  searchFieldConfig: SearchFieldConfig = {\n    placeholderLabel: 'app.searchField.placeholderLabel',\n    value: this.didYouMeanSearchValue,\n    asyncSuggestionDataProvider: this.handleInputEvent.bind(this),\n  };\n  isMobile = false;\n  isTablet = false;\n  private notifierDestroySubs = new Subject();\n\n  constructor(\n    private readonly breakpointObserver: BreakpointObserver,\n    private readonly searchService: SearchService,\n    private readonly archiveOrgService: ArchiveOrgService,\n    private readonly activatedRoute: ActivatedRoute,\n    private readonly translateService: TranslateService\n  ) {\n    this.activatedRoute.queryParams\n      .pipe(take(2), takeUntil(this.notifierDestroySubs))\n      .subscribe((params) => {\n        if (\n          !(\n            params &&\n            Object.keys(params).length === 0 &&\n            params.constructor === Object\n          )\n        ) {\n          this.searchKeyword = params.q || '';\n          if (this.searchKeyword !== '') {\n            this.searchService.selectedFacets = paramsToSelectedFacets(params);\n            this.archiveOrgService.search(this.searchKeyword);\n          }\n        }\n      });\n    this.translateService.setDefaultLang('de');\n    this.translateService.use('en');\n  }\n\n  ngOnInit(): void {\n    this.facets$ = this.searchService.facets$;\n    this.results$ = this.searchService.searchResults$;\n    this.searchResultMeta$ = this.searchService.searchResultMeta$;\n    this.searchService.alternativeKeywords$\n      .pipe(takeUntil(this.notifierDestroySubs))\n      .subscribe(\n        (altKeywords) =>\n          (this.noResultsConfig.alternativeKeywords = altKeywords)\n      );\n    this.searchService.alternativeResults$\n      .pipe(takeUntil(this.notifierDestroySubs))\n      .subscribe(\n        (altResults) => (this.noResultsConfig.alternativeResults = altResults)\n      );\n    this.breakpointObserver\n      .observe([Breakpoints.Mobile, Breakpoints.Tablet])\n      .pipe(takeUntil(this.notifierDestroySubs))\n      .subscribe((result) => {\n        this.isMobile = result.breakpoints[Breakpoints.Mobile];\n        this.isTablet = result.breakpoints[Breakpoints.Tablet];\n      });\n    if (environment.showToolTips) {\n      this.addToolTips();\n    }\n  }\n\n  ngOnDestroy(): void {\n    this.notifierDestroySubs.next();\n    this.notifierDestroySubs.complete();\n  }\n\n  ngAfterViewInit(): void {\n    this.searchService.overlayElement = this.origin.elementRef;\n  }\n\n  facetChanged(selectedFacet: SelectedFacet): void {\n    this.searchService.toggleSelectedFacet(selectedFacet);\n    this.archiveOrgService.search(this.searchKeyword);\n  }\n\n  handleSearchEvent(searchKeyword: string): void {\n    this.didYouMeanSearchValue = '';\n    this.searchKeyword = searchKeyword;\n    this.noResultsConfig.searchKeyword = searchKeyword;\n    this.resetFacets();\n    this.archiveOrgService.search(this.searchKeyword);\n  }\n\n  getBadgeNumber(): number {\n    return this.searchService.selectedFacets.length;\n  }\n\n  resetSelectedFacets(): void {\n    this.resetFacets();\n    resetToQueryParam('q', this.searchKeyword);\n    this.archiveOrgService.search(this.searchKeyword);\n  }\n\n  handleInputEvent(input: SuggestionParameter): Observable<string[]> {\n    return this.archiveOrgService.getSearchSuggestions(input);\n  }\n\n  didYouMeanSearch(didYouMeanValue: string): void {\n    this.didYouMeanSearchValue = didYouMeanValue;\n    this.searchFieldConfig = {\n      ...this.searchFieldConfig,\n      value: didYouMeanValue,\n    };\n    this.searchKeyword = didYouMeanValue;\n    this.resetFacets();\n    this.archiveOrgService.search(didYouMeanValue);\n  }\n\n  handleLoadMore(): void {\n    this.archiveOrgService.loadMore(this.searchKeyword);\n  }\n\n  handleFilterChange(filterName: string): void {\n    this.archiveOrgService.adjustParamsToChangedFilter(filterName);\n    this.resultViewConfig = {\n      ...this.resultViewConfig,\n      sortingOptions: this.archiveOrgService.getSortingOptions(filterName),\n    };\n    this.resetSelectedFacets();\n  }\n\n  getFilterTabs(): FilterTab[] {\n    return this.archiveOrgService.getFiltersForView();\n  }\n\n  private resetFacets(): void {\n    this.searchService.selectedFacets = [];\n  }\n  addToolTips(): void {\n    const elementsToolTips = [\n      {\n        selector: 'search-button',\n        id: 'must-have-magnifying-glass-icon',\n        text:\n          'Always use the magnifying class icon in the simplest form that you have',\n        position: 'bottom',\n      },\n      {\n        selector: 'search-button',\n        id: 'must-have-search-button',\n        text: 'A search button is mandatory for every search',\n        position: 'bottom',\n      },\n    ];\n    for (const elem of elementsToolTips) {\n      const elementForTip = document.querySelector('.' + elem.selector);\n      if (elementForTip) {\n        elementForTip.parentElement?.insertAdjacentHTML(\n          'beforeend',\n          `<span class=\"tip\" id=\"${elem.id}\">\n                    <p class=\"tip-text tip-text-${elem.position}\">${elem.text}</p>\n                </span>\n            `\n        );\n      }\n    }\n  }\n\n  onResultEntryClicked(resultEntryActionEvent: ResultEntryActionEvent): void {\n    console.log(resultEntryActionEvent);\n    if (resultEntryActionEvent.entry.id) {\n      window.open(\n        this.archiveOrgService.getLinkToDetails(\n          resultEntryActionEvent.entry.id\n        ),\n        '_blank'\n      );\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, ViewChild } from '@angular/core';\nimport { Observable, of } from 'rxjs';\nimport { SuggestionParameter, SearchFieldConfig } from '@redlink/amsui';\nimport { CdkOverlayOrigin } from '@angular/cdk/overlay';\nimport { TranslateService } from '@ngx-translate/core';\nimport { delay } from 'rxjs/operators';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  @ViewChild(CdkOverlayOrigin) origin!: CdkOverlayOrigin;\n  title = 'Angular Material Search UI - AMSUI';\n  searchKeyword = '';\n  searchFieldConfig: SearchFieldConfig = {\n    placeholderLabel: 'app.searchField.placeholderLabel',\n    asyncSuggestionDataProvider: this.fakeSearchSuggestions.bind(this),\n  };\n\n  constructor(private readonly translateService: TranslateService) {\n    this.translateService.setDefaultLang('de');\n    this.translateService.use('en');\n  }\n\n  handleSearchEvent(searchKeyword: string): void {\n    this.searchKeyword = searchKeyword;\n    alert('You searched for ' + searchKeyword);\n  }\n  fakeSearchSuggestions(input: SuggestionParameter): Observable<string[]> {\n    const filteredSuggestions = [\n      'Knowledge',\n      'Knowledge management',\n      'Knowledge officer',\n      'My knowledge',\n      'Your knowledge',\n      'Your knowledge',\n      'Natural Language Processing',\n      'NLP',\n      'Management',\n      'Solr',\n      'Amsui',\n    ]\n      .filter((option) =>\n        option.toLowerCase().includes(input.keyword.toLowerCase())\n      )\n      .slice(0, input.numberOfSuggestions);\n    return of(filteredSuggestions).pipe(delay(300));\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"~src/mq-config\";\n\n.container {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  flex-direction: column;\n  justify-content: stretch;\n  .search-field-container {\n    padding: 1em 1em 0;\n    border-bottom: 1px solid lightgrey;\n    display: flex;\n    justify-content: center;\n    align-items: baseline;\n    amsui-search-field {\n      width: 50%;\n      @include mq($until: tablet) {\n        width: 100%;\n      }\n    }\n  }\n  mat-drawer-container {\n    flex: 1 1 auto;\n    mat-drawer {\n      display: flex;\n      overflow: scroll;\n      width: 350px;\n      .inside-close-filter {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        button {\n          margin-top: 20px;\n        }\n      }\n    }\n    mat-drawer-content {\n      .search-result-story {\n        position: fixed;\n        z-index: 1;\n        .filter-drawer-button {\n          border: 1px solid lightgrey;\n          border-radius: 0 10px 10px 0;\n          background: white;\n          position: absolute;\n          left: -1px;\n          height: 40px;\n          top: 17px;\n          border-left: none;\n          z-index: 2;\n        }\n      }\n    }\n  }\n}\n",
+                    "data": "",
                     "styleUrl": "./app.component.scss"
                 }
             ],
@@ -3922,56 +2768,12 @@
                 "description": "",
                 "args": [
                     {
-                        "name": "breakpointObserver",
-                        "type": "BreakpointObserver"
-                    },
-                    {
-                        "name": "searchService",
-                        "type": "SearchService"
-                    },
-                    {
-                        "name": "archiveOrgService",
-                        "type": "ArchiveOrgService"
-                    },
-                    {
-                        "name": "activatedRoute",
-                        "type": "ActivatedRoute"
-                    },
-                    {
                         "name": "translateService",
                         "type": "TranslateService"
                     }
                 ],
-                "line": 74,
+                "line": 20,
                 "jsdoctags": [
-                    {
-                        "name": "breakpointObserver",
-                        "type": "BreakpointObserver",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    },
-                    {
-                        "name": "searchService",
-                        "type": "SearchService",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    },
-                    {
-                        "name": "archiveOrgService",
-                        "type": "ArchiveOrgService",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    },
-                    {
-                        "name": "activatedRoute",
-                        "type": "ActivatedRoute",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    },
                     {
                         "name": "translateService",
                         "type": "TranslateService",
@@ -3981,12 +2783,7 @@
                     }
                 ]
             },
-            "implements": [
-                "OnInit",
-                "OnDestroy",
-                "AfterViewInit"
-            ],
-            "templateData": "<div class=\"container\">\n  <div class=\"search-field-container\">\n    <amsui-search-field\n      [config]=\"searchFieldConfig\"\n      (searchEvent)=\"handleSearchEvent($event)\"\n    ></amsui-search-field>\n  </div>\n  <mat-drawer-container cdk-overlay-origin [hasBackdrop]=\"isMobile || isTablet\">\n    <mat-drawer\n      #facetDrawer\n      [mode]=\"isMobile || isTablet ? 'over' : 'side'\"\n      [opened]=\"!isMobile || isTablet\"\n      position=\"start\"\n    >\n      <div class=\"inside-close-filter\" *ngIf=\"isMobile || isTablet\">\n        <button (click)=\"facetDrawer.toggle()\" mat-raised-button>\n          {{ \"app.closeFilterMenu\" | translate }}\n        </button>\n      </div>\n      <amsui-facet-group\n        [facets]=\"(facets$ | async)!\"\n        (facetSelectedEvent)=\"facetChanged($event)\"\n        (resetFacetsEvent)=\"resetSelectedFacets()\"\n      ></amsui-facet-group>\n    </mat-drawer>\n    <mat-drawer-content>\n      <div class=\"search-result-story\">\n        <button\n          [matBadge]=\"getBadgeNumber()\"\n          [matBadgeHidden]=\"getBadgeNumber() === 0 || facetDrawer.opened\"\n          (click)=\"facetDrawer.toggle()\"\n          [matTooltip]=\"\n            (facetDrawer.opened ? 'app.closeFilterMenu' : 'app.openFilterMenu')\n              | translate\n          \"\n          matBadgePosition=\"after\"\n          matBadgeColor=\"primary\"\n          class=\"filter-drawer-button\"\n          mat-icon-button\n        >\n          <mat-icon *ngIf=\"facetDrawer.opened; else closed\">close</mat-icon>\n          <ng-template #closed><mat-icon>filter_alt</mat-icon></ng-template>\n        </button>\n      </div>\n      <amsui-search-results-wrapper\n        [searchResultMeta]=\"(searchResultMeta$ | async)!\"\n        [searchResults]=\"(results$ | async)!\"\n        [resultViewConfig]=\"resultViewConfig\"\n        [noResultsConfig]=\"noResultsConfig\"\n        (didYouMeanEvent)=\"didYouMeanSearch($event)\"\n        (loadMoreEvent)=\"handleLoadMore()\"\n        (filterChangedEvent)=\"handleFilterChange($event)\"\n        (resultActionClicked)=\"onResultEntryClicked($event)\"\n      ></amsui-search-results-wrapper>\n    </mat-drawer-content>\n  </mat-drawer-container>\n</div>\n"
+            "templateData": "<amsui-search-field\n  [config]=\"searchFieldConfig\"\n  (searchEvent)=\"handleSearchEvent($event)\"\n></amsui-search-field>\n"
         },
         {
             "name": "DidYouMeanComponent",
@@ -4789,7 +3586,7 @@
         },
         {
             "name": "ResultEntryComponent",
-            "id": "component-ResultEntryComponent-07d851d113403dd4004699399713979e",
+            "id": "component-ResultEntryComponent-c4cfb2dcced812fcf8b8ccb1f6999a73",
             "file": "projects/amsui/src/lib/results/result-entry/result-entry.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4862,7 +3659,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 86
+                    "line": 85
                 },
                 {
                     "name": "emitActionEvent",
@@ -4892,7 +3689,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 66
+                    "line": 65
                 },
                 {
                     "name": "getShowMoreButtonDescription",
@@ -4900,7 +3697,7 @@
                     "optional": false,
                     "returnType": "Observable<string>",
                     "typeParameters": [],
-                    "line": 101
+                    "line": 100
                 },
                 {
                     "name": "getWordsNumber",
@@ -4908,7 +3705,7 @@
                     "optional": false,
                     "returnType": "number",
                     "typeParameters": [],
-                    "line": 94
+                    "line": 93
                 },
                 {
                     "name": "ngAfterViewInit",
@@ -4946,7 +3743,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 52,
+                    "line": 51,
                     "modifierKind": [
                         112
                     ]
@@ -4957,7 +3754,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  ElementRef,\n  EventEmitter,\n  Input,\n  OnChanges,\n  Output,\n  SimpleChanges,\n} from '@angular/core';\nimport type {\n  ResultEntry,\n  ResultEntryActionEvent,\n} from '../../search-service/search.types';\nimport { defaultConfig } from '../../default.config';\nimport { TranslateService } from '@ngx-translate/core';\nimport { Observable } from 'rxjs';\n\n@Component({\n  selector: 'amsui-result-entry',\n  templateUrl: './result-entry.component.html',\n  styleUrls: ['./result-entry.component.scss'],\n})\nexport class ResultEntryComponent implements AfterViewInit, OnChanges {\n  @Input() entry!: ResultEntry;\n  @Input() highlightingActivated = defaultConfig.highlightingActivated;\n  @Output() actionClicked = new EventEmitter<ResultEntryActionEvent>();\n  @Input() showMoreWordLimit = defaultConfig.showMoreWordLimit;\n  showMoreContent = false;\n  showMoreWords!: number;\n  showMoreWordLimitThreshold = 50;\n  constructor(\n    private readonly elRef: ElementRef,\n    private readonly translateService: TranslateService\n  ) {}\n\n  ngAfterViewInit(): void {\n    this.toggleHighlighting();\n  }\n\n  ngOnChanges(changes: SimpleChanges): void {\n    if (changes.highlightingActivated) {\n      this.toggleHighlighting();\n    }\n  }\n\n  emitActionEvent(actionName: string): void {\n    console.log('hi');\n    this.actionClicked.emit({ actionName, entry: this.entry });\n  }\n\n  private toggleHighlighting(): void {\n    this.elRef.nativeElement\n      .querySelectorAll('em')\n      .forEach((node: HTMLElement) => {\n        if (this.highlightingActivated) {\n          node.classList.add('highlight');\n          node.classList.remove('no-highlight');\n        } else {\n          node.classList.add('no-highlight');\n          node.classList.remove('highlight');\n        }\n      });\n  }\n\n  getEntryDescription(): string {\n    let desc = '';\n    if (this.entry.description) {\n      if (this.showMoreContent || !this.checkIfNeedShowMore()) {\n        desc = this.entry.description;\n      } else {\n        const words = this.entry.description.trim().split(/\\s+/);\n        this.showMoreWords = words.slice(\n          this.showMoreWordLimit + this.showMoreWordLimitThreshold + 1\n        ).length;\n        desc =\n          words\n            .slice(0, this.showMoreWordLimit + this.showMoreWordLimitThreshold)\n            .join(' ') + '...';\n      }\n    }\n    this.toggleHighlighting();\n    return desc;\n  }\n\n  checkIfNeedShowMore(): boolean {\n    return (\n      typeof this.entry.description !== 'undefined' &&\n      this.entry.description !== '' &&\n      this.entry.description.split(' ').length > this.showMoreWordLimit\n    );\n  }\n\n  getWordsNumber(): number {\n    if (Math.round(this.showMoreWords / 50) * 50 === 0) {\n      return 50;\n    }\n    return Math.round(this.showMoreWords / 50) * 50;\n  }\n\n  getShowMoreButtonDescription(): Observable<string> {\n    if (!this.showMoreContent) {\n      const numberOfWords = this.getWordsNumber();\n      if (numberOfWords <= 50) {\n        return this.translateService.get('searchResultEntry.showFewMore');\n      }\n      return this.translateService.get('searchResultEntry.showMore', {\n        showMoreWords: numberOfWords,\n      });\n    }\n    return this.translateService.get('searchResultEntry.showLess');\n  }\n}\n",
+            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  ElementRef,\n  EventEmitter,\n  Input,\n  OnChanges,\n  Output,\n  SimpleChanges,\n} from '@angular/core';\nimport type {\n  ResultEntry,\n  ResultEntryActionEvent,\n} from '../../search-service/search.types';\nimport { defaultConfig } from '../../default.config';\nimport { TranslateService } from '@ngx-translate/core';\nimport { Observable } from 'rxjs';\n\n@Component({\n  selector: 'amsui-result-entry',\n  templateUrl: './result-entry.component.html',\n  styleUrls: ['./result-entry.component.scss'],\n})\nexport class ResultEntryComponent implements AfterViewInit, OnChanges {\n  @Input() entry!: ResultEntry;\n  @Input() highlightingActivated = defaultConfig.highlightingActivated;\n  @Output() actionClicked = new EventEmitter<ResultEntryActionEvent>();\n  @Input() showMoreWordLimit = defaultConfig.showMoreWordLimit;\n  showMoreContent = false;\n  showMoreWords!: number;\n  showMoreWordLimitThreshold = 50;\n  constructor(\n    private readonly elRef: ElementRef,\n    private readonly translateService: TranslateService\n  ) {}\n\n  ngAfterViewInit(): void {\n    this.toggleHighlighting();\n  }\n\n  ngOnChanges(changes: SimpleChanges): void {\n    if (changes.highlightingActivated) {\n      this.toggleHighlighting();\n    }\n  }\n\n  emitActionEvent(actionName: string): void {\n    this.actionClicked.emit({ actionName, entry: this.entry });\n  }\n\n  private toggleHighlighting(): void {\n    this.elRef.nativeElement\n      .querySelectorAll('em')\n      .forEach((node: HTMLElement) => {\n        if (this.highlightingActivated) {\n          node.classList.add('highlight');\n          node.classList.remove('no-highlight');\n        } else {\n          node.classList.add('no-highlight');\n          node.classList.remove('highlight');\n        }\n      });\n  }\n\n  getEntryDescription(): string {\n    let desc = '';\n    if (this.entry.description) {\n      if (this.showMoreContent || !this.checkIfNeedShowMore()) {\n        desc = this.entry.description;\n      } else {\n        const words = this.entry.description.trim().split(/\\s+/);\n        this.showMoreWords = words.slice(\n          this.showMoreWordLimit + this.showMoreWordLimitThreshold + 1\n        ).length;\n        desc =\n          words\n            .slice(0, this.showMoreWordLimit + this.showMoreWordLimitThreshold)\n            .join(' ') + '...';\n      }\n    }\n    this.toggleHighlighting();\n    return desc;\n  }\n\n  checkIfNeedShowMore(): boolean {\n    return (\n      typeof this.entry.description !== 'undefined' &&\n      this.entry.description !== '' &&\n      this.entry.description.split(' ').length > this.showMoreWordLimit\n    );\n  }\n\n  getWordsNumber(): number {\n    if (Math.round(this.showMoreWords / 50) * 50 === 0) {\n      return 50;\n    }\n    return Math.round(this.showMoreWords / 50) * 50;\n  }\n\n  getShowMoreButtonDescription(): Observable<string> {\n    if (!this.showMoreContent) {\n      const numberOfWords = this.getWordsNumber();\n      if (numberOfWords <= 50) {\n        return this.translateService.get('searchResultEntry.showFewMore');\n      }\n      return this.translateService.get('searchResultEntry.showMore', {\n        showMoreWords: numberOfWords,\n      });\n    }\n    return this.translateService.get('searchResultEntry.showLess');\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -6652,16 +5449,7 @@
                     "type": "imports",
                     "elements": [
                         {
-                            "name": "AppRoutingModule"
-                        },
-                        {
-                            "name": "FacetGroupModule"
-                        },
-                        {
                             "name": "SearchFieldModule"
-                        },
-                        {
-                            "name": "SearchResultsWrapperModule"
                         }
                     ]
                 },
@@ -6676,35 +5464,6 @@
                             "name": "AppComponent"
                         }
                     ]
-                },
-                {
-                    "type": "classes",
-                    "elements": []
-                }
-            ]
-        },
-        {
-            "name": "AppRoutingModule",
-            "children": [
-                {
-                    "type": "providers",
-                    "elements": []
-                },
-                {
-                    "type": "declarations",
-                    "elements": []
-                },
-                {
-                    "type": "imports",
-                    "elements": []
-                },
-                {
-                    "type": "exports",
-                    "elements": []
-                },
-                {
-                    "type": "bootstrap",
-                    "elements": []
                 },
                 {
                     "type": "classes",
@@ -7332,14 +6091,6 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "archiveOrgConfig",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/archive-org.config.ts",
-                "type": "ResultTypesConfig",
-                "defaultValue": "{\n  all: {\n    name: 'app.filterName.all',\n    avatarIcon: 'search',\n    facets: [\n      new FacetConfigSolr('genre', 25, 'Type', 'top_genre').addFunctionality({\n        facetType: 'multi',\n      }),\n    ],\n    sortingOptions: [],\n    typeCriterias: [],\n  },\n  documents: {\n    name: 'app.filterName.documents',\n    avatarIcon: 'article',\n    facets: [\n      new FacetConfigSolr(\n        'author',\n        25,\n        'Author',\n        'top_authors'\n      ).addFunctionality({\n        facetType: 'single',\n      }),\n    ],\n    sortingOptions: [\n      {\n        value: 'relevance',\n        viewValue: 'Relevanz',\n      },\n      {\n        value: 'title',\n        viewValue: 'Namen',\n      },\n    ],\n    typeCriterias: [{ field: 'type', value: ['Pressemeldung', 'Landingpage'] }],\n  },\n}"
-            },
-            {
                 "name": "AutocompleteSuggestions",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -7471,7 +6222,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/results.stories.ts",
+                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -7479,7 +6230,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
+                "file": "projects/amsui/src/lib/results/results.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -7503,7 +6254,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
+                "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -7617,7 +6368,7 @@
                 "subtype": "variable",
                 "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true,\n  backendURL: 'https://archive.org/',\n  showToolTips: false,\n}"
+                "defaultValue": "{\n  production: true,\n}"
             },
             {
                 "name": "environment",
@@ -7625,7 +6376,7 @@
                 "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false,\n  backendURL: 'https://archive.org/',\n  showToolTips: false,\n}"
+                "defaultValue": "{\n  production: false,\n}"
             },
             {
                 "name": "FacetGroupModuleImports",
@@ -7877,17 +6628,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/results.stories.ts",
-                "type": "Story<ResultsComponent>",
-                "defaultValue": "(args: ResultsComponent) => ({\n  component: ResultsComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
+                "type": "Story<OverlayLoaderComponent>",
+                "defaultValue": "(\n  args: OverlayLoaderComponent\n) => ({\n  component: OverlayLoaderComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
-                "type": "Story<SearchResultsWrapperComponent>",
-                "defaultValue": "(\n  args: SearchResultsWrapperComponent\n) => ({\n  component: SearchResultsWrapperComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/results/results.stories.ts",
+                "type": "Story<ResultsComponent>",
+                "defaultValue": "(args: ResultsComponent) => ({\n  component: ResultsComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -7909,9 +6660,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
-                "type": "Story<OverlayLoaderComponent>",
-                "defaultValue": "(\n  args: OverlayLoaderComponent\n) => ({\n  component: OverlayLoaderComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
+                "type": "Story<SearchResultsWrapperComponent>",
+                "defaultValue": "(\n  args: SearchResultsWrapperComponent\n) => ({\n  component: SearchResultsWrapperComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -8785,16 +7536,6 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
-            "src/app/archive-org.config.ts": [
-                {
-                    "name": "archiveOrgConfig",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/archive-org.config.ts",
-                    "type": "ResultTypesConfig",
-                    "defaultValue": "{\n  all: {\n    name: 'app.filterName.all',\n    avatarIcon: 'search',\n    facets: [\n      new FacetConfigSolr('genre', 25, 'Type', 'top_genre').addFunctionality({\n        facetType: 'multi',\n      }),\n    ],\n    sortingOptions: [],\n    typeCriterias: [],\n  },\n  documents: {\n    name: 'app.filterName.documents',\n    avatarIcon: 'article',\n    facets: [\n      new FacetConfigSolr(\n        'author',\n        25,\n        'Author',\n        'top_authors'\n      ).addFunctionality({\n        facetType: 'single',\n      }),\n    ],\n    sortingOptions: [\n      {\n        value: 'relevance',\n        viewValue: 'Relevanz',\n      },\n      {\n        value: 'title',\n        viewValue: 'Namen',\n      },\n    ],\n    typeCriterias: [{ field: 'type', value: ['Pressemeldung', 'Landingpage'] }],\n  },\n}"
-                }
-            ],
             "projects/amsui/src/lib/search-field/search-field.stories.ts": [
                 {
                     "name": "AutocompleteSuggestions",
@@ -9198,7 +7939,7 @@
                     "subtype": "variable",
                     "file": "src/environments/environment.prod.ts",
                     "type": "object",
-                    "defaultValue": "{\n  production: true,\n  backendURL: 'https://archive.org/',\n  showToolTips: false,\n}"
+                    "defaultValue": "{\n  production: true,\n}"
                 }
             ],
             "src/environments/environment.ts": [
@@ -9208,7 +7949,7 @@
                     "subtype": "variable",
                     "file": "src/environments/environment.ts",
                     "type": "object",
-                    "defaultValue": "{\n  production: false,\n  backendURL: 'https://archive.org/',\n  showToolTips: false,\n}"
+                    "defaultValue": "{\n  production: false,\n}"
                 }
             ],
             "projects/amsui/src/lib/facets/facet-group.stories.ts": [
@@ -9749,25 +8490,7 @@
             ]
         }
     },
-    "routes": {
-        "name": "<root>",
-        "kind": "module",
-        "className": "AppModule",
-        "children": [
-            {
-                "name": "routes",
-                "filename": "src/app/app-routing.module.ts",
-                "module": "AppRoutingModule",
-                "children": [
-                    {
-                        "path": "",
-                        "component": "AppComponent"
-                    }
-                ],
-                "kind": "module"
-            }
-        ]
-    },
+    "routes": [],
     "coverage": {
         "count": 0,
         "status": "low",
@@ -11232,7 +9955,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/30",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -11242,25 +9965,6 @@
                 "name": "moduleHttpLoaderFactory",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/archive-org.config.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "archiveOrgConfig",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/archive-org.service.ts",
-                "type": "injectable",
-                "linktype": "injectable",
-                "name": "ArchiveOrgService",
-                "coveragePercent": 0,
-                "coverageCount": "0/44",
                 "status": "low"
             },
             {

@@ -1,24 +1,24 @@
-# Amsui
+# AMSUI - Angular Material Search User Interfaces
+This library provides a set of UI elements of search interfaces. 
+Each element's recommendations have been researched and the identified best practices from main UX/UI institutions and 
+researchers ([Nielsen Norman Group](https://www.nngroup.com/), [Baymard Institue](https://baymard.com/), etc.) have taken into account.
+Not only theoretical knowledge has been used to develop the library, but also our empirical knowledge in information retrieval and search sector.
+The library is developed by the [Redlink GmbH](https://redlink.at) based in Austria. 
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6 and it depends on a few packages (@angular/material, @ngx-translate/core).
 
-## Code scaffolding
+## Open-Source Code
+You can find the code of the [AMSUI library on github](https://github.com/redlink-gmbh/amsui).
 
-Run `ng generate component component-name --project amsui` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project amsui`.
-> Note: Don't forget to add `--project amsui` or else it will be added to the default project in your `angular.json` file. 
+## Documentation 
+The documentation is written within Storybook and it can be found [here](https://dev.redlink.io/amsui).
 
-## Build
+## Demos
+* [Demo with Solr Index](https://dev.redlink.io/amsui-solr-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-solr-demo) 
+* [Standalone demo usage of library's components](https://dev.redlink.io/amsui-standalone-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-standalone-demo)
 
-Run `ng build amsui` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Publishing
+## About [Redlink](https://redlink.at)
 
-After building your library with `ng build amsui`, go to the dist folder `cd dist/amsui` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test amsui` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Redlink packs cutting-edge technologies from the areas of information discovery, natural language processing and artificial intelligence into maintainable and durable software.
+This creates tailor-made solutions for national and international customers as well as universally applicable products.
