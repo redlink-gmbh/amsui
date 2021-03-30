@@ -6222,22 +6222,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/results.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -6254,6 +6238,14 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -6262,7 +6254,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
+                "file": "projects/amsui/src/lib/results/results.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6270,7 +6262,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
+                "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6295,6 +6287,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-result-meta/sorting-select/sorting-select.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6628,22 +6628,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
-                "type": "Story<OverlayLoaderComponent>",
-                "defaultValue": "(\n  args: OverlayLoaderComponent\n) => ({\n  component: OverlayLoaderComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/results.stories.ts",
-                "type": "Story<ResultsComponent>",
-                "defaultValue": "(args: ResultsComponent) => ({\n  component: ResultsComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
                 "type": "Story<SearchFieldComponent>",
                 "defaultValue": "(args: SearchFieldComponent) => ({\n  component: SearchFieldComponent,\n  props: args,\n})"
@@ -6660,6 +6644,14 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
+                "type": "Story<OverlayLoaderComponent>",
+                "defaultValue": "(\n  args: OverlayLoaderComponent\n) => ({\n  component: OverlayLoaderComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
                 "type": "Story<SearchResultsWrapperComponent>",
                 "defaultValue": "(\n  args: SearchResultsWrapperComponent\n) => ({\n  component: SearchResultsWrapperComponent,\n  props: args,\n})"
@@ -6668,17 +6660,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
-                "type": "Story<FacetComponent>",
-                "defaultValue": "(args: FacetComponent) => ({\n  component: FacetComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/results/results.stories.ts",
+                "type": "Story<ResultsComponent>",
+                "defaultValue": "(args: ResultsComponent) => ({\n  component: ResultsComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
-                "type": "Story<ResultEntryComponent>",
-                "defaultValue": "(args: ResultEntryComponent) => ({\n  component: ResultEntryComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
+                "type": "Story<FacetComponent>",
+                "defaultValue": "(args: FacetComponent) => ({\n  component: FacetComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -6711,6 +6703,14 @@
                 "file": "projects/amsui/src/lib/search-result-meta/sorting-select/sorting-select.stories.ts",
                 "type": "Story<SortingSelectComponent>",
                 "defaultValue": "(\n  args: SortingSelectComponent\n) => ({\n  component: SortingSelectComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
+                "type": "Story<ResultEntryComponent>",
+                "defaultValue": "(args: ResultEntryComponent) => ({\n  component: ResultEntryComponent,\n  props: args,\n})"
             },
             {
                 "name": "WithActions",
