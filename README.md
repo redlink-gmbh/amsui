@@ -52,3 +52,13 @@ npm start
 - Add prettier formatter on save in intellij products for a better developer experience.
 - To be able to run the demo project with data, you need a Solr index and write a transformer service for the response docs.
 
+## [Documentation](https://dev.redlink.io/amsui) 
+The documentation is written within Storybook and it can be found [here](https://dev.redlink.io/amsui).
+
+## [npm library](https://www.npmjs.com/package/@redlink/amsui)
+THe library is published to npm and can be used through installing it via npm. 
+
+## Demos
+* [Demo with Solr Index](https://dev.redlink.io/amsui-solr-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-solr-demo) 
+* [Standalone demo usage of library's components](https://dev.redlink.io/amsui-standalone-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-standalone-demo)
+
