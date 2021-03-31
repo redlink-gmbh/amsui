@@ -61,4 +61,5 @@ THe library is published to npm and can be used through installing it via npm.
 ## Demos
 * [Demo with Solr Index](https://dev.redlink.io/amsui-solr-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-solr-demo) 
 * [Standalone demo usage of library's components](https://dev.redlink.io/amsui-standalone-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-standalone-demo)
+* [Demo with a public API](https://dev.redlink.io/amsui-public-api-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-public-api-demo)
 
