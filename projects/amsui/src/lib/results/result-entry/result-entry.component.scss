@@ -18,8 +18,11 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      mat-icon:not(:first-child) {
-        margin-left: 5px;
+      mat-icon {
+        margin-right: 5px;
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
       }
     }
     mat-card-content {

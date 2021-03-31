@@ -3758,7 +3758,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host {\n  box-sizing: border-box;\n  .result-entry {\n    box-sizing: border-box;\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n    .mat-card-image {\n      object-fit: cover;\n      max-height: 350px;\n    }\n    mat-chip {\n      height: auto;\n      width: min-content;\n      white-space: nowrap;\n    }\n    .subtitle-container {\n      display: flex;\n      align-items: center;\n      flex-wrap: wrap;\n      mat-icon:not(:first-child) {\n        margin-left: 5px;\n      }\n    }\n    mat-card-content {\n      overflow: hidden;\n      text-wrap: none;\n      text-overflow: ellipsis;\n    }\n    mat-card-actions {\n      display: flex;\n      flex: 1 0 auto;\n      align-items: flex-end;\n    }\n    mat-icon.mat-card-avatar {\n      width: 40px;\n      height: 40px;\n      font-size: 40px;\n      color: var(--accent-color);\n    }\n    .show-more-text {\n      margin-top: -70px;\n      background: rgb(255, 255, 255);\n      background: linear-gradient(\n        rgba(255, 255, 255, 0.1) 0%,\n        rgba(255, 255, 255, 0.3) 10%,\n        rgba(255, 255, 255, 0.5) 20%,\n        rgba(255, 255, 255, 0.8) 30%,\n        rgba(255, 255, 255, 1) 100%\n      );\n      text-align: center;\n      padding: 10px 25px;\n      backdrop-filter: blur(1px);\n    }\n    .show-more-open {\n      margin-top: -10px;\n      padding: 10px;\n    }\n  }\n}\n",
+                    "data": ":host {\n  box-sizing: border-box;\n  .result-entry {\n    box-sizing: border-box;\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n    .mat-card-image {\n      object-fit: cover;\n      max-height: 350px;\n    }\n    mat-chip {\n      height: auto;\n      width: min-content;\n      white-space: nowrap;\n    }\n    .subtitle-container {\n      display: flex;\n      align-items: center;\n      flex-wrap: wrap;\n      mat-icon {\n        margin-right: 5px;\n        &:not(:first-child) {\n          margin-left: 10px;\n        }\n      }\n    }\n    mat-card-content {\n      overflow: hidden;\n      text-wrap: none;\n      text-overflow: ellipsis;\n    }\n    mat-card-actions {\n      display: flex;\n      flex: 1 0 auto;\n      align-items: flex-end;\n    }\n    mat-icon.mat-card-avatar {\n      width: 40px;\n      height: 40px;\n      font-size: 40px;\n      color: var(--accent-color);\n    }\n    .show-more-text {\n      margin-top: -70px;\n      background: rgb(255, 255, 255);\n      background: linear-gradient(\n        rgba(255, 255, 255, 0.1) 0%,\n        rgba(255, 255, 255, 0.3) 10%,\n        rgba(255, 255, 255, 0.5) 20%,\n        rgba(255, 255, 255, 0.8) 30%,\n        rgba(255, 255, 255, 1) 100%\n      );\n      text-align: center;\n      padding: 10px 25px;\n      backdrop-filter: blur(1px);\n    }\n    .show-more-open {\n      margin-top: -10px;\n      padding: 10px;\n    }\n  }\n}\n",
                     "styleUrl": "./result-entry.component.scss"
                 }
             ],
@@ -3798,7 +3798,7 @@
                 "AfterViewInit",
                 "OnChanges"
             ],
-            "templateData": "<mat-card\n  class=\"result-entry\"\n  (click)=\"\n    entry.actions && entry.actions.length <= 0\n      ? emitActionEvent('cardClick')\n      : ''\n  \"\n  *ngIf=\"entry.title || entry.description\"\n>\n  <mat-card-header>\n    <img\n      *ngIf=\"entry.avatarImgSrc\"\n      mat-card-avatar\n      matTooltip=\"{{ entry.avatarToolTip! | translate }}\"\n      [src]=\"entry.avatarImgSrc\"\n      [alt]=\"entry.title\"\n    />\n    <mat-icon\n      *ngIf=\"entry.avatarIcon\"\n      matTooltip=\"{{ entry.avatarToolTip! | translate }}\"\n      mat-card-avatar\n      >{{ entry.avatarIcon }}</mat-icon\n    >\n    <mat-card-title [innerHTML]=\"entry.title\"></mat-card-title>\n    <mat-card-subtitle>\n      <div class=\"subtitle-container\">\n        <ng-container *ngFor=\"let subTitle of entry.subTitles\">\n          <mat-icon>{{ subTitle.icon }}</mat-icon>\n          {{ subTitle.description! | translate }}\n        </ng-container>\n      </div>\n    </mat-card-subtitle>\n  </mat-card-header>\n  <img\n    *ngIf=\"entry.imageSrc\"\n    mat-card-image\n    [src]=\"entry.imageSrc\"\n    [alt]=\"entry.title\"\n  />\n  <mat-card-content>\n    <mat-chip-list>\n      <mat-chip *ngFor=\"let tag of entry.tags\">\n        {{ tag | translate }}\n      </mat-chip>\n    </mat-chip-list>\n    <p [innerHTML]=\"getEntryDescription()\"></p>\n  </mat-card-content>\n  <button\n    *ngIf=\"checkIfNeedShowMore()\"\n    (click)=\"showMoreContent = !showMoreContent\"\n    [class.show-more-open]=\"showMoreContent\"\n    mat-button\n    class=\"show-more-text\"\n    color=\"primary\"\n  >\n    {{ getShowMoreButtonDescription() | async }}\n  </button>\n  <mat-card-actions>\n    <button\n      *ngFor=\"let action of entry.actions\"\n      mat-icon-button\n      [matTooltip]=\"action.description ? (action.description | translate) : ''\"\n      (click)=\"emitActionEvent(action.name)\"\n    >\n      <mat-icon>{{ action.icon }}</mat-icon>\n    </button>\n  </mat-card-actions>\n</mat-card>\n"
+            "templateData": "<mat-card\n  class=\"result-entry\"\n  (click)=\"\n    !entry.actions\n      ? emitActionEvent('cardClick')\n      : ''\n  \"\n  *ngIf=\"entry.title || entry.description\"\n>\n  <mat-card-header>\n    <img\n      *ngIf=\"entry.avatarImgSrc\"\n      mat-card-avatar\n      matTooltip=\"{{ entry.avatarToolTip! | translate }}\"\n      [src]=\"entry.avatarImgSrc\"\n      [alt]=\"entry.title\"\n    />\n    <mat-icon\n      *ngIf=\"entry.avatarIcon\"\n      matTooltip=\"{{ entry.avatarToolTip! | translate }}\"\n      mat-card-avatar\n      >{{ entry.avatarIcon }}</mat-icon\n    >\n    <mat-card-title [innerHTML]=\"entry.title\"></mat-card-title>\n    <mat-card-subtitle>\n      <div class=\"subtitle-container\">\n        <ng-container *ngFor=\"let subTitle of entry.subTitles\">\n          <mat-icon>{{ subTitle.icon }}</mat-icon>\n          {{ subTitle.description! | translate }}\n        </ng-container>\n      </div>\n    </mat-card-subtitle>\n  </mat-card-header>\n  <img\n    *ngIf=\"entry.imageSrc\"\n    mat-card-image\n    [src]=\"entry.imageSrc\"\n    [alt]=\"entry.title\"\n  />\n  <mat-card-content>\n    <mat-chip-list>\n      <mat-chip *ngFor=\"let tag of entry.tags\">\n        {{ tag | translate }}\n      </mat-chip>\n    </mat-chip-list>\n    <p [innerHTML]=\"getEntryDescription()\"></p>\n  </mat-card-content>\n  <button\n    *ngIf=\"checkIfNeedShowMore()\"\n    (click)=\"showMoreContent = !showMoreContent\"\n    [class.show-more-open]=\"showMoreContent\"\n    mat-button\n    class=\"show-more-text\"\n    color=\"primary\"\n  >\n    {{ getShowMoreButtonDescription() | async }}\n  </button>\n  <mat-card-actions>\n    <button\n      *ngFor=\"let action of entry.actions\"\n      mat-icon-button\n      [matTooltip]=\"action.description ? (action.description | translate) : ''\"\n      (click)=\"emitActionEvent(action.name)\"\n    >\n      <mat-icon>{{ action.icon }}</mat-icon>\n    </button>\n  </mat-card-actions>\n</mat-card>\n"
         },
         {
             "name": "ResultsComponent",
@@ -3889,7 +3889,7 @@
                 "args": [],
                 "line": 18
             },
-            "templateData": "<div\n  class=\"search-results\"\n  [ngClass]=\"{\n    'search-results-grid': resultType === 'grid',\n    'search-results-list': resultType === 'list'\n  }\"\n>\n  <amsui-result-entry\n    *ngFor=\"let entry of results\"\n    [entry]=\"entry\"\n    [highlightingActivated]=\"highlightingActivated\"\n    (actionClicked)=\"emitActionEvent($event)\"\n  ></amsui-result-entry>\n</div>\n"
+            "templateData": "<div\n  class=\"search-results\"\n  [ngClass]=\"{\n    'search-results-grid': resultType === 'grid',\n    'search-results-list': resultType === 'list'\n  }\"\n>\n  <ng-container\n    *ngFor=\"let entry of results\">\n    <amsui-result-entry\n      *ngIf=\"entry.title || entry.description\"\n      [entry]=\"entry\"\n      [highlightingActivated]=\"highlightingActivated\"\n      (actionClicked)=\"emitActionEvent($event)\"\n    ></amsui-result-entry>\n\n  </ng-container>\n</div>\n"
         },
         {
             "name": "ResultTypeComponent",
@@ -6222,22 +6222,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-result-meta/search-results-meta.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -6246,7 +6230,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
+                "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6262,7 +6246,31 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-result-meta/search-results-meta.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6287,14 +6295,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-result-meta/sorting-select/sorting-select.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6628,22 +6628,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
-                "type": "Story<SearchFieldComponent>",
-                "defaultValue": "(args: SearchFieldComponent) => ({\n  component: SearchFieldComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-result-meta/search-results-meta.stories.ts",
-                "type": "Story<SearchResultMetaComponent>",
-                "defaultValue": "(\n  args: SearchResultMetaComponent\n) => ({\n  component: SearchResultMetaComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
                 "type": "Story<OverlayLoaderComponent>",
                 "defaultValue": "(\n  args: OverlayLoaderComponent\n) => ({\n  component: OverlayLoaderComponent,\n  props: args,\n})"
@@ -6652,9 +6636,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
-                "type": "Story<SearchResultsWrapperComponent>",
-                "defaultValue": "(\n  args: SearchResultsWrapperComponent\n) => ({\n  component: SearchResultsWrapperComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
+                "type": "Story<SearchFieldComponent>",
+                "defaultValue": "(args: SearchFieldComponent) => ({\n  component: SearchFieldComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -6668,9 +6652,33 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-result-meta/search-results-meta.stories.ts",
+                "type": "Story<SearchResultMetaComponent>",
+                "defaultValue": "(\n  args: SearchResultMetaComponent\n) => ({\n  component: SearchResultMetaComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
+                "type": "Story<SearchResultsWrapperComponent>",
+                "defaultValue": "(\n  args: SearchResultsWrapperComponent\n) => ({\n  component: SearchResultsWrapperComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
                 "type": "Story<FacetComponent>",
                 "defaultValue": "(args: FacetComponent) => ({\n  component: FacetComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
+                "type": "Story<ResultEntryComponent>",
+                "defaultValue": "(args: ResultEntryComponent) => ({\n  component: ResultEntryComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -6703,14 +6711,6 @@
                 "file": "projects/amsui/src/lib/search-result-meta/sorting-select/sorting-select.stories.ts",
                 "type": "Story<SortingSelectComponent>",
                 "defaultValue": "(\n  args: SortingSelectComponent\n) => ({\n  component: SortingSelectComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
-                "type": "Story<ResultEntryComponent>",
-                "defaultValue": "(args: ResultEntryComponent) => ({\n  component: ResultEntryComponent,\n  props: args,\n})"
             },
             {
                 "name": "WithActions",

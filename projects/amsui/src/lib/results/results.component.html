@@ -5,10 +5,14 @@
     'search-results-list': resultType === 'list'
   }"
 >
-  <amsui-result-entry
-    *ngFor="let entry of results"
-    [entry]="entry"
-    [highlightingActivated]="highlightingActivated"
-    (actionClicked)="emitActionEvent($event)"
-  ></amsui-result-entry>
+  <ng-container
+    *ngFor="let entry of results">
+    <amsui-result-entry
+      *ngIf="entry.title || entry.description"
+      [entry]="entry"
+      [highlightingActivated]="highlightingActivated"
+      (actionClicked)="emitActionEvent($event)"
+    ></amsui-result-entry>
+
+  </ng-container>
 </div>

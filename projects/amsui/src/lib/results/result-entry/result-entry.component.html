@@ -1,7 +1,7 @@
 <mat-card
   class="result-entry"
   (click)="
-    entry.actions && entry.actions.length <= 0
+    !entry.actions
       ? emitActionEvent('cardClick')
       : ''
   "
