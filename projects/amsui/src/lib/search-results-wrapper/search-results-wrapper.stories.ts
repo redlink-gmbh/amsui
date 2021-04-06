@@ -53,7 +53,12 @@ export const Template: Story<SearchResultsWrapperComponent> = (
 });
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  searchResultsWrapperText: {
+    placeholder:
+      'You can start the search by easily adding something to the search field and hitting the enter key!',
+  },
+};
 
 export const AddConfigs = Template.bind({});
 AddConfigs.args = {
@@ -83,6 +88,17 @@ AddFilterTabs.args = {
   noResultsConfig: getNoResultConfig(3),
   searchResults: getResults(),
 };
+export const ChangeText = Template.bind({});
+ChangeText.args = {
+  searchResultMeta: getSearchResultMeta(0),
+  resultViewConfig: getResultViewConfig(2),
+  noResultsConfig: getNoResultConfig(3),
+  searchResults: getResults(),
+  searchResultsWrapperText: {
+    loadMoreButton: 'Do you want to load more?',
+    problemsLoadMore: 'Problems occurred! Please load again!',
+  },
+};
 
 function getSearchResultMeta(index: number): SearchResultMeta {
   const searchResultMeta: SearchResultMeta = {
@@ -106,7 +122,6 @@ function getResultViewConfig(index: number): ResultViewConfig {
     resultViewTypes: ['grid'],
     selectedResultViewType: 'grid',
     filterTabs: [],
-    searchResultPlaceholderText: '',
   };
   return [
     resultViewConfig,

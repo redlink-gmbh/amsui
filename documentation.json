@@ -6491,6 +6491,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "ChangeText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-result-meta/did-you-mean/did-you-mean.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Collapsed",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -6550,6 +6558,22 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/results/results.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -6566,14 +6590,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -6582,7 +6598,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/results.stories.ts",
+                "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6590,7 +6606,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
+                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6615,14 +6631,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-result-meta/sorting-select/sorting-select.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6694,17 +6702,17 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false,\n}"
+                "defaultValue": "{\n  production: true,\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true,\n}"
+                "defaultValue": "{\n  production: false,\n}"
             },
             {
                 "name": "FacetGroupModuleImports",
@@ -6956,6 +6964,22 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
+                "type": "Story<OverlayLoaderComponent>",
+                "defaultValue": "(\n  args: OverlayLoaderComponent\n) => ({\n  component: OverlayLoaderComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/results/results.stories.ts",
+                "type": "Story<ResultsComponent>",
+                "defaultValue": "(args: ResultsComponent) => ({\n  component: ResultsComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
                 "type": "Story<SearchFieldComponent>",
                 "defaultValue": "(args: SearchFieldComponent) => ({\n  component: SearchFieldComponent,\n  props: args,\n})"
@@ -6972,14 +6996,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
-                "type": "Story<OverlayLoaderComponent>",
-                "defaultValue": "(\n  args: OverlayLoaderComponent\n) => ({\n  component: OverlayLoaderComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
                 "type": "Story<SearchResultsWrapperComponent>",
                 "defaultValue": "(\n  args: SearchResultsWrapperComponent\n) => ({\n  component: SearchResultsWrapperComponent,\n  props: args,\n})"
@@ -6988,17 +7004,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/results.stories.ts",
-                "type": "Story<ResultsComponent>",
-                "defaultValue": "(args: ResultsComponent) => ({\n  component: ResultsComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
+                "type": "Story<FacetComponent>",
+                "defaultValue": "(args: FacetComponent) => ({\n  component: FacetComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
-                "type": "Story<FacetComponent>",
-                "defaultValue": "(args: FacetComponent) => ({\n  component: FacetComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
+                "type": "Story<ResultEntryComponent>",
+                "defaultValue": "(args: ResultEntryComponent) => ({\n  component: ResultEntryComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -7031,14 +7047,6 @@
                 "file": "projects/amsui/src/lib/search-result-meta/sorting-select/sorting-select.stories.ts",
                 "type": "Story<SortingSelectComponent>",
                 "defaultValue": "(\n  args: SortingSelectComponent\n) => ({\n  component: SortingSelectComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
-                "type": "Story<ResultEntryComponent>",
-                "defaultValue": "(args: ResultEntryComponent) => ({\n  component: ResultEntryComponent,\n  props: args,\n})"
             },
             {
                 "name": "WithActions",
@@ -7611,6 +7619,14 @@
             "projects/amsui/src/lib/search-result-meta/did-you-mean/did-you-mean.stories.ts": [
                 {
                     "name": "AddValue",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/did-you-mean/did-you-mean.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "ChangeText",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/amsui/src/lib/search-result-meta/did-you-mean/did-you-mean.stories.ts",
@@ -8260,16 +8276,6 @@
                     "defaultValue": "{\n  sortingOptions: [],\n  resultViewTypes: ['list', 'grid'],\n  selectedResultViewType: 'list',\n}"
                 }
             ],
-            "src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false,\n}"
-                }
-            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -8278,6 +8284,16 @@
                     "file": "src/environments/environment.prod.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: true,\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false,\n}"
                 }
             ],
             "projects/amsui/src/lib/facets/facet-group.stories.ts": [
@@ -9528,6 +9544,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "AddValue",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amsui/src/lib/search-result-meta/did-you-mean/did-you-mean.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ChangeText",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

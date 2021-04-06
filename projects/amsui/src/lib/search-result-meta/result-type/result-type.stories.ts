@@ -37,6 +37,9 @@ SelectedType.args = getResultTypeConfig(1);
 export const Disabled = Template.bind({});
 Disabled.args = getResultTypeConfig(2);
 
+export const ChangeText = Template.bind({});
+ChangeText.args = getResultTypeConfig(3);
+
 function getResultTypeConfig(index: number): any {
   const disabled = true;
   const resultTypes: ResultViewType[] = ['list', 'grid'];
@@ -44,5 +47,6 @@ function getResultTypeConfig(index: number): any {
     { resultTypes },
     { resultTypes, selectedResultType: 'grid' },
     { resultTypes, disabled },
+    { resultTypes, resultTypeText: { grid: 'Raster', list: 'List' } },
   ][index];
 }

@@ -37,6 +37,17 @@ MultipleFacets.args = {
   facets: getFacets(),
 };
 
+export const ChangeText = Template.bind({});
+ChangeText.args = {
+  facets: getFacets(),
+  facetGroupText: {
+    noPossibleFilters: 'No filters can be applied',
+    openAllFacets: 'Open filters',
+    closeAllFacets: 'Close filters',
+    resetFacetSelection: 'Reset',
+    filterResults: 'Available filters',
+  },
+};
 function getFacets(): Facet[] {
   return [
     {

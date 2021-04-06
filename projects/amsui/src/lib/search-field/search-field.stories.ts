@@ -42,10 +42,11 @@ Default.args = {
 };
 export const ChangeText = Template.bind({});
 ChangeText.args = {
-  config: {
+  searchFieldText: {
     placeholderLabel: 'Here you can adjust the placeholder',
     searchButtonText: 'and the button text',
   },
+  config: {},
 };
 export const SetValue = Template.bind({});
 SetValue.args = {

@@ -24,6 +24,17 @@ export const DidYouMeanValue = Template.bind({});
 DidYouMeanValue.args = {
   searchResultMeta: getSearchResultMeta(1),
 };
+export const ChangeText = Template.bind({});
+ChangeText.args = {
+  searchResultMeta: getSearchResultMeta(1),
+  text: { information: 'We found 80 entries for Dogs in our Database!' },
+};
+
+export const ChangeTextNotFound = Template.bind({});
+ChangeTextNotFound.args = {
+  searchResultMeta: getSearchResultMeta(2),
+  text: { notFound: 'We have not found anything on our side!' },
+};
 
 function getSearchResultMeta(index: number): any {
   const searchResultMeta = {
@@ -32,7 +43,9 @@ function getSearchResultMeta(index: number): any {
     keyword: 'Dog',
     numShowed: 20,
   };
-  return [searchResultMeta, { ...searchResultMeta, didYouMeanValue: 'Cat' }][
-    index
-  ];
+  return [
+    searchResultMeta,
+    { ...searchResultMeta, didYouMeanValue: 'Cat' },
+    { ...searchResultMeta, numFound: 0 },
+  ][index];
 }

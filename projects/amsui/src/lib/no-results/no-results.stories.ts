@@ -90,3 +90,16 @@ export const AllFeatures = Template.bind({});
 AllFeatures.args = {
   config: getNoResultConfig(3),
 };
+
+export const ChangeText = Template.bind({});
+ChangeText.args = {
+  config: getNoResultConfig(3),
+  noResultsText: {
+    tipsHeading: 'Some tips for searching: ',
+    tips: ['Use fewer words', 'Write more generic search keywords'],
+    othersSearched: 'Others like you searched for: ',
+    helpfulResults: 'This could help: ',
+    feedbackSearch: 'We could not find any results with your query',
+    contact: 'If you need further help please contact us!',
+  },
+};

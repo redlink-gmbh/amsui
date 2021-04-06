@@ -11,6 +11,7 @@ import { DidYouMeanComponent } from "./did-you-mean.component";
     value: {
       control: "text",
     },
+    didYouMeanText: { control: "text" },
   }}
 />
 
@@ -23,6 +24,10 @@ This component generates a did you mean phrase with a clickable link that emits 
 This component is only shown if a value is specified.
 
 <Story story={stories.AddValue} height="80px" />
+
+## Change the text of the component
+
+<Story story={stories.ChangeText} height="80px" />
 
 ## ArgsTable
 

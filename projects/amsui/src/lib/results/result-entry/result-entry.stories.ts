@@ -85,6 +85,15 @@ export const AllFeatures = Template.bind({});
 AllFeatures.args = {
   entry: getResultEntry(8),
 };
+export const ChangeText = Template.bind({});
+ChangeText.args = {
+  entry: getResultEntry(7),
+  resultEntryText: {
+    showLess: 'Show less text',
+    showMore: 'Show more text',
+    showFewMore: 'Show a little bit more text',
+  },
+};
 
 function getResultEntry(index: number): ResultEntry {
   const resultEntry: ResultEntry = {

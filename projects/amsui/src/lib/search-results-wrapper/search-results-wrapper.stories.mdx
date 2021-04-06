@@ -20,6 +20,9 @@ import { SearchResultsWrapperComponent } from "./search-results-wrapper.componen
     searchResults: {
       control: "object",
     },
+    searchResultsWrapperText: {
+      control: "object",
+    },
   }}
 />
 
@@ -57,6 +60,10 @@ A placeholder will be shown when nothing has been searched yet.
 Whenever a filter has changed, an event is triggered. When listening to this event, new data can be put inside the wrapper.
 
 <Story story={stories.AddFilterTabs} height="1100px" />
+
+## Change the text of the component
+
+<Story story={stories.ChangeText} height="1100px" />
 
 ## ArgsTable
 

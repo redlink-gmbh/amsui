@@ -66,6 +66,17 @@ export const MultiSelect = Template.bind({});
 MultiSelect.args = {
   inputFacet: getFacet(6),
 };
+export const ChangeText = Template.bind({});
+ChangeText.args = {
+  inputFacet: getFacet(3),
+  facetText: {
+    showMore: 'Show me more!',
+    showLess: 'Please less!',
+    noResults: 'Nothing found',
+    filterRemovalTooltip: 'Remove this filter about places',
+    placeHolderSearchFacet: 'Find places',
+  },
+};
 
 function getFacet(index: number): Facet {
   const entries = [

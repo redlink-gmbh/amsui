@@ -19,3 +19,5 @@ export const Template: Story<DidYouMeanComponent> = (
 
 export const AddValue = Template.bind({});
 AddValue.args = { value: 'Cat' };
+export const ChangeText = Template.bind({});
+ChangeText.args = { value: 'Dog', didYouMeanText: 'Did you really mean ' };

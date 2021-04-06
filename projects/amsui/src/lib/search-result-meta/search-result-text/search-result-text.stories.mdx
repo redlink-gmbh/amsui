@@ -11,6 +11,9 @@ import { SearchResultTextComponent } from "./search-result-text.component";
     searchResultMeta: {
       control: "object",
     },
+    text: {
+      control: "object",
+    },
   }}
 />
 
@@ -27,6 +30,14 @@ You need to input the search meta data to able to display the component.
 ## Included did you mean component
 
 <Story story={stories.DidYouMeanValue} height="150px" />
+
+## Change the text of the component
+
+<Story story={stories.ChangeText} height="150px" />
+
+## Change the text when nothing is found
+
+<Story story={stories.ChangeTextNotFound} height="150px" />
 
 ## ArgsTable
 

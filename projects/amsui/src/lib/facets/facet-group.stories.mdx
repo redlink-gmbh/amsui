@@ -9,6 +9,7 @@ import { FacetGroupModuleImports } from "./facet-group.stories";
   decorators={[FacetGroupModuleImports]}
   argTypes={{
     facets: { control: "object" },
+    facetGroupText: { control: "object" },
   }}
 />
 
@@ -21,6 +22,10 @@ You can collapse and deselect facets with icon buttons at the top.
 ## Multiple facet in a facet group
 
 <Story story={stories.MultipleFacets} height="1000px" />
+
+## Change the text of the component
+
+<Story story={stories.ChangeText} height="1000px" />
 
 ## ArgsTable
 

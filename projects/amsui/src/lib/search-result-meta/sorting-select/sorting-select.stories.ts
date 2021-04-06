@@ -35,6 +35,9 @@ Disabled.args = getSortingSelectInputs(2);
 export const ChangedFormFieldAppearance = Template.bind({});
 ChangedFormFieldAppearance.args = getSortingSelectInputs(3);
 
+export const ChangeText = Template.bind({});
+ChangeText.args = getSortingSelectInputs(4);
+
 function getSortingSelectInputs(index: number): any {
   const sortingOptions = [
     { viewValue: 'Title', value: 'title' },
@@ -45,5 +48,6 @@ function getSortingSelectInputs(index: number): any {
     { sortingOptions, defaultSortOption: 'relevance' },
     { sortingOptions, disabled: true },
     { sortingOptions, formFieldAppearance: 'outline' },
+    { sortingOptions, textLabel: 'Sorting options' },
   ][index];
 }

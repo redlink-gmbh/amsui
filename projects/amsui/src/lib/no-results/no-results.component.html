@@ -67,7 +67,13 @@
     *ngIf="config.contactPhoneNumber || config.contactMailAddress"
   >
     <hr />
-    <p>{{ "noResults.contact" | translate }}</p>
+    <p>
+      {{
+        noResultsText?.contact
+          ? noResultsText.contact
+          : ("noResults.contact" | translate)
+      }}
+    </p>
     <div class="help-actions">
       <div *ngIf="config.contactMailAddress">
         <a
