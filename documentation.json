@@ -2924,7 +2924,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-3f82aa3a2faafc0828da2a44754ce3ac",
+            "id": "component-AppComponent-c322808ba5f3e9fd4fe56becba3fd525",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2958,7 +2958,7 @@
                 },
                 {
                     "name": "searchFieldConfig",
-                    "defaultValue": "{\n    placeholderLabel: 'app.searchField.placeholderLabel',\n    asyncSuggestionDataProvider: this.fakeSearchSuggestions.bind(this),\n  }",
+                    "defaultValue": "{\n    asyncSuggestionDataProvider: this.fakeSearchSuggestions.bind(this),\n  }",
                     "type": "SearchFieldConfig",
                     "optional": false,
                     "description": "",
@@ -2993,7 +2993,7 @@
                     "optional": false,
                     "returnType": "Observable<string[]>",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 30,
                     "jsdoctags": [
                         {
                             "name": "input",
@@ -3015,7 +3015,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 27,
+                    "line": 26,
                     "jsdoctags": [
                         {
                             "name": "searchKeyword",
@@ -3032,7 +3032,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, ViewChild } from '@angular/core';\nimport { Observable, of } from 'rxjs';\nimport { SuggestionParameter, SearchFieldConfig } from '@redlink/amsui';\nimport { CdkOverlayOrigin } from '@angular/cdk/overlay';\nimport { TranslateService } from '@ngx-translate/core';\nimport { delay } from 'rxjs/operators';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  @ViewChild(CdkOverlayOrigin) origin!: CdkOverlayOrigin;\n  title = 'Angular Material Search UI - AMSUI';\n  searchKeyword = '';\n  searchFieldConfig: SearchFieldConfig = {\n    placeholderLabel: 'app.searchField.placeholderLabel',\n    asyncSuggestionDataProvider: this.fakeSearchSuggestions.bind(this),\n  };\n\n  constructor(private readonly translateService: TranslateService) {\n    this.translateService.setDefaultLang('de');\n    this.translateService.use('en');\n  }\n\n  handleSearchEvent(searchKeyword: string): void {\n    this.searchKeyword = searchKeyword;\n    alert('You searched for ' + searchKeyword);\n  }\n  fakeSearchSuggestions(input: SuggestionParameter): Observable<string[]> {\n    const filteredSuggestions = [\n      'Knowledge',\n      'Knowledge management',\n      'Knowledge officer',\n      'My knowledge',\n      'Your knowledge',\n      'Your knowledge',\n      'Natural Language Processing',\n      'NLP',\n      'Management',\n      'Solr',\n      'Amsui',\n    ]\n      .filter((option) =>\n        option.toLowerCase().includes(input.keyword.toLowerCase())\n      )\n      .slice(0, input.numberOfSuggestions);\n    return of(filteredSuggestions).pipe(delay(300));\n  }\n}\n",
+            "sourceCode": "import { Component, ViewChild } from '@angular/core';\nimport { Observable, of } from 'rxjs';\nimport { SuggestionParameter, SearchFieldConfig } from '@redlink/amsui';\nimport { CdkOverlayOrigin } from '@angular/cdk/overlay';\nimport { TranslateService } from '@ngx-translate/core';\nimport { delay } from 'rxjs/operators';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  @ViewChild(CdkOverlayOrigin) origin!: CdkOverlayOrigin;\n  title = 'Angular Material Search UI - AMSUI';\n  searchKeyword = '';\n  searchFieldConfig: SearchFieldConfig = {\n    asyncSuggestionDataProvider: this.fakeSearchSuggestions.bind(this),\n  };\n\n  constructor(private readonly translateService: TranslateService) {\n    this.translateService.setDefaultLang('de');\n    this.translateService.use('en');\n  }\n\n  handleSearchEvent(searchKeyword: string): void {\n    this.searchKeyword = searchKeyword;\n    alert('You searched for ' + searchKeyword);\n  }\n  fakeSearchSuggestions(input: SuggestionParameter): Observable<string[]> {\n    const filteredSuggestions = [\n      'Knowledge',\n      'Knowledge management',\n      'Knowledge officer',\n      'My knowledge',\n      'Your knowledge',\n      'Your knowledge',\n      'Natural Language Processing',\n      'NLP',\n      'Management',\n      'Solr',\n      'Amsui',\n    ]\n      .filter((option) =>\n        option.toLowerCase().includes(input.keyword.toLowerCase())\n      )\n      .slice(0, input.numberOfSuggestions);\n    return of(filteredSuggestions).pipe(delay(300));\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3050,7 +3050,7 @@
                         "type": "TranslateService"
                     }
                 ],
-                "line": 20,
+                "line": 19,
                 "jsdoctags": [
                     {
                         "name": "translateService",
@@ -3836,7 +3836,7 @@
                 "args": [],
                 "line": 16
             },
-            "templateData": "<div class=\"no-results-container\">\n  <amsui-did-you-mean\n    (didYouMeanEvent)=\"didYouMeanClick(config.didYouMeanValue)\"\n    [value]=\"config.didYouMeanValue\"\n  ></amsui-did-you-mean>\n  <p\n    *ngIf=\"config.searchKeyword\"\n    [innerHTML]=\"\n      noResultsText?.feedbackSearch\n        ? noResultsText.feedbackSearch\n        : ('noResults.feedbackSearch'\n          | translate: { searchKeyword: config.searchKeyword })\n    \"\n  ></p>\n  <p\n    *ngIf=\"!config.searchKeyword\"\n    [innerHTML]=\"\n      noResultsText?.simpleFeedbackSearch\n        ? noResultsText.simpleFeedbackSearch\n        : ('noResults.simpleFeedbackSearch' | translate)\n    \"\n  ></p>\n\n  <div class=\"search-tips\">\n    <hr />\n    <p>\n      {{\n        noResultsText?.tipsHeading\n          ? noResultsText.tipsHeading\n          : (\"noResults.tips.maybeHelp\" | translate)\n      }}\n    </p>\n    <ul *ngIf=\"noResultsText?.tips\">\n      <li *ngFor=\"let tip of noResultsText.tips\">{{ tip }}</li>\n    </ul>\n    <ul *ngIf=\"!noResultsText?.tips || noResultsText.tips.length === 0\">\n      <li>{{ \"noResults.tips.correctSpelling\" | translate }}</li>\n      <li>{{ \"noResults.tips.differentKeywords\" | translate }}</li>\n      <li>{{ \"noResults.tips.generalKeywords\" | translate }}</li>\n      <li *ngIf=\"greaterNumberOfSearchKeyword()\">\n        {{ \"noResults.tips.lessKeywords\" | translate }}\n      </li>\n    </ul>\n  </div>\n\n  <div class=\"other-suggestions\" *ngIf=\"config.alternativeKeywords.length > 0\">\n    <hr />\n    <p>\n      {{\n        noResultsText?.othersSearched\n          ? noResultsText.othersSearched\n          : (\"noResults.othersSearched\" | translate)\n      }}\n    </p>\n    <div class=\"link-container\">\n      <span *ngFor=\"let keyword of config.alternativeKeywords; let i = index\">\n        <a class=\"underline-link\" (click)=\"didYouMeanClick(keyword)\">{{\n          keyword\n        }}</a>\n        <span *ngIf=\"i < config.alternativeKeywords.length - 1\">|</span>\n      </span>\n    </div>\n  </div>\n\n  <div\n    class=\"help\"\n    *ngIf=\"config.contactPhoneNumber || config.contactMailAddress\"\n  >\n    <hr />\n    <p>{{ \"noResults.contact\" | translate }}</p>\n    <div class=\"help-actions\">\n      <div *ngIf=\"config.contactMailAddress\">\n        <a\n          mat-fab\n          [href]=\"\n            'mailto:' +\n            config.contactMailAddress +\n            '?subject=Problems with search results'\n          \"\n        >\n          <mat-icon>mail</mat-icon>\n        </a>\n        <p>{{ config.contactMailAddress }}</p>\n      </div>\n      <div *ngIf=\"config.contactPhoneNumber\">\n        <a mat-fab [href]=\"'tel:' + getPhoneNumberWithoutSpaces()\">\n          <mat-icon>phone</mat-icon>\n        </a>\n        <p>{{ config.contactPhoneNumber }}</p>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"other-suggestions\" *ngIf=\"config.alternativeResults.length > 0\">\n    <hr />\n    <p>\n      {{\n        noResultsText?.helpfulResults\n          ? noResultsText.helpfulResults\n          : (\"noResults.helpfulResults\" | translate)\n      }}\n    </p>\n    <amsui-results\n      [results]=\"config.alternativeResults\"\n      [resultType]=\"'grid'\"\n      [highlightingActivated]=\"false\"\n      (resultActionClicked)=\"emitResultActionClicked($event)\"\n    >\n    </amsui-results>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"no-results-container\">\n  <amsui-did-you-mean\n    (didYouMeanEvent)=\"didYouMeanClick(config.didYouMeanValue)\"\n    [value]=\"config.didYouMeanValue\"\n  ></amsui-did-you-mean>\n  <p\n    *ngIf=\"config.searchKeyword\"\n    [innerHTML]=\"\n      noResultsText?.feedbackSearch\n        ? noResultsText.feedbackSearch\n        : ('noResults.feedbackSearch'\n          | translate: { searchKeyword: config.searchKeyword })\n    \"\n  ></p>\n  <p\n    *ngIf=\"!config.searchKeyword\"\n    [innerHTML]=\"\n      noResultsText?.simpleFeedbackSearch\n        ? noResultsText.simpleFeedbackSearch\n        : ('noResults.simpleFeedbackSearch' | translate)\n    \"\n  ></p>\n\n  <div class=\"search-tips\">\n    <hr />\n    <p>\n      {{\n        noResultsText?.tipsHeading\n          ? noResultsText.tipsHeading\n          : (\"noResults.tips.maybeHelp\" | translate)\n      }}\n    </p>\n    <ul *ngIf=\"noResultsText?.tips\">\n      <li *ngFor=\"let tip of noResultsText.tips\">{{ tip }}</li>\n    </ul>\n    <ul *ngIf=\"!noResultsText?.tips || noResultsText.tips.length === 0\">\n      <li>{{ \"noResults.tips.correctSpelling\" | translate }}</li>\n      <li>{{ \"noResults.tips.differentKeywords\" | translate }}</li>\n      <li>{{ \"noResults.tips.generalKeywords\" | translate }}</li>\n      <li *ngIf=\"greaterNumberOfSearchKeyword()\">\n        {{ \"noResults.tips.lessKeywords\" | translate }}\n      </li>\n    </ul>\n  </div>\n\n  <div class=\"other-suggestions\" *ngIf=\"config.alternativeKeywords.length > 0\">\n    <hr />\n    <p>\n      {{\n        noResultsText?.othersSearched\n          ? noResultsText.othersSearched\n          : (\"noResults.othersSearched\" | translate)\n      }}\n    </p>\n    <div class=\"link-container\">\n      <span *ngFor=\"let keyword of config.alternativeKeywords; let i = index\">\n        <a class=\"underline-link\" (click)=\"didYouMeanClick(keyword)\">{{\n          keyword\n        }}</a>\n        <span *ngIf=\"i < config.alternativeKeywords.length - 1\">|</span>\n      </span>\n    </div>\n  </div>\n\n  <div\n    class=\"help\"\n    *ngIf=\"config.contactPhoneNumber || config.contactMailAddress\"\n  >\n    <hr />\n    <p>\n      {{\n        noResultsText?.contact\n          ? noResultsText.contact\n          : (\"noResults.contact\" | translate)\n      }}\n    </p>\n    <div class=\"help-actions\">\n      <div *ngIf=\"config.contactMailAddress\">\n        <a\n          mat-fab\n          [href]=\"\n            'mailto:' +\n            config.contactMailAddress +\n            '?subject=Problems with search results'\n          \"\n        >\n          <mat-icon>mail</mat-icon>\n        </a>\n        <p>{{ config.contactMailAddress }}</p>\n      </div>\n      <div *ngIf=\"config.contactPhoneNumber\">\n        <a mat-fab [href]=\"'tel:' + getPhoneNumberWithoutSpaces()\">\n          <mat-icon>phone</mat-icon>\n        </a>\n        <p>{{ config.contactPhoneNumber }}</p>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"other-suggestions\" *ngIf=\"config.alternativeResults.length > 0\">\n    <hr />\n    <p>\n      {{\n        noResultsText?.helpfulResults\n          ? noResultsText.helpfulResults\n          : (\"noResults.helpfulResults\" | translate)\n      }}\n    </p>\n    <amsui-results\n      [results]=\"config.alternativeResults\"\n      [resultType]=\"'grid'\"\n      [highlightingActivated]=\"false\"\n      (resultActionClicked)=\"emitResultActionClicked($event)\"\n    >\n    </amsui-results>\n  </div>\n</div>\n"
         },
         {
             "name": "OverlayLoaderComponent",
@@ -6486,6 +6486,22 @@
                 "name": "ChangeText",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/amsui/src/lib/facets/facet-group.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ChangeText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/no-results/no-results.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ChangeText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -6494,7 +6510,63 @@
                 "name": "ChangeText",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ChangeText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ChangeText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ChangeText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-result-meta/did-you-mean/did-you-mean.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ChangeText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ChangeText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ChangeText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-result-meta/sorting-select/sorting-select.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ChangeTextNotFound",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -7584,6 +7656,14 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
+                    "name": "ChangeText",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -7661,6 +7741,14 @@
                 },
                 {
                     "name": "AlternativeResults",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/no-results/no-results.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "ChangeText",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/amsui/src/lib/no-results/no-results.stories.ts",
@@ -7793,6 +7881,14 @@
                 },
                 {
                     "name": "AvatarImageResult",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "ChangeText",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
@@ -7966,6 +8062,14 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
+                    "name": "ChangeText",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/sorting-select/sorting-select.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -8048,7 +8152,49 @@
                     "defaultValue": "(args: ResultsComponent) => ({\n  component: ResultsComponent,\n  props: args,\n})"
                 }
             ],
+            "projects/amsui/src/lib/facets/facet-group.stories.ts": [
+                {
+                    "name": "ChangeText",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/facets/facet-group.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "FacetGroupModuleImports",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/facets/facet-group.stories.ts",
+                    "type": "",
+                    "defaultValue": "moduleMetadata({\n  declarations: [FacetGroupComponent],\n  imports: [\n    CommonModule,\n    FacetModule,\n    TranslateModule,\n    MatTooltipModule,\n    MatButtonModule,\n    MatIconModule,\n    MatExpansionModule,\n    BrowserAnimationsModule,\n    TranslationSettingsModule,\n  ],\n})"
+                },
+                {
+                    "name": "MultipleFacets",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/facets/facet-group.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/facets/facet-group.stories.ts",
+                    "type": "Story<FacetGroupComponent>",
+                    "defaultValue": "(args: FacetGroupComponent) => ({\n  component: FacetGroupComponent,\n  props: args,\n})"
+                }
+            ],
             "projects/amsui/src/lib/facets/facet/facet.stories.ts": [
+                {
+                    "name": "ChangeText",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
                 {
                     "name": "Collapsed",
                     "ctype": "miscellaneous",
@@ -8122,6 +8268,106 @@
                     "defaultValue": "(args: FacetComponent) => ({\n  component: FacetComponent,\n  props: args,\n})"
                 }
             ],
+            "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts": [
+                {
+                    "name": "ChangeText",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "ResultTypeModuleImports",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
+                    "type": "",
+                    "defaultValue": "moduleMetadata({\n  declarations: [ResultTypeComponent],\n  imports: [\n    CommonModule,\n    MatButtonToggleModule,\n    MatTooltipModule,\n    MatIconModule,\n    TranslationSettingsModule,\n    BrowserAnimationsModule,\n  ],\n})"
+                },
+                {
+                    "name": "SelectedType",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
+                    "type": "Story<ResultTypeComponent>",
+                    "defaultValue": "(\n  args: ResultTypeComponent\n) => ({\n  component: ResultTypeComponent,\n  props: args,\n})"
+                }
+            ],
+            "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts": [
+                {
+                    "name": "ChangeText",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "ChangeTextNotFound",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "DidYouMeanValue",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "SearchResultTextModuleImports",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
+                    "type": "",
+                    "defaultValue": "moduleMetadata({\n  declarations: [SearchResultTextComponent],\n  imports: [CommonModule, DidYouMeanModule, TranslationSettingsModule],\n})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
+                    "type": "Story<SearchResultTextComponent>",
+                    "defaultValue": "(\n  args: SearchResultTextComponent\n) => ({\n  component: SearchResultTextComponent,\n  props: args,\n})"
+                }
+            ],
             "src/test.ts": [
                 {
                     "name": "context",
@@ -8182,82 +8428,6 @@
                     "defaultValue": "(\n  args: OverlayLoaderComponent\n) => ({\n  component: OverlayLoaderComponent,\n  props: args,\n})"
                 }
             ],
-            "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Disabled",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "ResultTypeModuleImports",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
-                    "type": "",
-                    "defaultValue": "moduleMetadata({\n  declarations: [ResultTypeComponent],\n  imports: [\n    CommonModule,\n    MatButtonToggleModule,\n    MatTooltipModule,\n    MatIconModule,\n    TranslationSettingsModule,\n    BrowserAnimationsModule,\n  ],\n})"
-                },
-                {
-                    "name": "SelectedType",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
-                    "type": "Story<ResultTypeComponent>",
-                    "defaultValue": "(\n  args: ResultTypeComponent\n) => ({\n  component: ResultTypeComponent,\n  props: args,\n})"
-                }
-            ],
-            "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "DidYouMeanValue",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "SearchResultTextModuleImports",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
-                    "type": "",
-                    "defaultValue": "moduleMetadata({\n  declarations: [SearchResultTextComponent],\n  imports: [CommonModule, DidYouMeanModule, TranslationSettingsModule],\n})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
-                    "type": "Story<SearchResultTextComponent>",
-                    "defaultValue": "(\n  args: SearchResultTextComponent\n) => ({\n  component: SearchResultTextComponent,\n  props: args,\n})"
-                }
-            ],
             "projects/amsui/src/lib/default.config.ts": [
                 {
                     "name": "defaultConfig",
@@ -8294,32 +8464,6 @@
                     "file": "src/environments/environment.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: false,\n}"
-                }
-            ],
-            "projects/amsui/src/lib/facets/facet-group.stories.ts": [
-                {
-                    "name": "FacetGroupModuleImports",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/facets/facet-group.stories.ts",
-                    "type": "",
-                    "defaultValue": "moduleMetadata({\n  declarations: [FacetGroupComponent],\n  imports: [\n    CommonModule,\n    FacetModule,\n    TranslateModule,\n    MatTooltipModule,\n    MatButtonModule,\n    MatIconModule,\n    MatExpansionModule,\n    BrowserAnimationsModule,\n    TranslationSettingsModule,\n  ],\n})"
-                },
-                {
-                    "name": "MultipleFacets",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/facets/facet-group.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/amsui/src/lib/facets/facet-group.stories.ts",
-                    "type": "Story<FacetGroupComponent>",
-                    "defaultValue": "(args: FacetGroupComponent) => ({\n  component: FacetGroupComponent,\n  props: args,\n})"
                 }
             ]
         },
@@ -8901,6 +9045,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "ChangeText",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amsui/src/lib/facets/facet-group.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "FacetGroupModuleImports",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -8949,6 +9103,16 @@
                 "type": "function",
                 "linksubtype": "function",
                 "name": "getFacet",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amsui/src/lib/facets/facet/facet.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ChangeText",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -9086,6 +9250,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "ChangeText",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amsui/src/lib/no-results/no-results.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "ContactInformation",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -9214,6 +9388,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "AvatarImageResult",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amsui/src/lib/results/result-entry/result-entry.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ChangeText",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -9601,6 +9785,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "ChangeText",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Default",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -9669,6 +9863,26 @@
                 "type": "function",
                 "linksubtype": "function",
                 "name": "getSearchResultMeta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ChangeText",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amsui/src/lib/search-result-meta/search-result-text/search-result-text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ChangeTextNotFound",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -9835,6 +10049,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "ChangeText",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amsui/src/lib/search-result-meta/sorting-select/sorting-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Default",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -9942,6 +10166,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "AddSortingAndViewChange",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ChangeText",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

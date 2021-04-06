@@ -15,7 +15,6 @@ export class AppComponent {
   title = 'Angular Material Search UI - AMSUI';
   searchKeyword = '';
   searchFieldConfig: SearchFieldConfig = {
-    placeholderLabel: 'app.searchField.placeholderLabel',
     asyncSuggestionDataProvider: this.fakeSearchSuggestions.bind(this),
   };
 

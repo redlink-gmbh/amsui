@@ -16,7 +16,15 @@ Install the AMSUI library.
 npm i @redlink/amsui -S
 ```
 
-## i18n - @ngx-translate
+## Handle translations
+
+There are two ways of handling translations. You can decide which fits better to your use case.
+
+### Handling translations with component inputs
+
+Each component that holds a text, can be adjusted via an input. You can find the existing in the examples of each component that is named "Change Text".
+
+### Handling translations with i18n - @ngx-translate
 
 We use [@ngx-translate](https://github.com/ngx-translate/core) and a [modular loader](https://github.com/larscom/ngx-translate-module-loader) for supporting multiple languages.
 Add language translation files in the i18n directory to your assets folder.
