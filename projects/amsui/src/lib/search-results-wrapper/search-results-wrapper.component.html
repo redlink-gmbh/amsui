@@ -38,7 +38,11 @@
       (click)="loadMore()"
       *ngIf="!loadMoreToggle"
     >
-      {{ "searchResultsWrapper.loadMoreButton" | translate }}
+      {{
+        searchResultsWrapperText?.loadMoreButton
+          ? searchResultsWrapperText.loadMoreButton
+          : ("searchResultsWrapper.loadMoreButton" | translate)
+      }}
     </button>
     <mat-progress-spinner
       mode="indeterminate"
@@ -47,7 +51,11 @@
       *ngIf="loadMoreToggle"
     ></mat-progress-spinner>
     <p *ngIf="showErrorLoadMore && !loadMoreToggle">
-      {{ "searchResultsWrapper.problemsLoadMore" | translate }}
+      {{
+        searchResultsWrapperText?.problemsLoadMore
+          ? searchResultsWrapperText.problemsLoadMore
+          : ("searchResultsWrapper.problemsLoadMore" | translate)
+      }}
     </p>
   </div>
 </div>
@@ -62,5 +70,11 @@
   class="search-result-placeholder"
   *ngIf="results.length <= 0 && searchResultMeta.keyword === ''"
 >
-  <p>{{ viewConfig.searchResultPlaceholderText! | translate }}</p>
+  <p>
+    {{
+      searchResultsWrapperText?.placeholder
+        ? searchResultsWrapperText.placeholder
+        : ("searchResultsWrapper.placeholder" | translate)
+    }}
+  </p>
 </div>

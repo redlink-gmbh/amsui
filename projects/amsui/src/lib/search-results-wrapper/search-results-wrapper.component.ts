@@ -22,6 +22,7 @@ import { Subscription } from 'rxjs';
 import { Breakpoints } from '../breakpoints';
 import { defaultConfig } from '../default.config';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import type { SearchResultsWrapperText } from '../text.types';
 
 @Component({
   selector: 'amsui-search-results-wrapper',
@@ -42,6 +43,7 @@ export class SearchResultsWrapperComponent
     this.results = [...searchResults];
     this.originalResults = [...searchResults];
   }
+  @Input() searchResultsWrapperText?: SearchResultsWrapperText;
   @Output() didYouMeanEvent = new EventEmitter<string>();
   @Output() loadMoreEvent = new EventEmitter<void>();
   @Output() filterChangedEvent = new EventEmitter<string>();
