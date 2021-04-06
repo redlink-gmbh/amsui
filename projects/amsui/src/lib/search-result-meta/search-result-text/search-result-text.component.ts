@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import type { SearchResultMeta } from '../../search-service/search.types';
 import { defaultConfig } from '../../default.config';
+import type { SearchResultText } from '../../text.types';
 
 @Component({
   selector: 'amsui-search-result-text',
@@ -9,6 +10,7 @@ import { defaultConfig } from '../../default.config';
 })
 export class SearchResultTextComponent {
   @Input() searchResultMeta: SearchResultMeta = defaultConfig.searchResultMeta;
+  @Input() text?: SearchResultText;
   @Output() didYouMeanEvent = new EventEmitter<string>();
 
   constructor() {}

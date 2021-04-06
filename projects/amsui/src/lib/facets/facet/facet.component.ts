@@ -8,7 +8,7 @@ import type {
 } from '../../search-service/search.types';
 import { defaultConfig } from '../../default.config';
 import { handleFacetQueryParam } from '../../search-params.util';
-import { FacetText } from '../../text.types';
+import type { FacetText } from '../../text.types';
 
 @Component({
   selector: 'amsui-facet',

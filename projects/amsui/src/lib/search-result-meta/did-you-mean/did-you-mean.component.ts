@@ -7,6 +7,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 })
 export class DidYouMeanComponent {
   @Input() value = '';
+  @Input() didYouMeanText?: string;
   @Output() didYouMeanEvent = new EventEmitter<string>();
 
   constructor() {}

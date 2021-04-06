@@ -14,7 +14,7 @@ import {
   VisualFacetState,
 } from '../search-service/search.types';
 import { TranslateService } from '@ngx-translate/core';
-import { FacetGroupText } from '../text.types';
+import type { FacetGroupText } from '../text.types';
 
 @Component({
   selector: 'amsui-facet-group',

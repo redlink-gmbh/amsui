@@ -10,6 +10,7 @@ import type { MatFormFieldAppearance } from '@angular/material/form-field';
 })
 export class SortingSelectComponent {
   @Input() disabled = false;
+  @Input() textLabel?: string;
   @Input() formFieldAppearance: MatFormFieldAppearance = 'standard';
   @Input() set defaultSortOption(defaultSortOption: string) {
     this.defaultOption = defaultSortOption;

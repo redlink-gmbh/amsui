@@ -14,7 +14,8 @@ import type {
 } from '../../search-service/search.types';
 import { defaultConfig } from '../../default.config';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import type { ResultEntryText } from '../../text.types';
 
 @Component({
   selector: 'amsui-result-entry',
@@ -23,9 +24,10 @@ import { Observable } from 'rxjs';
 })
 export class ResultEntryComponent implements AfterViewInit, OnChanges {
   @Input() entry!: ResultEntry;
-  @Input() highlightingActivated = defaultConfig.highlightingActivated;
-  @Output() actionClicked = new EventEmitter<ResultEntryActionEvent>();
   @Input() showMoreWordLimit = defaultConfig.showMoreWordLimit;
+  @Input() highlightingActivated = defaultConfig.highlightingActivated;
+  @Input() resultEntryText?: ResultEntryText;
+  @Output() actionClicked = new EventEmitter<ResultEntryActionEvent>();
   showMoreContent = false;
   showMoreWords!: number;
   showMoreWordLimitThreshold = 50;
@@ -101,12 +103,18 @@ export class ResultEntryComponent implements AfterViewInit, OnChanges {
     if (!this.showMoreContent) {
       const numberOfWords = this.getWordsNumber();
       if (numberOfWords <= 50) {
-        return this.translateService.get('searchResultEntry.showFewMore');
+        return this.resultEntryText?.showFewMore
+          ? of(this.resultEntryText.showFewMore)
+          : this.translateService.get('searchResultEntry.showFewMore');
       }
-      return this.translateService.get('searchResultEntry.showMore', {
-        showMoreWords: numberOfWords,
-      });
+      return this.resultEntryText?.showMore
+        ? of(this.resultEntryText.showMore)
+        : this.translateService.get('searchResultEntry.showMore', {
+            showMoreWords: numberOfWords,
+          });
     }
-    return this.translateService.get('searchResultEntry.showLess');
+    return this.resultEntryText?.showLess
+      ? of(this.resultEntryText.showLess)
+      : this.translateService.get('searchResultEntry.showLess');
   }
 }

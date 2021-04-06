@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import type { NoResultsConfig } from '../search-service/search.types';
 import { defaultConfig } from '../default.config';
 import { ResultEntryActionEvent } from '../search-service/search.types';
-import { NoResultsText } from '../text.types';
+import type { NoResultsText } from '../text.types';
 
 @Component({
   selector: 'amsui-no-results',

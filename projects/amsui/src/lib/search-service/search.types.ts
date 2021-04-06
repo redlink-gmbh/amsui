@@ -87,8 +87,6 @@ export interface VisualFacetState {
   collapsed: boolean;
 }
 export interface SearchFieldConfig {
-  placeholderLabel?: string;
-  searchButtonText?: string;
   value?: string;
   formFieldAppearance?: MatFormFieldAppearance;
   addQueryToURLParams?: boolean;
@@ -120,5 +118,4 @@ export interface MetaResultViewConfig {
 }
 export interface ResultViewConfig extends MetaResultViewConfig {
   filterTabs?: FilterTab[];
-  searchResultPlaceholderText?: string;
 }

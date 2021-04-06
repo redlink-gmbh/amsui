@@ -1,4 +1,4 @@
 <p class="did-you-mean" *ngIf="value">
-  {{ "didYouMean.text" | translate }}
+  {{ didYouMeanText ? didYouMeanText : ("didYouMean.text" | translate) }}
   <a class="underline-link" (click)="didYouMeanClick(value)">{{ value }}</a>
 </p>

@@ -2,7 +2,11 @@
   class="search-field"
   [appearance]="searchFieldConfig.formFieldAppearance!"
 >
-  <mat-label>{{ searchFieldConfig.placeholderLabel! | translate }}</mat-label>
+  <mat-label>{{
+    searchFieldText?.placeholderLabel
+      ? searchFieldText.placeholderLabel
+      : ("searchField.placeholderLabel" | translate)
+  }}</mat-label>
   <label>
     <input
       tabindex="0"
@@ -76,6 +80,8 @@
 >
   <mat-icon>search</mat-icon>
   <span *ngIf="!isMobile">{{
-    searchFieldConfig.searchButtonText! | translate
+    searchFieldText?.searchButtonText
+      ? searchFieldText.searchButtonText
+      : ("searchField.searchButtonText" | translate)
   }}</span>
 </button>

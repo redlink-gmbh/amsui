@@ -22,6 +22,7 @@ import {
   getSearchKeywordFromURL,
   resetToQueryParam,
 } from '../search-params.util';
+import type { SearchFieldText } from '../text.types';
 
 @Component({
   selector: 'amsui-search-field',
@@ -36,6 +37,7 @@ export class SearchFieldComponent implements OnInit, OnDestroy {
     };
     this.checkValueInput(this.searchFieldConfig.value);
   }
+  @Input() searchFieldText?: SearchFieldText;
   @Output() searchEvent = new EventEmitter<string>();
   @Output() inputEvent = new EventEmitter<SuggestionParameter>();
   @ViewChild(MatAutocompleteTrigger) autocomplete!: MatAutocompleteTrigger;

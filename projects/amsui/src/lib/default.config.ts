@@ -29,8 +29,6 @@ export const defaultConfig: DefaultConfig = {
     hideNumbers: false,
   },
   searchFieldConfig: {
-    placeholderLabel: 'searchField.placeholderLabel',
-    searchButtonText: 'searchField.searchButtonText',
     value: '',
     addQueryToURLParams: true,
     disableAutocomplete: false,
@@ -40,7 +38,6 @@ export const defaultConfig: DefaultConfig = {
   resultViewConfig: {
     ...defaultViewConfig,
     filterTabs: [],
-    searchResultPlaceholderText: 'searchResultsWrapper.placeholder',
   },
   noResultsConfig: {
     alternativeKeywords: [],

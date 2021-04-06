@@ -3,7 +3,9 @@
   *ngIf="sortingOptions.length > 0"
   [appearance]="formFieldAppearance"
 >
-  <mat-label>{{ "sort.label" | translate }}</mat-label>
+  <mat-label>{{
+    textLabel ? textLabel : ("sort.label" | translate)
+  }}</mat-label>
   <mat-select
     [value]="activeOption"
     [disabled]="disabled"

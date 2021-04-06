@@ -6,19 +6,21 @@
   <span
     *ngIf="searchResultMeta.keyword !== '' && searchResultMeta.numFound > 0"
     [innerHTML]="
-      'searchResultText.information'
-        | translate
-          : {
-              numFound: searchResultMeta.numFound,
-              numShowed:
-                searchResultMeta.numShowed > searchResultMeta.numFound
-                  ? searchResultMeta.numFound
-                  : searchResultMeta.numShowed,
-              keyword: searchResultMeta.keyword,
-              timeTaken: searchResultMeta.timeTaken
-                ? ' (' + roundTo3Decimals(searchResultMeta.timeTaken) + 's)'
-                : ''
-            }
+      text?.information
+        ? text.information
+        : ('searchResultText.information'
+          | translate
+            : {
+                numFound: searchResultMeta.numFound,
+                numShowed:
+                  searchResultMeta.numShowed > searchResultMeta.numFound
+                    ? searchResultMeta.numFound
+                    : searchResultMeta.numShowed,
+                keyword: searchResultMeta.keyword,
+                timeTaken: searchResultMeta.timeTaken
+                  ? ' (' + roundTo3Decimals(searchResultMeta.timeTaken) + 's)'
+                  : ''
+              })
     "
     class="header-text"
   >
@@ -27,8 +29,10 @@
     class="header-text"
     *ngIf="searchResultMeta.numFound === 0 && searchResultMeta.keyword !== ''"
     [innerHTML]="
-      'searchResultText.notFound'
-        | translate: { keyword: searchResultMeta.keyword }
+      text?.notFound
+        ? text.notFound
+        : ('searchResultText.notFound'
+          | translate: { keyword: searchResultMeta.keyword })
     "
   >
   </span>

@@ -7,7 +7,11 @@
   <mat-button-toggle
     *ngIf="resultTypes.includes('grid')"
     [checked]="selectedResultType === 'grid'"
-    [matTooltip]="'resultType.grid' | translate"
+    [matTooltip]="
+      resultTypeText?.grid
+        ? resultTypeText.grid
+        : ('resultType.grid' | translate)
+    "
     [aria-label]="'resultType.gridAria' | translate"
     value="grid"
   >
@@ -16,7 +20,11 @@
   <mat-button-toggle
     *ngIf="resultTypes.includes('list')"
     [checked]="selectedResultType === 'list'"
-    [matTooltip]="'resultType.list' | translate"
+    [matTooltip]="
+      resultTypeText?.list
+        ? resultTypeText.list
+        : ('resultType.list' | translate)
+    "
     [aria-label]="'resultType.listAria' | translate"
     value="list"
   >
