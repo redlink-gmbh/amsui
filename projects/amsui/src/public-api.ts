@@ -46,3 +46,5 @@ export {
   resetToQueryParam,
 } from './lib/search-params.util';
 export * from './lib/breakpoints';
+
+export * from './lib/text.types';

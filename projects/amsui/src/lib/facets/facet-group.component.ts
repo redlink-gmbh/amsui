@@ -14,6 +14,7 @@ import {
   VisualFacetState,
 } from '../search-service/search.types';
 import { TranslateService } from '@ngx-translate/core';
+import { FacetGroupText } from '../text.types';
 
 @Component({
   selector: 'amsui-facet-group',
@@ -22,6 +23,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class FacetGroupComponent implements OnChanges {
   @Input() facets: Facet[] = [];
+  @Input() facetGroupText?: FacetGroupText;
   @Output() facetSelectedEvent = new EventEmitter<SelectedFacet>();
   @Output() resetFacetsEvent = new EventEmitter<void>();
   @Output() unselectOneFacet = new EventEmitter<string>();
@@ -85,8 +87,14 @@ export class FacetGroupComponent implements OnChanges {
   }
 
   getToolTipUnfoldButton(): string {
+    if (this.facetGroupText?.closeAllFacets) {
+      return this.facetGroupText.closeAllFacets;
+    }
     let transKey = 'facets.closeAllFacets';
     if (this.openPanels) {
+      if (this.facetGroupText?.openAllFacets) {
+        return this.facetGroupText.openAllFacets;
+      }
       transKey = 'facets.openAllFacets';
     }
     return this.translateService.instant(transKey);

@@ -6,19 +6,34 @@
   <p
     *ngIf="config.searchKeyword"
     [innerHTML]="
-      'noResults.feedbackSearch'
-        | translate: { searchKeyword: config.searchKeyword }
+      noResultsText?.feedbackSearch
+        ? noResultsText.feedbackSearch
+        : ('noResults.feedbackSearch'
+          | translate: { searchKeyword: config.searchKeyword })
     "
   ></p>
   <p
     *ngIf="!config.searchKeyword"
-    [innerHTML]="'noResults.simpleFeedbackSearch' | translate"
+    [innerHTML]="
+      noResultsText?.simpleFeedbackSearch
+        ? noResultsText.simpleFeedbackSearch
+        : ('noResults.simpleFeedbackSearch' | translate)
+    "
   ></p>
 
   <div class="search-tips">
     <hr />
-    <p>{{ "noResults.tips.maybeHelp" | translate }}</p>
-    <ul>
+    <p>
+      {{
+        noResultsText?.tipsHeading
+          ? noResultsText.tipsHeading
+          : ("noResults.tips.maybeHelp" | translate)
+      }}
+    </p>
+    <ul *ngIf="noResultsText?.tips">
+      <li *ngFor="let tip of noResultsText.tips">{{ tip }}</li>
+    </ul>
+    <ul *ngIf="!noResultsText?.tips || noResultsText.tips.length === 0">
       <li>{{ "noResults.tips.correctSpelling" | translate }}</li>
       <li>{{ "noResults.tips.differentKeywords" | translate }}</li>
       <li>{{ "noResults.tips.generalKeywords" | translate }}</li>
@@ -30,7 +45,13 @@
 
   <div class="other-suggestions" *ngIf="config.alternativeKeywords.length > 0">
     <hr />
-    <p>{{ "noResults.othersSearched" | translate }}</p>
+    <p>
+      {{
+        noResultsText?.othersSearched
+          ? noResultsText.othersSearched
+          : ("noResults.othersSearched" | translate)
+      }}
+    </p>
     <div class="link-container">
       <span *ngFor="let keyword of config.alternativeKeywords; let i = index">
         <a class="underline-link" (click)="didYouMeanClick(keyword)">{{
@@ -56,14 +77,15 @@
             config.contactMailAddress +
             '?subject=Problems with search results'
           "
-          ><mat-icon>mail</mat-icon></a
         >
+          <mat-icon>mail</mat-icon>
+        </a>
         <p>{{ config.contactMailAddress }}</p>
       </div>
       <div *ngIf="config.contactPhoneNumber">
-        <a mat-fab [href]="'tel:' + getPhoneNumberWithoutSpaces()"
-          ><mat-icon>phone</mat-icon></a
-        >
+        <a mat-fab [href]="'tel:' + getPhoneNumberWithoutSpaces()">
+          <mat-icon>phone</mat-icon>
+        </a>
         <p>{{ config.contactPhoneNumber }}</p>
       </div>
     </div>
@@ -71,7 +93,13 @@
 
   <div class="other-suggestions" *ngIf="config.alternativeResults.length > 0">
     <hr />
-    <p>{{ "noResults.helpfulResults" | translate }}</p>
+    <p>
+      {{
+        noResultsText?.helpfulResults
+          ? noResultsText.helpfulResults
+          : ("noResults.helpfulResults" | translate)
+      }}
+    </p>
     <amsui-results
       [results]="config.alternativeResults"
       [resultType]="'grid'"

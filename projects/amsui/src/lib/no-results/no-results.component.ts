@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import type { NoResultsConfig } from '../search-service/search.types';
 import { defaultConfig } from '../default.config';
 import { ResultEntryActionEvent } from '../search-service/search.types';
+import { NoResultsText } from '../text.types';
 
 @Component({
   selector: 'amsui-no-results',
@@ -10,6 +11,7 @@ import { ResultEntryActionEvent } from '../search-service/search.types';
 })
 export class NoResultsComponent {
   @Input() config: NoResultsConfig = defaultConfig.noResultsConfig;
+  @Input() noResultsText?: NoResultsText;
   @Output() didYouMeanEvent = new EventEmitter<string>();
   @Output() resultActionClicked = new EventEmitter<ResultEntryActionEvent>();
 

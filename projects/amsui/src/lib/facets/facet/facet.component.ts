@@ -8,6 +8,7 @@ import type {
 } from '../../search-service/search.types';
 import { defaultConfig } from '../../default.config';
 import { handleFacetQueryParam } from '../../search-params.util';
+import { FacetText } from '../../text.types';
 
 @Component({
   selector: 'amsui-facet',
@@ -29,6 +30,7 @@ export class FacetComponent {
     );
     this.facet = { ...facet, options };
   }
+  @Input() facetText?: FacetText;
 
   @Output() facetSelectedEvent = new EventEmitter<SelectedFacet>();
   @Output() unselectAll = new EventEmitter<string>();

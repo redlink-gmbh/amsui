@@ -16,7 +16,7 @@
         [matBadgeSize]="'small'"
         matBadgePosition="after"
         matBadgeColor="primary"
-        style="margin-top: 10px; margin-bottom: 10px"
+        class="facet-header-badge"
         >{{ facet.screenName }}
       </span>
     </mat-panel-title>
@@ -29,8 +29,10 @@
             matInput
             type="text"
             placeholder="{{
-              'facets.facet.placeHolderSearchFacet'
-                | translate: { facetName: facet.screenName }
+              facetText?.placeHolderSearchFacet
+                ? facetText.placeHolderSearchFacet
+                : ('facets.facet.placeHolderSearchFacet'
+                  | translate: { facetName: facet.screenName })
             }}"
             [(ngModel)]="searchValue"
             (ngModelChange)="searchValueChanged()"
@@ -48,8 +50,10 @@
           [ngClass]="{ 'single-selected': facetEntry.selected }"
           (click)="facetSelected(facetEntry)"
           matTooltip="{{
-            'facets.facet.filterRemovalTooltip'
-              | translate: { facetEntryName: facetEntry.viewName }
+            facetText?.filterRemovalTooltip
+              ? facetText.filterRemovalTooltip
+              : ('facets.facet.filterRemovalTooltip'
+                | translate: { facetEntryName: facetEntry.viewName })
           }}"
           [matTooltipDisabled]="!facetEntry.selected"
           *ngFor="let facetEntry of getFacetEntries()"
@@ -100,7 +104,11 @@
           *ngIf="!facet.options.showMoreOpened"
           (click)="visualStateChange(true, facet.options.collapsed)"
         >
-          {{ "facets.facet.showMore" | translate }}
+          {{
+            facetText?.showMore
+              ? facetText.showMore
+              : ("facets.facet.showMore" | translate)
+          }}
         </button>
         <button
           mat-raised-button
@@ -108,14 +116,22 @@
           *ngIf="facet.options.showMoreOpened"
           (click)="visualStateChange(false, facet.options.collapsed)"
         >
-          {{ "facets.facet.showLess" | translate }}
+          {{
+            facetText?.showLess
+              ? facetText.showLess
+              : ("facets.facet.showLess" | translate)
+          }}
         </button>
       </mat-card>
       <mat-card
         class="facet-entry no-results"
         *ngIf="searchValue !== '' && searchEntries.length === 0"
       >
-        {{ "facets.facet.noResults" | translate }}
+        {{
+          facetText?.noResults
+            ? facetText.noResults
+            : ("facets.facet.noResults" | translate)
+        }}
       </mat-card>
     </div>
   </div>

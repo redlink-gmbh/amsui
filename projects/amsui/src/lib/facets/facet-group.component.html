@@ -7,13 +7,21 @@
       *ngIf="selectedFacets.length > 0"
       mat-icon-button
       color="primary"
-      matTooltip="{{ 'facets.resetFacetSelection' | translate }}"
+      matTooltip="{{
+        facetGroupText?.resetFacetSelection
+          ? facetGroupText.resetFacetSelection
+          : ('facets.resetFacetSelection' | translate)
+      }}"
       (click)="resetFacets()"
     >
       <mat-icon>clear</mat-icon>
     </button>
     <div class="facet-heading">
-      {{ "facets.filterResults" | translate }}
+      {{
+        facetGroupText?.filterResults
+          ? facetGroupText.filterResults
+          : ("facets.filterResults" | translate)
+      }}
     </div>
     <button
       mat-icon-button
@@ -34,6 +42,10 @@
     ></amsui-facet>
   </ng-container>
   <p class="no-filters" *ngIf="facets.length === 0">
-    {{ "facets.noPossibleFilters" | translate }}
+    {{
+      facetGroupText?.noPossibleFilters
+        ? facetGroupText.noPossibleFilters
+        : ("facets.noPossibleFilters" | translate)
+    }}
   </p>
 </mat-accordion>

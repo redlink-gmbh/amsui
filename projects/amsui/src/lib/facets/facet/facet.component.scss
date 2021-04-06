@@ -11,6 +11,10 @@ mat-expansion-panel {
       mat-icon {
         margin-right: 1px;
       }
+      .facet-header-badge {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
     }
   }
   ::ng-deep .mat-expansion-panel-body {
