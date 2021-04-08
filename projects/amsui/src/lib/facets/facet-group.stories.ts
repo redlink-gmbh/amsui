@@ -48,7 +48,7 @@ ChangeText.args = {
     filterResults: 'Available filters',
   },
 };
-function getFacets(): Facet[] {
+export function getFacets(): Facet[] {
   return [
     {
       name: 'external',
