@@ -46,8 +46,19 @@ export class ResultEntryComponent implements AfterViewInit, OnChanges {
     }
   }
 
-  emitActionEvent(actionName: string): void {
-    this.actionClicked.emit({ actionName, entry: this.entry });
+  emitActionEvent(actionName: string, evt?: any): void {
+    if (actionName !== 'cardClick') {
+      this.actionClicked.emit({ actionName, entry: this.entry });
+    } else if (
+      evt &&
+      !evt.path.some(
+        (element: any) =>
+          element.tagName === 'BUTTON' &&
+          element.classList.contains('show-more-text')
+      )
+    ) {
+      this.actionClicked.emit({ actionName, entry: this.entry });
+    }
   }
 
   private toggleHighlighting(): void {

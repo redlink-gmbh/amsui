@@ -1,10 +1,6 @@
 <mat-card
   class="result-entry"
-  (click)="
-    !entry.actions
-      ? emitActionEvent('cardClick')
-      : ''
-  "
+  (click)="!entry.actions ? emitActionEvent('cardClick', $event) : ''"
   *ngIf="entry.title || entry.description"
 >
   <mat-card-header>
