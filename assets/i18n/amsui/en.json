@@ -1,0 +1,45 @@
+{
+  "facets.noPossibleFilters": "No filters available!",
+  "facets.openAllFacets": "Expand all filters",
+  "facets.closeAllFacets": "Collapse all filters",
+  "facets.resetFacetSelection": "Reset selection",
+  "facets.filterResults": "Filter results",
+  "facets.facet.showMore": "Show more",
+  "facets.facet.showLess": "Show less",
+  "facets.facet.noResults": "No search results",
+  "facets.facet.filterRemovalTooltip": "Remove '{{facetEntryName}}' filter",
+  "facets.facet.placeHolderSearchFacet": "Search {{facetName}}",
+
+  "noResults.tips.maybeHelp": "Perhaps the following changes will work:",
+  "noResults.tips.correctSpelling": "Make it clear that each search term is spelled correctly.",
+  "noResults.tips.differentKeywords": "Try different keywords.",
+  "noResults.tips.generalKeywords": "Try more general search terms.",
+  "noResults.tips.lessKeywords": "Try fewer keywords.",
+  "noResults.othersSearched": "Others searched for:",
+  "noResults.helpfulResults": "The following hits could be helpful:",
+  "noResults.feedbackSearch": "Unfortunately no exact results could be found for your search <em class=\"highlight-header\">{{ searchKeyword }}</em>!",
+  "noResults.simpleFeedbackSearch": "Unfortunately no exact results could be found for your search!",
+  "noResults.contact": "If you need further help, you can contact us as follows:",
+
+  "searchField.placeholderLabel": "Search for",
+  "searchField.searchButtonText": "Search",
+
+  "sort.label": "Sort via",
+  "searchResultText.information": "{{numShowed}} out of {{numFound}} results for your search <em class=\"highlight-header\">{{keyword}}</em> are shown{{timeTaken}}",
+  "searchResultText.notFound": "Unfortunately no results were found for your search for <em class=\"highlight-header\">{{ keyword }}</em> gefunden!",
+
+  "didYouMean.text": "Did you mean ",
+
+  "resultType.list": "List view",
+  "resultType.listAria": "Change to list view",
+  "resultType.grid": "Grid view",
+  "resultType.gridAria": "Change to grid view",
+
+  "searchResultsWrapper.loadMoreButton": "Load more",
+  "searchResultsWrapper.problemsLoadMore": "Unfortunately there was a problem loading the other results. Please try again or start a new search.",
+  "searchResultsWrapper.placeholder": "Please enter a search term to start your search!",
+
+  "searchResultEntry.showLess": "Show less",
+  "searchResultEntry.showMore": "Show more (about {{showMoreWords}} words)",
+  "searchResultEntry.showFewMore": "Show more (a few words)"
+}

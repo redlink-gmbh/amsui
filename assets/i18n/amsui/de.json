@@ -1,0 +1,46 @@
+{
+  "facets.noPossibleFilters": "Keine Filtermöglichkeiten verfügbar!",
+  "facets.openAllFacets": "Alle Filter ausklappen",
+  "facets.closeAllFacets": "Alle Filter einklappen",
+  "facets.resetFacetSelection": "Auswahl aufheben",
+  "facets.filterResults": "Ergebnisse filtern",
+  "facets.facet.showMore": "Zeige mehr",
+  "facets.facet.showLess": "Zeige weniger",
+  "facets.facet.noResults": "Keine Suchresultate",
+  "facets.facet.filterRemovalTooltip": "'{{facetEntryName}}'-Filter entfernen",
+  "facets.facet.placeHolderSearchFacet": "Durchsuche {{facetName}}",
+
+  "noResults.tips.maybeHelp": "Vielleicht führen die folgenden Änderungen zum Erfolg:",
+  "noResults.tips.correctSpelling": "Stellen Sie klar, dass jedes Suchwort richtig geschrieben ist.",
+  "noResults.tips.differentKeywords": "Probiere unterschiedliche Suchwörter aus.",
+  "noResults.tips.generalKeywords": "Versuche es mit allgemeineren Suchwörtern.",
+  "noResults.tips.lessKeywords": "Probiere es mit weniger Suchwörtern.",
+  "noResults.othersSearched": "Andere Benutzer suchten nach:",
+  "noResults.helpfulResults": "Folgende Treffer könnten hilfreich sein:",
+  "noResults.feedbackSearch": "Leider konnten für Ihre Suche <em class=\"highlight-header\">{{ searchKeyword }}</em> keine exakten Ergebnisse gefunden werden!",
+  "noResults.simpleFeedbackSearch": "Leider konnten für Ihre Suche keine exakten Ergebnisse gefunden werden!",
+  "noResults.contact": "Falls Sie weitere Hilfe brauchen, können Sie uns folgendermaßen erreichen: ",
+
+  "searchField.placeholderLabel": "Suchen nach",
+  "searchField.searchButtonText": "Suchen",
+
+  "sort.label": "Sortieren nach",
+
+  "searchResultText.information": "Es werden {{numShowed}} von {{numFound}} Ergebnissen zu deiner Suche <em class=\"highlight-header\">{{keyword}}</em> angezeigt{{timeTaken}}",
+  "searchResultText.notFound": "Leider wurden keine Ergebnisse zu deiner Suche <em class=\"highlight-header\">{{ keyword }}</em> gefunden!",
+
+  "didYouMean.text": "Meinten Sie ",
+
+  "resultType.list": "Listenansicht",
+  "resultType.listAria": "Auf Listenansicht wechseln",
+  "resultType.grid": "Rasteransicht",
+  "resultType.gridAria": "Auf Rasteransicht wechseln",
+
+  "searchResultsWrapper.loadMoreButton": "Mehr laden",
+  "searchResultsWrapper.problemsLoadMore": "Leider gab es ein Problem beim Laden der weiteren Resultate. Versuchen Sie es bitte noch einmal oder starten Sie eine neue Suche.",
+  "searchResultsWrapper.placeholder": "Bitte geben Sie ein Suchwort ein, um die Suche zu starten!",
+
+  "searchResultEntry.showLess": "Weniger anzeigen",
+  "searchResultEntry.showMore": "Zeige mehr (ca. {{showMoreWords}} Wörter)",
+  "searchResultEntry.showFewMore": "Zeige mehr (ein paar Wörter)"
+}
