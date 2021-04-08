@@ -44,6 +44,7 @@ export {
   handleFacetQueryParam,
   paramsToSelectedFacets,
   resetToQueryParam,
+  paramsNotEmpty,
 } from './lib/search-params.util';
 export * from './lib/breakpoints';
 

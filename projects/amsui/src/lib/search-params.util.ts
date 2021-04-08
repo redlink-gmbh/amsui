@@ -1,4 +1,7 @@
 import { SelectedFacet } from './search-service/search.types';
+declare type Params = {
+  [key: string]: any;
+};
 
 export function handleFacetQueryParam(key: string, value: string): void {
   const searchParam = encodeURIComponent(key) + '=' + encodeURIComponent(value);
@@ -47,9 +50,7 @@ export function resetToQueryParam(key: string, value: string): void {
   history.pushState({}, 'null', url.href);
 }
 
-export function paramsToSelectedFacets(params: {
-  [key: string]: any;
-}): SelectedFacet[] {
+export function paramsToSelectedFacets(params: Params): SelectedFacet[] {
   const facets: SelectedFacet[] = [];
   for (const paramKey of Object.keys(params)) {
     if (paramKey !== 'q') {
@@ -90,4 +91,11 @@ export function getSearchKeywordFromURL(
     );
   }
   return '';
+}
+export function paramsNotEmpty(params: Params): boolean {
+  return !(
+    params &&
+    Object.keys(params).length === 0 &&
+    params.constructor === Object
+  );
 }
