@@ -18,13 +18,9 @@ npm i @redlink/amsui -S
 
 ## Handle translations
 
-There are two ways of handling translations. You can decide which fits better to your use case.
+There are two ways of handling translations. You can decide which fits better to your use case. For both cases, the ngx-translate setup is necessary.
 
-### Handling translations with component inputs
-
-Each component that holds a text, can be adjusted via an input. You can find the existing in the examples of each component that is named "Change Text".
-
-### Handling translations with i18n - @ngx-translate
+### @ngx-translate setup
 
 We use [@ngx-translate](https://github.com/ngx-translate/core) and a [modular loader](https://github.com/larscom/ngx-translate-module-loader) for supporting multiple languages.
 Add language translation files in the i18n directory to your assets folder.
@@ -77,9 +73,6 @@ so that your Angular application knows where to find the library-specific transl
 }
 ```
 
-You can easily override every text of the library by just adding the translation key of the text you want to override to your application's translations files.
-You can find the translation key values in the node modules directory of the AMSUI library.
-
 Last thing that you need to do is to set the default languages when starting up the application (mostly done in the constructor of the app.component.ts):
 
 ```
@@ -93,6 +86,18 @@ constructor(private readonly translateService: TranslateService) {
 
 ```
 
+We will possibly change the way translations are handled in AMSUI, because of the always needed setup of ngx-translate.
+For now, ngx-translate is a dependency for using AMSUI to get default texts for the UI elements.
+
+### Handling translations with i18n translation files
+
+You can easily override every text of the library by just adding the translation key of the text you want to override to your application's translations files.
+You can find the translation key values in the node modules directory of the AMSUI library.
+
+### Handling translations with component inputs
+
+Each component that holds a text, can be adjusted via an input. You can find the existing in the examples of each component that is named "Change Text".
+
 ## Theming & styling
 
 You need to add the global styles of the AMSUI library as well.
@@ -104,6 +109,8 @@ Just put the import statement at the top of your global styles files.
 
 Additionally, you can import our predefined library themes or you can just add one by yourself.
 This can be done by using a [Material Theme Generator](https://materialtheme.arcsine.dev/).
+
+You can import one of our preconfigured themes like so:
 
 ```
 @import "~@redlink/amsui/styles/themes/{theme-name}.theme.scss";

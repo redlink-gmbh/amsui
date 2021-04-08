@@ -4,10 +4,60 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Handling of URL params
 
-Adding the current state of the search to the URL parameters currently works for the search field and the facets, but you need to enable/disable it for both separately.
+Adding the current state of the search to the URL parameters currently works for the search field and the facets, but you need to enable/disable it for both separately in the corresponding component.
 It is enabled by default.
 
-# TODO - Refactoring needed
+This enables to send links of your website to another persons and they will instantly get the same results as you do.
 
-- adding the current showed results and filter to the url parameters
-- make it globally changeable
+## Helper methods
+
+Some helper methods are added to be able to add such behaviour in your client applications.
+
+### paramsToSelectedFacets
+
+This takes your URL params and resolves the selected facets from it. You can extract the params via the activated route for instance.
+
+```
+paramsToSelectedFacets(params: Params): SelectedFacet[]
+```
+
+The type params can have a key as string and any type for the value. Mostly it is a key:value pair with the type string.
+
+```
+type Params = {
+  [key: string]: any;
+};
+```
+
+### resetToQueryParam
+
+If the value is not empty, it adds the key:value param to the URL.
+If the value is empty, it removes all search params.
+
+```
+resetToQueryParam(key: string, value: string): void
+```
+
+### paramsNotEmpty
+
+This function checks if your URL params are not empty. It returns either true if your params are containing some values or false if your params are empty.
+
+```
+paramsNotEmpty(params: Params): boolean
+```
+
+### Example of using it in the ngOnInit if a user comes to our site with a link that contains params
+
+```
+this.activatedRoute.queryParams
+  .pipe(takeUntil(this.notifierDestroySubs))
+  .subscribe((params) => {
+    if (paramsNotEmpty(params)) {
+      this.searchKeyword = params.q || '';
+      if (this.searchKeyword !== '') {
+        this.searchService.selectedFacets = paramsToSelectedFacets(params);
+        this.publicApiService.search(this.searchKeyword);
+      }
+    }
+  });
+```

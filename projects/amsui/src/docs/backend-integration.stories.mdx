@@ -10,8 +10,8 @@ The library provides two services for handling the data for your AMSUI search an
    It enables the easier management of your backend search data and guarantees,
    that you have used the correct types for the input parameters of the AMSUI components.
 
-2. An Apache **Solr service** which can be used for handling standard Solr HTTP Response.
-   It supports the transformation of facets, search meta information, filter query, sorting of a response,
+2. An Apache **Solr service** which can be used for handling standard Solr HTTP JSON Response.
+   It supports the transformation of facets, search meta information, filter query, highlighting,
    and it takes care of the requests to the Solr endpoint as well.
    The provided Solr Service is just a basis, you can't use it without creating an own service in your application.
 
@@ -54,11 +54,17 @@ Lastly, you can easily add the data Observables to the AMSUI components in your 
 </amsui-search-results-wrapper
 ```
 
+### Overlay loader
+
+The service also starts and stops the overlay loader by providing methods to do it.
+
 ### Use other backends as data provider
 
 You can also make use of the search service when not using Solr as backend.
 Just write your own adapter to your backend, which can set the values for the search service's subject on each new request.
 The adapter just extracts the information from the HTTP response and transforms it to the necessary types of the AMSUI library.
+
+Have a look at the [Demo with Public APIs](https://dev.redlink.io/amsui-public-api-demo/) and its [source code](https://github.com/redlink-gmbh/amsui-public-api-demo).
 
 ## Solr service
 
@@ -71,12 +77,11 @@ These settings are adjustable for now:
 - Facet configuration
 - Result type configuration
 - Sorting configuration
-- Overlay loader
 - ...
 
 Now, since every Solr Index likely delivers a different Doc type in its response,
-you should overwrite the `transformSearchResults` function.
-This functions maps your context-specific docs to the `ResultEntry` type, which is used to display search results.
+you should overwrite the `transformSearchResults` function and generate a Doc Type for your use case.
+This function should map your context-specific docs to the `ResultEntry` type, which is used to display search results.
 
 ```
 transformSearchResults(
@@ -88,10 +93,7 @@ transformSearchResults(
 When using a Solr service, you listen to changes inside the AMSUI components.
 When an output event is fired, you make a new request to the Solr Index and put in some new input data.
 
-## TODO - Public Solr Index for Demo - BLOCKER
+## Demo with a Solr backend
 
-- how to integrate code
-- show config for result types
-- search field, facet-group and search result wrapper are enough to make a search user interface
-
-## [Demo with public (Archive.org) Solr endpoint](https://dev.redlink.io/amsui-solr-demo/)
+Unfortunately, we couldn't find any public Solr Index, that has most of the described features above configured.
+If you happen to know an public Solr Index, which has highlighting and faceting enabled, please reach out to us.

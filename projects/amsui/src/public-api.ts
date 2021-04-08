@@ -41,7 +41,6 @@ export * from './lib/solr-service/solr.types';
 export * from './lib/amsui.module';
 
 export {
-  handleFacetQueryParam,
   paramsToSelectedFacets,
   resetToQueryParam,
   paramsNotEmpty,

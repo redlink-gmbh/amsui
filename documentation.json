@@ -3884,7 +3884,7 @@
         },
         {
             "name": "ResultEntryComponent",
-            "id": "component-ResultEntryComponent-b70eee95cea366200a0884a8e02898fe",
+            "id": "component-ResultEntryComponent-edb9bb0734169ca7d3456c26ae92f538",
             "file": "projects/amsui/src/lib/results/result-entry/result-entry.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3962,7 +3962,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 87
+                    "line": 90
                 },
                 {
                     "name": "emitActionEvent",
@@ -3970,6 +3970,11 @@
                         {
                             "name": "actionName",
                             "type": "string"
+                        },
+                        {
+                            "name": "evt",
+                            "type": "any",
+                            "optional": true
                         }
                     ],
                     "optional": false,
@@ -3983,6 +3988,14 @@
                             "tagName": {
                                 "text": "param"
                             }
+                        },
+                        {
+                            "name": "evt",
+                            "type": "any",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
                         }
                     ]
                 },
@@ -3992,7 +4005,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 67
+                    "line": 70
                 },
                 {
                     "name": "getShowMoreButtonDescription",
@@ -4000,7 +4013,7 @@
                     "optional": false,
                     "returnType": "Observable<string>",
                     "typeParameters": [],
-                    "line": 102
+                    "line": 105
                 },
                 {
                     "name": "getWordsNumber",
@@ -4008,7 +4021,7 @@
                     "optional": false,
                     "returnType": "number",
                     "typeParameters": [],
-                    "line": 95
+                    "line": 98
                 },
                 {
                     "name": "ngAfterViewInit",
@@ -4046,7 +4059,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 56,
                     "modifierKind": [
                         112
                     ]
@@ -4057,7 +4070,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  ElementRef,\n  EventEmitter,\n  Input,\n  OnChanges,\n  Output,\n  SimpleChanges,\n} from '@angular/core';\nimport type {\n  ResultEntry,\n  ResultEntryActionEvent,\n} from '../../search-service/search.types';\nimport { defaultConfig } from '../../default.config';\nimport { TranslateService } from '@ngx-translate/core';\nimport { Observable, of } from 'rxjs';\nimport type { ResultEntryText } from '../../text.types';\n\n@Component({\n  selector: 'amsui-result-entry',\n  templateUrl: './result-entry.component.html',\n  styleUrls: ['./result-entry.component.scss'],\n})\nexport class ResultEntryComponent implements AfterViewInit, OnChanges {\n  @Input() entry!: ResultEntry;\n  @Input() showMoreWordLimit = defaultConfig.showMoreWordLimit;\n  @Input() highlightingActivated = defaultConfig.highlightingActivated;\n  @Input() resultEntryText?: ResultEntryText;\n  @Output() actionClicked = new EventEmitter<ResultEntryActionEvent>();\n  showMoreContent = false;\n  showMoreWords!: number;\n  showMoreWordLimitThreshold = 50;\n  constructor(\n    private readonly elRef: ElementRef,\n    private readonly translateService: TranslateService\n  ) {}\n\n  ngAfterViewInit(): void {\n    this.toggleHighlighting();\n  }\n\n  ngOnChanges(changes: SimpleChanges): void {\n    if (changes.highlightingActivated) {\n      this.toggleHighlighting();\n    }\n  }\n\n  emitActionEvent(actionName: string): void {\n    this.actionClicked.emit({ actionName, entry: this.entry });\n  }\n\n  private toggleHighlighting(): void {\n    this.elRef.nativeElement\n      .querySelectorAll('em')\n      .forEach((node: HTMLElement) => {\n        if (this.highlightingActivated) {\n          node.classList.add('highlight');\n          node.classList.remove('no-highlight');\n        } else {\n          node.classList.add('no-highlight');\n          node.classList.remove('highlight');\n        }\n      });\n  }\n\n  getEntryDescription(): string {\n    let desc = '';\n    if (this.entry.description) {\n      if (this.showMoreContent || !this.checkIfNeedShowMore()) {\n        desc = this.entry.description;\n      } else {\n        const words = this.entry.description.trim().split(/\\s+/);\n        this.showMoreWords = words.slice(\n          this.showMoreWordLimit + this.showMoreWordLimitThreshold + 1\n        ).length;\n        desc =\n          words\n            .slice(0, this.showMoreWordLimit + this.showMoreWordLimitThreshold)\n            .join(' ') + '...';\n      }\n    }\n    this.toggleHighlighting();\n    return desc;\n  }\n\n  checkIfNeedShowMore(): boolean {\n    return (\n      typeof this.entry.description !== 'undefined' &&\n      this.entry.description !== '' &&\n      this.entry.description.split(' ').length > this.showMoreWordLimit\n    );\n  }\n\n  getWordsNumber(): number {\n    if (Math.round(this.showMoreWords / 50) * 50 === 0) {\n      return 50;\n    }\n    return Math.round(this.showMoreWords / 50) * 50;\n  }\n\n  getShowMoreButtonDescription(): Observable<string> {\n    if (!this.showMoreContent) {\n      const numberOfWords = this.getWordsNumber();\n      if (numberOfWords <= 50) {\n        return this.resultEntryText?.showFewMore\n          ? of(this.resultEntryText.showFewMore)\n          : this.translateService.get('searchResultEntry.showFewMore');\n      }\n      return this.resultEntryText?.showMore\n        ? of(this.resultEntryText.showMore)\n        : this.translateService.get('searchResultEntry.showMore', {\n            showMoreWords: numberOfWords,\n          });\n    }\n    return this.resultEntryText?.showLess\n      ? of(this.resultEntryText.showLess)\n      : this.translateService.get('searchResultEntry.showLess');\n  }\n}\n",
+            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  ElementRef,\n  EventEmitter,\n  Input,\n  OnChanges,\n  Output,\n  SimpleChanges,\n} from '@angular/core';\nimport type {\n  ResultEntry,\n  ResultEntryActionEvent,\n} from '../../search-service/search.types';\nimport { defaultConfig } from '../../default.config';\nimport { TranslateService } from '@ngx-translate/core';\nimport { Observable, of } from 'rxjs';\nimport type { ResultEntryText } from '../../text.types';\n\n@Component({\n  selector: 'amsui-result-entry',\n  templateUrl: './result-entry.component.html',\n  styleUrls: ['./result-entry.component.scss'],\n})\nexport class ResultEntryComponent implements AfterViewInit, OnChanges {\n  @Input() entry!: ResultEntry;\n  @Input() showMoreWordLimit = defaultConfig.showMoreWordLimit;\n  @Input() highlightingActivated = defaultConfig.highlightingActivated;\n  @Input() resultEntryText?: ResultEntryText;\n  @Output() actionClicked = new EventEmitter<ResultEntryActionEvent>();\n  showMoreContent = false;\n  showMoreWords!: number;\n  showMoreWordLimitThreshold = 50;\n  constructor(\n    private readonly elRef: ElementRef,\n    private readonly translateService: TranslateService\n  ) {}\n\n  ngAfterViewInit(): void {\n    this.toggleHighlighting();\n  }\n\n  ngOnChanges(changes: SimpleChanges): void {\n    if (changes.highlightingActivated) {\n      this.toggleHighlighting();\n    }\n  }\n\n  emitActionEvent(actionName: string, evt?: any): void {\n    if (actionName === 'cardClick') {\n      console.log(evt);\n    }\n    this.actionClicked.emit({ actionName, entry: this.entry });\n  }\n\n  private toggleHighlighting(): void {\n    this.elRef.nativeElement\n      .querySelectorAll('em')\n      .forEach((node: HTMLElement) => {\n        if (this.highlightingActivated) {\n          node.classList.add('highlight');\n          node.classList.remove('no-highlight');\n        } else {\n          node.classList.add('no-highlight');\n          node.classList.remove('highlight');\n        }\n      });\n  }\n\n  getEntryDescription(): string {\n    let desc = '';\n    if (this.entry.description) {\n      if (this.showMoreContent || !this.checkIfNeedShowMore()) {\n        desc = this.entry.description;\n      } else {\n        const words = this.entry.description.trim().split(/\\s+/);\n        this.showMoreWords = words.slice(\n          this.showMoreWordLimit + this.showMoreWordLimitThreshold + 1\n        ).length;\n        desc =\n          words\n            .slice(0, this.showMoreWordLimit + this.showMoreWordLimitThreshold)\n            .join(' ') + '...';\n      }\n    }\n    this.toggleHighlighting();\n    return desc;\n  }\n\n  checkIfNeedShowMore(): boolean {\n    return (\n      typeof this.entry.description !== 'undefined' &&\n      this.entry.description !== '' &&\n      this.entry.description.split(' ').length > this.showMoreWordLimit\n    );\n  }\n\n  getWordsNumber(): number {\n    if (Math.round(this.showMoreWords / 50) * 50 === 0) {\n      return 50;\n    }\n    return Math.round(this.showMoreWords / 50) * 50;\n  }\n\n  getShowMoreButtonDescription(): Observable<string> {\n    if (!this.showMoreContent) {\n      const numberOfWords = this.getWordsNumber();\n      if (numberOfWords <= 50) {\n        return this.resultEntryText?.showFewMore\n          ? of(this.resultEntryText.showFewMore)\n          : this.translateService.get('searchResultEntry.showFewMore');\n      }\n      return this.resultEntryText?.showMore\n        ? of(this.resultEntryText.showMore)\n        : this.translateService.get('searchResultEntry.showMore', {\n            showMoreWords: numberOfWords,\n          });\n    }\n    return this.resultEntryText?.showLess\n      ? of(this.resultEntryText.showLess)\n      : this.translateService.get('searchResultEntry.showLess');\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4101,7 +4114,7 @@
                 "AfterViewInit",
                 "OnChanges"
             ],
-            "templateData": "<mat-card\n  class=\"result-entry\"\n  (click)=\"\n    !entry.actions\n      ? emitActionEvent('cardClick')\n      : ''\n  \"\n  *ngIf=\"entry.title || entry.description\"\n>\n  <mat-card-header>\n    <img\n      *ngIf=\"entry.avatarImgSrc\"\n      mat-card-avatar\n      matTooltip=\"{{ entry.avatarToolTip! | translate }}\"\n      [src]=\"entry.avatarImgSrc\"\n      [alt]=\"entry.title\"\n    />\n    <mat-icon\n      *ngIf=\"entry.avatarIcon\"\n      matTooltip=\"{{ entry.avatarToolTip! | translate }}\"\n      mat-card-avatar\n      >{{ entry.avatarIcon }}</mat-icon\n    >\n    <mat-card-title [innerHTML]=\"entry.title\"></mat-card-title>\n    <mat-card-subtitle>\n      <div class=\"subtitle-container\">\n        <ng-container *ngFor=\"let subTitle of entry.subTitles\">\n          <mat-icon>{{ subTitle.icon }}</mat-icon>\n          {{ subTitle.description! | translate }}\n        </ng-container>\n      </div>\n    </mat-card-subtitle>\n  </mat-card-header>\n  <img\n    *ngIf=\"entry.imageSrc\"\n    mat-card-image\n    [src]=\"entry.imageSrc\"\n    [alt]=\"entry.title\"\n  />\n  <mat-card-content>\n    <mat-chip-list>\n      <mat-chip *ngFor=\"let tag of entry.tags\">\n        {{ tag | translate }}\n      </mat-chip>\n    </mat-chip-list>\n    <p [innerHTML]=\"getEntryDescription()\"></p>\n  </mat-card-content>\n  <button\n    *ngIf=\"checkIfNeedShowMore()\"\n    (click)=\"showMoreContent = !showMoreContent\"\n    [class.show-more-open]=\"showMoreContent\"\n    mat-button\n    class=\"show-more-text\"\n    color=\"primary\"\n  >\n    {{ getShowMoreButtonDescription() | async }}\n  </button>\n  <mat-card-actions>\n    <button\n      *ngFor=\"let action of entry.actions\"\n      mat-icon-button\n      [matTooltip]=\"action.description ? (action.description | translate) : ''\"\n      (click)=\"emitActionEvent(action.name)\"\n    >\n      <mat-icon>{{ action.icon }}</mat-icon>\n    </button>\n  </mat-card-actions>\n</mat-card>\n"
+            "templateData": "<mat-card\n  class=\"result-entry\"\n  (click)=\"!entry.actions ? emitActionEvent('cardClick', $event) : ''\"\n  *ngIf=\"entry.title || entry.description\"\n>\n  <mat-card-header>\n    <img\n      *ngIf=\"entry.avatarImgSrc\"\n      mat-card-avatar\n      matTooltip=\"{{ entry.avatarToolTip! | translate }}\"\n      [src]=\"entry.avatarImgSrc\"\n      [alt]=\"entry.title\"\n    />\n    <mat-icon\n      *ngIf=\"entry.avatarIcon\"\n      matTooltip=\"{{ entry.avatarToolTip! | translate }}\"\n      mat-card-avatar\n      >{{ entry.avatarIcon }}</mat-icon\n    >\n    <mat-card-title [innerHTML]=\"entry.title\"></mat-card-title>\n    <mat-card-subtitle>\n      <div class=\"subtitle-container\">\n        <ng-container *ngFor=\"let subTitle of entry.subTitles\">\n          <mat-icon>{{ subTitle.icon }}</mat-icon>\n          {{ subTitle.description! | translate }}\n        </ng-container>\n      </div>\n    </mat-card-subtitle>\n  </mat-card-header>\n  <img\n    *ngIf=\"entry.imageSrc\"\n    mat-card-image\n    [src]=\"entry.imageSrc\"\n    [alt]=\"entry.title\"\n  />\n  <mat-card-content>\n    <mat-chip-list>\n      <mat-chip *ngFor=\"let tag of entry.tags\">\n        {{ tag | translate }}\n      </mat-chip>\n    </mat-chip-list>\n    <p [innerHTML]=\"getEntryDescription()\"></p>\n  </mat-card-content>\n  <button\n    *ngIf=\"checkIfNeedShowMore()\"\n    (click)=\"showMoreContent = !showMoreContent\"\n    [class.show-more-open]=\"showMoreContent\"\n    mat-button\n    class=\"show-more-text\"\n    color=\"primary\"\n  >\n    {{ getShowMoreButtonDescription() | async }}\n  </button>\n  <mat-card-actions>\n    <button\n      *ngFor=\"let action of entry.actions\"\n      mat-icon-button\n      [matTooltip]=\"action.description ? (action.description | translate) : ''\"\n      (click)=\"emitActionEvent(action.name)\"\n    >\n      <mat-icon>{{ action.icon }}</mat-icon>\n    </button>\n  </mat-card-actions>\n</mat-card>\n"
         },
         {
             "name": "ResultsComponent",
@@ -6638,7 +6651,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/results.stories.ts",
+                "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6646,7 +6659,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
+                "file": "projects/amsui/src/lib/results/results.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -7044,17 +7057,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/results/results.stories.ts",
-                "type": "Story<ResultsComponent>",
-                "defaultValue": "(args: ResultsComponent) => ({\n  component: ResultsComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
+                "type": "Story<SearchFieldComponent>",
+                "defaultValue": "(args: SearchFieldComponent) => ({\n  component: SearchFieldComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
-                "type": "Story<SearchFieldComponent>",
-                "defaultValue": "(args: SearchFieldComponent) => ({\n  component: SearchFieldComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/results/results.stories.ts",
+                "type": "Story<ResultsComponent>",
+                "defaultValue": "(args: ResultsComponent) => ({\n  component: ResultsComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -7557,6 +7570,27 @@
                 ]
             },
             {
+                "name": "paramsNotEmpty",
+                "file": "projects/amsui/src/lib/search-params.util.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "params"
+                    }
+                ],
+                "returnType": "boolean",
+                "jsdoctags": [
+                    {
+                        "name": "params",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
                 "name": "paramsToSelectedFacets",
                 "file": "projects/amsui/src/lib/search-params.util.ts",
                 "ctype": "miscellaneous",
@@ -7617,6 +7651,15 @@
                 "file": "projects/amsui/src/lib/search-service/search.types.ts",
                 "description": "",
                 "kind": 168
+            },
+            {
+                "name": "Params",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/amsui/src/lib/search-params.util.ts",
+                "description": "",
+                "kind": 165
             },
             {
                 "name": "ResultViewType",
@@ -8787,6 +8830,27 @@
                     ]
                 },
                 {
+                    "name": "paramsNotEmpty",
+                    "file": "projects/amsui/src/lib/search-params.util.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "params"
+                        }
+                    ],
+                    "returnType": "boolean",
+                    "jsdoctags": [
+                        {
+                            "name": "params",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "paramsToSelectedFacets",
                     "file": "projects/amsui/src/lib/search-params.util.ts",
                     "ctype": "miscellaneous",
@@ -8974,6 +9038,17 @@
                     "file": "projects/amsui/src/lib/search-service/search.types.ts",
                     "description": "",
                     "kind": 168
+                }
+            ],
+            "projects/amsui/src/lib/search-params.util.ts": [
+                {
+                    "name": "Params",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/amsui/src/lib/search-params.util.ts",
+                    "description": "",
+                    "kind": 165
                 }
             ]
         }
@@ -9691,6 +9766,15 @@
                 "type": "function",
                 "linksubtype": "function",
                 "name": "handleSearchQueryParam",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amsui/src/lib/search-params.util.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "paramsNotEmpty",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
