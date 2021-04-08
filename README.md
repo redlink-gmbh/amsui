@@ -13,7 +13,6 @@ The library can be used in the development process in three different scenarios:
 2. Using the library's search service, UI components and the Backend Adapter Service for a MVP-like search application/page.
 3. Using some of the UI components standalone from the library.
 
-
 ## Library development setup
 
 We use nvm (NodeJS version manager) to be sure that our project works everytime someone else tries to start/edit the AMSUI library.
@@ -52,14 +51,15 @@ npm start
 - Add prettier formatter on save in intellij products for a better developer experience.
 - To be able to run the demo project with data, you need a Solr index and write a transformer service for the response docs.
 
-## [Documentation](https://dev.redlink.io/amsui) 
+## [Documentation](https://dev.redlink.io/amsui)
+
 The documentation is written within Storybook and it can be found [here](https://dev.redlink.io/amsui).
 
 ## [npm library](https://www.npmjs.com/package/@redlink/amsui)
-THe library is published to npm and can be used through installing it via npm. 
+
+THe library is published to npm and can be used through installing it via npm.
 
 ## Demos
-* [Demo with Solr Index](https://dev.redlink.io/amsui-solr-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-solr-demo) 
-* [Standalone demo usage of library's components](https://dev.redlink.io/amsui-standalone-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-standalone-demo)
-* [Demo with a public API](https://dev.redlink.io/amsui-public-api-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-public-api-demo)
 
+- [Standalone demo usage of library's components](https://dev.redlink.io/amsui-standalone-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-standalone-demo)
+- [Demo with a public API](https://dev.redlink.io/amsui-public-api-demo/) -- [source code](https://github.com/redlink-gmbh/amsui-public-api-demo)

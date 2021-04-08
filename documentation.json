@@ -3884,7 +3884,7 @@
         },
         {
             "name": "ResultEntryComponent",
-            "id": "component-ResultEntryComponent-edb9bb0734169ca7d3456c26ae92f538",
+            "id": "component-ResultEntryComponent-caa99fafd4d97e503ba968c7001ddf05",
             "file": "projects/amsui/src/lib/results/result-entry/result-entry.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3962,7 +3962,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 90
+                    "line": 98
                 },
                 {
                     "name": "emitActionEvent",
@@ -4005,7 +4005,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 70
+                    "line": 78
                 },
                 {
                     "name": "getShowMoreButtonDescription",
@@ -4013,7 +4013,7 @@
                     "optional": false,
                     "returnType": "Observable<string>",
                     "typeParameters": [],
-                    "line": 105
+                    "line": 113
                 },
                 {
                     "name": "getWordsNumber",
@@ -4021,7 +4021,7 @@
                     "optional": false,
                     "returnType": "number",
                     "typeParameters": [],
-                    "line": 98
+                    "line": 106
                 },
                 {
                     "name": "ngAfterViewInit",
@@ -4059,7 +4059,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56,
+                    "line": 64,
                     "modifierKind": [
                         112
                     ]
@@ -4070,7 +4070,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  ElementRef,\n  EventEmitter,\n  Input,\n  OnChanges,\n  Output,\n  SimpleChanges,\n} from '@angular/core';\nimport type {\n  ResultEntry,\n  ResultEntryActionEvent,\n} from '../../search-service/search.types';\nimport { defaultConfig } from '../../default.config';\nimport { TranslateService } from '@ngx-translate/core';\nimport { Observable, of } from 'rxjs';\nimport type { ResultEntryText } from '../../text.types';\n\n@Component({\n  selector: 'amsui-result-entry',\n  templateUrl: './result-entry.component.html',\n  styleUrls: ['./result-entry.component.scss'],\n})\nexport class ResultEntryComponent implements AfterViewInit, OnChanges {\n  @Input() entry!: ResultEntry;\n  @Input() showMoreWordLimit = defaultConfig.showMoreWordLimit;\n  @Input() highlightingActivated = defaultConfig.highlightingActivated;\n  @Input() resultEntryText?: ResultEntryText;\n  @Output() actionClicked = new EventEmitter<ResultEntryActionEvent>();\n  showMoreContent = false;\n  showMoreWords!: number;\n  showMoreWordLimitThreshold = 50;\n  constructor(\n    private readonly elRef: ElementRef,\n    private readonly translateService: TranslateService\n  ) {}\n\n  ngAfterViewInit(): void {\n    this.toggleHighlighting();\n  }\n\n  ngOnChanges(changes: SimpleChanges): void {\n    if (changes.highlightingActivated) {\n      this.toggleHighlighting();\n    }\n  }\n\n  emitActionEvent(actionName: string, evt?: any): void {\n    if (actionName === 'cardClick') {\n      console.log(evt);\n    }\n    this.actionClicked.emit({ actionName, entry: this.entry });\n  }\n\n  private toggleHighlighting(): void {\n    this.elRef.nativeElement\n      .querySelectorAll('em')\n      .forEach((node: HTMLElement) => {\n        if (this.highlightingActivated) {\n          node.classList.add('highlight');\n          node.classList.remove('no-highlight');\n        } else {\n          node.classList.add('no-highlight');\n          node.classList.remove('highlight');\n        }\n      });\n  }\n\n  getEntryDescription(): string {\n    let desc = '';\n    if (this.entry.description) {\n      if (this.showMoreContent || !this.checkIfNeedShowMore()) {\n        desc = this.entry.description;\n      } else {\n        const words = this.entry.description.trim().split(/\\s+/);\n        this.showMoreWords = words.slice(\n          this.showMoreWordLimit + this.showMoreWordLimitThreshold + 1\n        ).length;\n        desc =\n          words\n            .slice(0, this.showMoreWordLimit + this.showMoreWordLimitThreshold)\n            .join(' ') + '...';\n      }\n    }\n    this.toggleHighlighting();\n    return desc;\n  }\n\n  checkIfNeedShowMore(): boolean {\n    return (\n      typeof this.entry.description !== 'undefined' &&\n      this.entry.description !== '' &&\n      this.entry.description.split(' ').length > this.showMoreWordLimit\n    );\n  }\n\n  getWordsNumber(): number {\n    if (Math.round(this.showMoreWords / 50) * 50 === 0) {\n      return 50;\n    }\n    return Math.round(this.showMoreWords / 50) * 50;\n  }\n\n  getShowMoreButtonDescription(): Observable<string> {\n    if (!this.showMoreContent) {\n      const numberOfWords = this.getWordsNumber();\n      if (numberOfWords <= 50) {\n        return this.resultEntryText?.showFewMore\n          ? of(this.resultEntryText.showFewMore)\n          : this.translateService.get('searchResultEntry.showFewMore');\n      }\n      return this.resultEntryText?.showMore\n        ? of(this.resultEntryText.showMore)\n        : this.translateService.get('searchResultEntry.showMore', {\n            showMoreWords: numberOfWords,\n          });\n    }\n    return this.resultEntryText?.showLess\n      ? of(this.resultEntryText.showLess)\n      : this.translateService.get('searchResultEntry.showLess');\n  }\n}\n",
+            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  ElementRef,\n  EventEmitter,\n  Input,\n  OnChanges,\n  Output,\n  SimpleChanges,\n} from '@angular/core';\nimport type {\n  ResultEntry,\n  ResultEntryActionEvent,\n} from '../../search-service/search.types';\nimport { defaultConfig } from '../../default.config';\nimport { TranslateService } from '@ngx-translate/core';\nimport { Observable, of } from 'rxjs';\nimport type { ResultEntryText } from '../../text.types';\n\n@Component({\n  selector: 'amsui-result-entry',\n  templateUrl: './result-entry.component.html',\n  styleUrls: ['./result-entry.component.scss'],\n})\nexport class ResultEntryComponent implements AfterViewInit, OnChanges {\n  @Input() entry!: ResultEntry;\n  @Input() showMoreWordLimit = defaultConfig.showMoreWordLimit;\n  @Input() highlightingActivated = defaultConfig.highlightingActivated;\n  @Input() resultEntryText?: ResultEntryText;\n  @Output() actionClicked = new EventEmitter<ResultEntryActionEvent>();\n  showMoreContent = false;\n  showMoreWords!: number;\n  showMoreWordLimitThreshold = 50;\n  constructor(\n    private readonly elRef: ElementRef,\n    private readonly translateService: TranslateService\n  ) {}\n\n  ngAfterViewInit(): void {\n    this.toggleHighlighting();\n  }\n\n  ngOnChanges(changes: SimpleChanges): void {\n    if (changes.highlightingActivated) {\n      this.toggleHighlighting();\n    }\n  }\n\n  emitActionEvent(actionName: string, evt?: any): void {\n    if (actionName !== 'cardClick') {\n      this.actionClicked.emit({ actionName, entry: this.entry });\n    } else if (\n      evt &&\n      !evt.path.some(\n        (element: any) =>\n          element.tagName === 'BUTTON' &&\n          element.classList.contains('show-more-text')\n      )\n    ) {\n      this.actionClicked.emit({ actionName, entry: this.entry });\n    }\n  }\n\n  private toggleHighlighting(): void {\n    this.elRef.nativeElement\n      .querySelectorAll('em')\n      .forEach((node: HTMLElement) => {\n        if (this.highlightingActivated) {\n          node.classList.add('highlight');\n          node.classList.remove('no-highlight');\n        } else {\n          node.classList.add('no-highlight');\n          node.classList.remove('highlight');\n        }\n      });\n  }\n\n  getEntryDescription(): string {\n    let desc = '';\n    if (this.entry.description) {\n      if (this.showMoreContent || !this.checkIfNeedShowMore()) {\n        desc = this.entry.description;\n      } else {\n        const words = this.entry.description.trim().split(/\\s+/);\n        this.showMoreWords = words.slice(\n          this.showMoreWordLimit + this.showMoreWordLimitThreshold + 1\n        ).length;\n        desc =\n          words\n            .slice(0, this.showMoreWordLimit + this.showMoreWordLimitThreshold)\n            .join(' ') + '...';\n      }\n    }\n    this.toggleHighlighting();\n    return desc;\n  }\n\n  checkIfNeedShowMore(): boolean {\n    return (\n      typeof this.entry.description !== 'undefined' &&\n      this.entry.description !== '' &&\n      this.entry.description.split(' ').length > this.showMoreWordLimit\n    );\n  }\n\n  getWordsNumber(): number {\n    if (Math.round(this.showMoreWords / 50) * 50 === 0) {\n      return 50;\n    }\n    return Math.round(this.showMoreWords / 50) * 50;\n  }\n\n  getShowMoreButtonDescription(): Observable<string> {\n    if (!this.showMoreContent) {\n      const numberOfWords = this.getWordsNumber();\n      if (numberOfWords <= 50) {\n        return this.resultEntryText?.showFewMore\n          ? of(this.resultEntryText.showFewMore)\n          : this.translateService.get('searchResultEntry.showFewMore');\n      }\n      return this.resultEntryText?.showMore\n        ? of(this.resultEntryText.showMore)\n        : this.translateService.get('searchResultEntry.showMore', {\n            showMoreWords: numberOfWords,\n          });\n    }\n    return this.resultEntryText?.showLess\n      ? of(this.resultEntryText.showLess)\n      : this.translateService.get('searchResultEntry.showLess');\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -6507,7 +6507,7 @@
                 "name": "ChangeText",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/no-results/no-results.stories.ts",
+                "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6515,7 +6515,7 @@
                 "name": "ChangeText",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-field/search-field.stories.ts",
+                "file": "projects/amsui/src/lib/no-results/no-results.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6547,7 +6547,7 @@
                 "name": "ChangeText",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-result-meta/did-you-mean/did-you-mean.stories.ts",
+                "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6555,7 +6555,7 @@
                 "name": "ChangeText",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
+                "file": "projects/amsui/src/lib/search-result-meta/did-you-mean/did-you-mean.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6635,14 +6635,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/no-results/no-results.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -6667,7 +6659,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-result-meta/search-results-meta.stories.ts",
+                "file": "projects/amsui/src/lib/no-results/no-results.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6676,6 +6668,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-result-meta/search-results-meta.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -6787,17 +6787,17 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true,\n}"
+                "defaultValue": "{\n  production: false,\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false,\n}"
+                "defaultValue": "{\n  production: true,\n}"
             },
             {
                 "name": "FacetGroupModuleImports",
@@ -7041,14 +7041,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/no-results/no-results.stories.ts",
-                "type": "Story<NoResultsComponent>",
-                "defaultValue": "(\n  args: NoResultsComponent\n) => ({\n  component: NoResultsComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/amsui/src/lib/overlay-loader/overlay-loader.stories.ts",
                 "type": "Story<OverlayLoaderComponent>",
                 "defaultValue": "(\n  args: OverlayLoaderComponent\n) => ({\n  component: OverlayLoaderComponent,\n  props: args,\n})"
@@ -7073,9 +7065,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-result-meta/search-results-meta.stories.ts",
-                "type": "Story<SearchResultMetaComponent>",
-                "defaultValue": "(\n  args: SearchResultMetaComponent\n) => ({\n  component: SearchResultMetaComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/no-results/no-results.stories.ts",
+                "type": "Story<NoResultsComponent>",
+                "defaultValue": "(\n  args: NoResultsComponent\n) => ({\n  component: NoResultsComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -7084,6 +7076,14 @@
                 "file": "projects/amsui/src/lib/search-results-wrapper/search-results-wrapper.stories.ts",
                 "type": "Story<SearchResultsWrapperComponent>",
                 "defaultValue": "(\n  args: SearchResultsWrapperComponent\n) => ({\n  component: SearchResultsWrapperComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/amsui/src/lib/search-result-meta/search-results-meta.stories.ts",
+                "type": "Story<SearchResultMetaComponent>",
+                "defaultValue": "(\n  args: SearchResultMetaComponent\n) => ({\n  component: SearchResultMetaComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -7105,17 +7105,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-result-meta/did-you-mean/did-you-mean.stories.ts",
-                "type": "Story<DidYouMeanComponent>",
-                "defaultValue": "(\n  args: DidYouMeanComponent\n) => ({\n  component: DidYouMeanComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
+                "type": "Story<ResultTypeComponent>",
+                "defaultValue": "(\n  args: ResultTypeComponent\n) => ({\n  component: ResultTypeComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/amsui/src/lib/search-result-meta/result-type/result-type.stories.ts",
-                "type": "Story<ResultTypeComponent>",
-                "defaultValue": "(\n  args: ResultTypeComponent\n) => ({\n  component: ResultTypeComponent,\n  props: args,\n})"
+                "file": "projects/amsui/src/lib/search-result-meta/did-you-mean/did-you-mean.stories.ts",
+                "type": "Story<DidYouMeanComponent>",
+                "defaultValue": "(\n  args: DidYouMeanComponent\n) => ({\n  component: DidYouMeanComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -8489,16 +8489,6 @@
                     "defaultValue": "{\n  sortingOptions: [],\n  resultViewTypes: ['list', 'grid'],\n  selectedResultViewType: 'list',\n}"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true,\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -8507,6 +8497,16 @@
                     "file": "src/environments/environment.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: false,\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true,\n}"
                 }
             ]
         },

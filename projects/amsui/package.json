@@ -1,6 +1,6 @@
 {
   "name": "@redlink/amsui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Search UI elements on top of Angular Material",
   "author": "redlink",
   "license": "MIT",
