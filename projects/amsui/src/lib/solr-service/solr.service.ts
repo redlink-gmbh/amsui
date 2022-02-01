@@ -33,6 +33,7 @@ export abstract class SolrService implements OnDestroy {
   protected searchResultsSubscription!: Subscription;
   protected solrSearchURL = '';
   protected solrSuggestURL = '';
+  protected operator: string = 'AND';
   protected numOfFound = -1;
   protected requestDebounceTime = 500;
   protected numberOfResults = 20;
@@ -184,7 +185,7 @@ export abstract class SolrService implements OnDestroy {
 
     const params = {
       q: keyword,
-      'q.op': 'AND',
+      'q.op': this.operator,
       'json.facet': JSON.stringify(facetConfigObject),
       rows: this.numberOfResults,
       start: this.offset,
