@@ -33,7 +33,7 @@ export abstract class SolrService implements OnDestroy {
   protected searchResultsSubscription!: Subscription;
   protected solrSearchURL = '';
   protected solrSuggestURL = '';
-  protected operator: string = 'AND';
+  protected operator = 'AND';
   protected numOfFound = -1;
   protected requestDebounceTime = 500;
   protected numberOfResults = 20;
